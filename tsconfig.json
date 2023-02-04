@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/", // do not need here, as we use webpack to build
+    "noImplicitAny": true, // do not allow to leave variables without set types
+    "module": "ESNext", // type of modules we use
+    "target": "es5", // what ECMA version use in final bundle
+    "jsx": "react-jsx", // allow to use jsx syntax
+    "allowJs": true, // allow to use .js files
+    "moduleResolution": "node",
+    //"baseUrl": ".", // for absolute import
+    "esModuleInterop": true, // allow to use regular JS imports with packages written in CommonJS
+    "allowSyntheticDefaultImports": true, // allow to use regular JS imports instead of "import * as ..."
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
