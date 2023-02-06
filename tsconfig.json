@@ -7,7 +7,10 @@
     "jsx": "react-jsx", // allow to use jsx syntax
     "allowJs": true, // allow to use .js files
     "moduleResolution": "node",
-    //"baseUrl": ".", // for absolute import
+    "baseUrl": ".", // for absolute import
+    "paths": {
+      "*": ["./src/*"]
+    },
     "esModuleInterop": true, // allow to use regular JS imports with packages written in CommonJS
     "allowSyntheticDefaultImports": true, // allow to use regular JS imports instead of "import * as ..."
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
