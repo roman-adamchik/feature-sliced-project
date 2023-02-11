@@ -4,6 +4,20 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 // Rules we need to setup the loader for each file type that is not native js
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
+
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  };
+
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -26,6 +40,16 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
     ],
   };
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+      },
+    },
+  };
   // As we use typescript then we don't need to add babel-loader
   const typescriptLoader = {
     test: /\.tsx?$/,
@@ -34,5 +58,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
   };
 
   // order of the loaders is important
-  return [cssLoader, typescriptLoader];
+  return [fileLoader, svgLoader, cssLoader, babelLoader, typescriptLoader];
 }
