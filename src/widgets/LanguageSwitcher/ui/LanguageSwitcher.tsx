@@ -1,18 +1,19 @@
-import { FC } from 'react';
+import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './LanguageSwitcher.module.scss';
 
 interface LanguageSwitcherProps {
-  className?: string;
+  className?: string
 }
 
 export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
   const { className = '' } = props;
   const { t, i18n } = useTranslation();
 
-  const toggleLanguage = () => {
+  const toggleLanguage = (): void => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
   };
 

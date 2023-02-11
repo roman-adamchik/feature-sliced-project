@@ -1,11 +1,11 @@
-import { FC, useState } from 'react';
+import { type FC, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-  className?: string;
+  className?: string
 }
 
 export const Sidebar: FC<SidebarProps> = (props) => {
@@ -13,7 +13,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
 
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const toggleCollapsed = () => {
+  const toggleCollapsed = (): void => {
     setIsCollapsed((prev) => !prev);
   };
 

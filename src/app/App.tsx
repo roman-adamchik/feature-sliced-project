@@ -4,9 +4,9 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { classNames } from 'shared';
 import { Sidebar } from 'widgets/Sidebar';
-import { Suspense } from 'react';
+import { type FC, Suspense } from 'react';
 
-export function App() {
+export const App: FC = () => {
   const { theme } = useTheme();
 
   return (
@@ -20,4 +20,4 @@ export function App() {
       </Suspense>
     </div>
   );
-}
+};

@@ -1,9 +1,9 @@
-import { BuildOptions } from './types/config';
-import { RuleSetRule } from 'webpack';
+import { type BuildOptions } from './types/config';
+import { type RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 // Rules we need to setup the loader for each file type that is not native js
-export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
   const svgLoader = {
     test: /\.svg$/,
     use: ['@svgr/webpack'],
