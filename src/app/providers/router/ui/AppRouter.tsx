@@ -1,10 +1,13 @@
 import { type FC, Suspense } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import { RouterConfig } from 'shared';
 
 const AppRouter: FC = () => {
+  const { t } = useTranslation();
+
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>{t('Loading...')}</div>}>
       <Routes>
         {Object.values(RouterConfig).map(({ path, element }) => (
           <Route
