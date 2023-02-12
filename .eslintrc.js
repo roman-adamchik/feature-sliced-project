@@ -15,9 +15,9 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',
-    'comma-dangle': ['error', 'always-multiline'],
+    'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
-    semi: ['error', 'always'],
+    semi: 'off',
     '@typescript-eslint/semi': ['error', 'always'],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error', {

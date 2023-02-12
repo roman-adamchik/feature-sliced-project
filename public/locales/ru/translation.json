@@ -1,5 +1,9 @@
 {
+  "About": "About",
   "About page": "О нас",
   "Language": "Русский",
-  "Main page": "Главная"
+  "Main": "Main",
+  "Main page": "Главная",
+  "Page not found": "Page not found",
+  "toggle": "toggle"
 }

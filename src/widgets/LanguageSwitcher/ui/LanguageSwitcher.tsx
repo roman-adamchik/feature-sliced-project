@@ -13,8 +13,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
   const { t, i18n } = useTranslation();
 
   const toggleLanguage = (): void => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
+    void i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
   };
 
   return (
