@@ -26,5 +26,6 @@ module.exports = {
       caughtErrorsIgnorePattern: '^_',
     }],
     'i18next/no-literal-string': [2, { markupOnly: true, ignoreAttribute: ['to'] }],
+    'max-len': ['error', { ignoreComments: true, code: 100 }],
   },
 };
