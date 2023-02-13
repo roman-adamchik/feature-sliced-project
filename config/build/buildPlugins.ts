@@ -20,6 +20,7 @@ export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
     new webpack.DefinePlugin({
       GLOBAL_IS_DEV: JSON.stringify(isDev),
     }),
+    new ReactRefreshWebpackPlugin({ overlay: false }),
   ];
 
   if (isDev) {
