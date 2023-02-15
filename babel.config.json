@@ -5,6 +5,7 @@
       "i18next-extract",
       {
         "locales": ["en", "ru"],
+        "keySeparator": false,
         "outputPath": "public/locales/{{locale}}/translation.json",
         "keyAsDefaultValue": true
       }

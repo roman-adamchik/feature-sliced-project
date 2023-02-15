@@ -1,15 +1,12 @@
 {
-  "About": "About",
+  "About": "О нас",
   "About page": "О нас",
   "Language": "Русский",
-  "Main": "Main",
+  "Main": "Главная",
   "Main page": "Главная",
   "Page not found": "Страница не найдена",
-  "Reload": "Reload",
-  "Something went wrong": {
-    " Please, try again": " Please, try again"
-  },
-  "Something went wrong. Please, try again": "Что-то пошло не так. Попробуйте еще раз.",
-  "Throw error": "Throw error",
+  "Reload": "Перезагрузить",
+  "Something went wrong. Please, try again": "Что-то пошло нет так. Попробуйте позже",
+  "Throw error": "Бросить ошибку",
   "toggle": "свернуть"
 }
