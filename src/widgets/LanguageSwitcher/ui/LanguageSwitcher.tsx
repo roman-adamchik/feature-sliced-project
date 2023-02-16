@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, ButtonTheme } from 'shared';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme, classNames } from 'shared';
 import cls from './LanguageSwitcher.module.scss';
 
 interface LanguageSwitcherProps {
@@ -12,7 +11,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = (props) => {
   const { className = '' } = props;
   const { t, i18n } = useTranslation();
 
-  const toggleLanguage = (): void => {
+  const toggleLanguage = async (): Promise<void> => {
     void i18n.changeLanguage(i18n.language === 'en' ? 'ru' : 'en');
   };
 

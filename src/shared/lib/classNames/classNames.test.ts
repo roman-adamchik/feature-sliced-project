@@ -1,4 +1,4 @@
-import { classNames } from './classNames';
+import { classNames } from 'shared';
 
 describe('classNames', () => {
   test('only main class', () => {

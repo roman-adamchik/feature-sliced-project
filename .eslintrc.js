@@ -4,7 +4,14 @@ module.exports = {
     es2021: true,
   },
   extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:i18next/recommended'],
-  overrides: [],
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts,tsx}'],
+      rules: {
+        'i18next/no-literal-string': 'off',
+      },
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -25,7 +32,18 @@ module.exports = {
       varsIgnorePattern: '^_',
       caughtErrorsIgnorePattern: '^_',
     }],
-    'i18next/no-literal-string': [2, { markupOnly: true, ignoreAttribute: ['to'] }],
+    'i18next/no-literal-string': [
+      2,
+      {
+        markupOnly: true,
+        ignoreAttribute: ['to', 'data-testid'],
+      }],
     'max-len': ['error', { ignoreComments: true, code: 100 }],
+    '@typescript-eslint/no-misused-promises': [
+      'error',
+      {
+        checksVoidReturn: false,
+      },
+    ],
   },
 };

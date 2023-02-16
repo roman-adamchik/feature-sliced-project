@@ -9,7 +9,9 @@
     "moduleResolution": "node",
     "baseUrl": ".", // for absolute import
     "paths": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     },
     "esModuleInterop": true, // allow to use regular JS imports with packages written in CommonJS
     "allowSyntheticDefaultImports": true, // allow to use regular JS imports instead of "import * as ..."
@@ -19,5 +21,10 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "files": ["webpack.config.ts"],
+  "include": [
+    "src/**/*",
+    "config/**/*"
+  ],
 }
