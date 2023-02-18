@@ -1,4 +1,4 @@
-name: Lint, test, build
+name: Running tests before merge to master
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: 
   push: 
