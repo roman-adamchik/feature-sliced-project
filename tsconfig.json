@@ -24,7 +24,8 @@
   },
   "files": ["webpack.config.ts"],
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "config/**/*"
   ],
 }

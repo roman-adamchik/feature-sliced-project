@@ -11,6 +11,18 @@ module.exports = {
         'i18next/no-literal-string': 'off',
       },
     },
+    {
+      files: ['**/src/**/*.stories.{ts,tsx}'],
+      rules: {
+        '@typescript-eslint/consistent-type-assertions': 'off'
+      }
+    },
+    {
+      files: ['**/build/**/*.ts'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off'
+      }
+    }
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -45,5 +57,6 @@ module.exports = {
         checksVoidReturn: false,
       },
     ],
+    'react/display-name': "off"
   },
 };
