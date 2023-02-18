@@ -21,12 +21,12 @@ export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
     new webpack.DefinePlugin({
       GLOBAL_IS_DEV: JSON.stringify(isDev),
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 
   if (isDev) {
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
     plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
   }
 
   return plugins;
