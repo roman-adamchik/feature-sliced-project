@@ -1,5 +1,6 @@
 import { type FC } from 'react';
-import { Loader, classNames } from 'shared';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Loader } from 'shared/ui/Loader/Loader';
 import cls from './PageLoader.module.scss';
 
 interface PageLoaderProps {

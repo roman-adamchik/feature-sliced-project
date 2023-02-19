@@ -2,9 +2,9 @@ import './styles/index.scss';
 import { useTheme } from 'app/providers/ThemeProvider/lib/useTheme';
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
-import { classNames } from 'shared';
 import { Sidebar } from 'widgets/Sidebar';
 import { type FC, Suspense } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 export const App: FC = () => {
   const { theme } = useTheme();

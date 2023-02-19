@@ -1,6 +1,6 @@
 import { t } from 'i18next';
 import { useEffect, useState, type FC } from 'react';
-import { Button } from 'shared';
+import { Button } from 'shared/ui/Button/Button';
 
 /**
  * This component is only for testing ErrorBoundary
