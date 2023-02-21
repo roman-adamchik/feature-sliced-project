@@ -3,7 +3,11 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'standard-with-typescript', 'plugin:i18next/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'standard-with-typescript',
+    'plugin:i18next/recommended',
+    ],
   overrides: [
     {
       files: ['**/src/**/*.test.{ts,tsx}'],
@@ -29,7 +33,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', 'i18next'],
+  plugins: ['react', 'i18next', "react-hooks"],
   rules: {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
@@ -50,13 +54,21 @@ module.exports = {
         markupOnly: true,
         ignoreAttribute: ['to', 'data-testid'],
       }],
-    'max-len': ['error', { ignoreComments: true, code: 100 }],
+    'max-len': [
+      'error', 
+      { 
+        ignoreComments: true,
+        code: 100, 
+        ignoreStrings: true }
+    ],
     '@typescript-eslint/no-misused-promises': [
       'error',
       {
         checksVoidReturn: false,
       },
     ],
-    'react/display-name': "off"
+    'react/display-name': "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
   },
 };
