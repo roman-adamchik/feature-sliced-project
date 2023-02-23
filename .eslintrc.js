@@ -22,7 +22,7 @@ module.exports = {
       }
     },
     {
-      files: ['**/build/**/*.ts'],
+      files: ['**/build/**/*.ts', '**/selectors/**/*.ts'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off'
       }
