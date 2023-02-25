@@ -1,0 +1,21 @@
+.inputWrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--primary-color);
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.placeholder {
+  margin-right: 5px;
+}
