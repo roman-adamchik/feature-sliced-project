@@ -1,9 +1,11 @@
+import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { t } from 'i18next';
 import { useCallback, useState, type FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
+import { useSelector, useDispatch } from 'react-redux';
 
 interface NavbarProps {
   className?: string
@@ -11,6 +13,8 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({ className = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const userAuthData = useSelector(getUserAuthData);
+  const dispatch = useDispatch();
 
   const handleModalOpen = useCallback(() => {
     setIsModalOpen(true);
@@ -19,6 +23,25 @@ export const Navbar: FC<NavbarProps> = ({ className = '' }) => {
   const handleModalClose = useCallback(() => {
     setIsModalOpen(false);
   }, []);
+
+  const handleLogoutClick = useCallback(() => {
+    setIsModalOpen(false);
+    dispatch(userActions.logout());
+  }, [dispatch]);
+
+  if (userAuthData) {
+    return (
+      <div className={classNames(cls.navbar, {}, [className])}>
+      <Button
+      className={classNames(cls.button)}
+      onClick={handleLogoutClick}
+      theme={ButtonTheme.CLEAR_INVERTED}
+      >
+        {t('Logout')}
+      </Button>
+    </div>
+    );
+  }
 
   return (
     <div className={classNames(cls.navbar, {}, [className])}>

@@ -4,6 +4,8 @@
   "Language": "Русский",
   "Language short": "Ру",
   "Login": "Войти",
+  "Login form": "Login form",
+  "Logout": "Logout",
   "Main": "Главная",
   "Main page": "Главная",
   "Page not found": "Страница не найдена",
@@ -12,5 +14,6 @@
   "Something went wrong. Please, try again": "Что-то пошло нет так. Попробуйте позже",
   "Throw error": "Бросить ошибку",
   "Username": "Username",
+  "Wrong username or password": "Wrong username or password",
   "toggle": "свернуть"
 }

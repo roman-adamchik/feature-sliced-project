@@ -4,6 +4,8 @@
   "Language": "English",
   "Language short": "En",
   "Login": "Login",
+  "Login form": "Login form",
+  "Logout": "Logout",
   "Main": "Main",
   "Main page": "Main page",
   "Page not found": "Page not found",
@@ -12,5 +14,6 @@
   "Something went wrong. Please, try again": "Something went wrong. Please, try again",
   "Throw error": "Throw error",
   "Username": "Username",
+  "Wrong username or password": "Wrong username or password",
   "toggle": "toggle"
 }

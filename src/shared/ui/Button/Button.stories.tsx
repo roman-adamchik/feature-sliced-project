@@ -90,3 +90,9 @@ SquareSizeXL.args = {
   theme: ButtonTheme.BACKGROUND_INVERTED,
   size: ButtonSize.XL,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  theme: ButtonTheme.OUTLINE,
+};

@@ -12,7 +12,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
   config.resolve.extensions.push('.tsx', '.ts');
-  config.resolve.modules.push(paths.src);
+  config.resolve.modules.unshift(paths.src);
   config.module.rules.push(BuildCssLoader(true));
   config.plugins.push(new DefinePlugin({
     GLOBAL_IS_DEV: JSON.stringify(true),

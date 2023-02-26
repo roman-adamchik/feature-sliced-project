@@ -2,6 +2,10 @@
   cursor: pointer;
   color: var(--primary-color);
   padding: 6px 15px;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 }
 
 .clear,
@@ -21,6 +25,7 @@
   padding: 10px 15px;
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
+  background: var(--bg-color);
 }
 
 .background {
