@@ -1,11 +1,11 @@
 import { getUserAuthData, userActions } from 'entities/User';
-import { LoginModal } from 'features/AuthByUserName';
-import { t } from 'i18next';
 import { useCallback, useState, type FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
+import { LoginModal } from 'features/AuthByUserName';
+import { useTranslation } from 'react-i18next';
 
 interface NavbarProps {
   className?: string
@@ -13,6 +13,7 @@ interface NavbarProps {
 
 export const Navbar: FC<NavbarProps> = ({ className = '' }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation();
   const userAuthData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
 
@@ -33,9 +34,9 @@ export const Navbar: FC<NavbarProps> = ({ className = '' }) => {
     return (
       <div className={classNames(cls.navbar, {}, [className])}>
       <Button
-      className={classNames(cls.button)}
-      onClick={handleLogoutClick}
-      theme={ButtonTheme.CLEAR_INVERTED}
+        className={classNames(cls.button)}
+        onClick={handleLogoutClick}
+        theme={ButtonTheme.CLEAR_INVERTED}
       >
         {t('Logout')}
       </Button>
