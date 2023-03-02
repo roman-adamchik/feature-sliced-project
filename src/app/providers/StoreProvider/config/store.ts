@@ -7,7 +7,7 @@ import { type StateSchema } from './StateSchema';
 export const createReduxStore = (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-): ReturnType<typeof configureStore> => {
+) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     counter: counterReducer,
@@ -27,3 +27,5 @@ export const createReduxStore = (
 
   return store;
 };
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

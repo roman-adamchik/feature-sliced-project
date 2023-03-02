@@ -1,0 +1,28 @@
+.sidebarItem {
+  opacity: 1;
+}
+
+.item {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.icon {
+  flex-shrink: 0;
+  height: var(--font-line-m);
+  width: var(--font-line-m);
+}
+
+.link {
+  opacity: 1;
+}
+
+.collapsed {
+  .link {
+    opacity: 0;
+    width: 0;
+    transition: opacity 0.2s;
+  }
+}

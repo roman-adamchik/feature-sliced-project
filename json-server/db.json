@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": { 
+    "name": "John",
+    "lastname": "Smith",
+    "age": 48,
+    "currency": "USD",
+    "country": "USA",
+    "city": "New York",
+    "username": "admin",
+    "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
+   }
 }

@@ -6,13 +6,9 @@ import MainPage from './MainPage';
 export default {
   title: 'pages/MainPage',
   component: MainPage,
-  args: {
-    children: 'Link',
-    to: '/',
-  },
 } as ComponentMeta<typeof MainPage>;
 
-const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
+const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 export const Light = Template.bind({});
 

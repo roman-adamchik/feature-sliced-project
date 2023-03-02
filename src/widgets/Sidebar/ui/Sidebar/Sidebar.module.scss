@@ -31,23 +31,6 @@
   flex-direction: column;
 }
 
-.item {
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.icon {
-  flex-shrink: 0;
-  height: var(--font-line-m);
-  width: var(--font-line-m);
-}
-
-.link {
-  opacity: 1;
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -57,11 +40,5 @@
 
   .langSwitcher {
     margin-left: 0;
-  }
-
-  .link {
-    opacity: 0;
-    width: 0;
-    transition: opacity 0.2s;
   }
 }
