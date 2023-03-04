@@ -6,6 +6,7 @@
     "target": "es5", // what ECMA version use in final bundle
     "jsx": "react-jsx", // allow to use jsx syntax
     "allowJs": true, // allow to use .js files
+    "strict": true,
     "moduleResolution": "node",
     "baseUrl": ".", // for absolute import
     "paths": {

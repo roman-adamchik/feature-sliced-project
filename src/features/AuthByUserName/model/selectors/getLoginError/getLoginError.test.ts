@@ -1,4 +1,3 @@
-import { type DeepPartial } from '@reduxjs/toolkit';
 import { type StateSchema } from 'app/providers/StoreProvider';
 import { getLoginError } from './getLoginError';
 
@@ -7,6 +6,9 @@ describe('getLoginError.test', () => {
     const state: DeepPartial<StateSchema> = {
       loginForm: {
         error: 'some error',
+        username: '',
+        password: '',
+        isLoading: false,
       },
     };
     expect(getLoginError(state as StateSchema)).toEqual('some error');

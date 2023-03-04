@@ -13,7 +13,7 @@ export interface Profile {
 
 export interface ProfileSchema {
   data?: Profile
-  isLoading: boolean
-  error: string
+  isLoading: boolean | undefined
+  error: string | undefined
   readonly: boolean
 }

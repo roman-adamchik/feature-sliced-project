@@ -65,6 +65,7 @@ export default {
   // A set of global variables that need to be available in all test environments
   globals: {
     GLOBAL_IS_DEV: true,
+    GLOBAL_API_URL: '',
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

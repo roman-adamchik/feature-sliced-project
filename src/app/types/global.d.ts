@@ -14,3 +14,8 @@ declare module '*.svg' {
 }
 
 declare const GLOBAL_IS_DEV: boolean;
+declare const GLOBAL_API_URL: string;
+
+type DeepPartial<T> = T extends object ? {
+  [P in keyof T]?: DeepPartial<T[P]>;
+} : T;

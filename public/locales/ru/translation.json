@@ -1,6 +1,7 @@
 {
   "About": "О нас",
   "About page": "О нас",
+  "Edit": "Edit",
   "Language": "Русский",
   "Language short": "Ру",
   "Login": "Войти",
@@ -10,11 +11,14 @@
   "Main page": "Главная",
   "Page not found": "Страница не найдена",
   "Password": "Password",
+  "Profile": "Profile",
   "Profile page": "Profile page",
   "Reload": "Перезагрузить",
   "Something went wrong. Please, try again": "Что-то пошло нет так. Попробуйте позже",
   "Throw error": "Бросить ошибку",
   "Username": "Username",
   "Wrong username or password": "Wrong username or password",
+  "Your last name": "Your last name",
+  "Your name": "Your name",
   "toggle": "свернуть"
 }

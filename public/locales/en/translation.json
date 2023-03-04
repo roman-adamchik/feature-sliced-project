@@ -1,6 +1,7 @@
 {
   "About": "About",
   "About page": "About page",
+  "Edit": "Edit",
   "Language": "English",
   "Language short": "En",
   "Login": "Login",
@@ -10,11 +11,14 @@
   "Main page": "Main page",
   "Page not found": "Page not found",
   "Password": "Password",
+  "Profile": "Profile",
   "Profile page": "Profile page",
   "Reload": "Reload",
   "Something went wrong. Please, try again": "Something went wrong. Please, try again",
   "Throw error": "Throw error",
   "Username": "Username",
   "Wrong username or password": "Wrong username or password",
+  "Your last name": "Your last name",
+  "Your name": "Your name",
   "toggle": "toggle"
 }

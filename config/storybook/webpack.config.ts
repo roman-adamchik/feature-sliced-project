@@ -11,20 +11,24 @@ export default ({ config }: { config: Configuration }): Configuration => {
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
   };
-  config.resolve.extensions.push('.tsx', '.ts');
-  config.resolve.modules.unshift(paths.src);
-  config.module.rules.push(BuildCssLoader(true));
-  config.plugins.push(new DefinePlugin({
+  config.resolve?.extensions?.push('.tsx', '.ts');
+  config.resolve?.modules?.unshift(paths.src);
+  config.module?.rules?.push(BuildCssLoader(true));
+  config.plugins?.push(new DefinePlugin({
     GLOBAL_IS_DEV: JSON.stringify(true),
+    GLOBAL_API_URL: JSON.stringify(''),
   }));
-  config.module.rules = config.module.rules.map((rule: RuleSetRule) => {
-    if (/.svg/.test(rule.test as string)) {
-      return { ...rule, exclude: /\.svg$/ };
-    }
+  if (config.module?.rules) {
+    config.module.rules = config.module.rules.map((rule: RuleSetRule | '...') => {
+      if (rule !== '...' && /.svg/.test(rule.test as string)) {
+        return { ...rule, exclude: /\.svg$/ };
+      }
 
-    return rule;
-  });
-  config.module.rules.push(buildSvgLoader());
+      return rule;
+    });
+  }
+
+  config?.module?.rules?.push(buildSvgLoader());
 
   return config;
 };
