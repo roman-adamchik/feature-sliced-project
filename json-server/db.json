@@ -25,14 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { 
+  "profile": {
     "name": "John",
     "lastname": "Smith",
-    "age": 48,
-    "currency": "USD",
-    "country": "USA",
+    "age": 49,
+    "currency": "ILS",
+    "country": "Israel",
     "city": "New York",
     "username": "admin",
     "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
-   }
+  }
 }

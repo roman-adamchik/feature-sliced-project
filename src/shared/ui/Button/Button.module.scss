@@ -28,6 +28,13 @@
   background: var(--bg-color);
 }
 
+.outlineNegative {
+  padding: 10px 15px;
+  border: 1px solid var(--error-light-color);
+  color: var(--error-light-color);
+  background: var(--bg-color);
+}
+
 .background {
   background: var(--bg-color);
   color: var(--primary-color);

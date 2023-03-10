@@ -3,9 +3,9 @@ import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUserName';
 import { type EnhancedStore, type ReducersMapObject, type Dispatch } from '@reduxjs/toolkit';
 import { type AnyAction, type Reducer, type CombinedState } from 'redux';
-import { type ProfileSchema } from 'entities/Profile';
 import { type AxiosInstance } from 'axios';
 import { type NavigateFunction } from 'react-router-dom';
+import { type ProfileSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -37,4 +37,5 @@ export interface ThunkConfig<T> {
   rejectValue: T
   extra: ThunkExtraArg
   dispatch: Dispatch
+  state: StateSchema
 }
