@@ -66,6 +66,7 @@ export default {
   globals: {
     GLOBAL_IS_DEV: true,
     GLOBAL_API_URL: '',
+    GLOBAL_PROJECT: 'jest',
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

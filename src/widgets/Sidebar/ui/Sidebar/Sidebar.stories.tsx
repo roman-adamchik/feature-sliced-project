@@ -24,3 +24,12 @@ export const Light = Template.bind({});
 
 export const Dark = Template.bind({});
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const NoAuth = Template.bind({});
+NoAuth.decorators = [
+  StoreDecorator({
+    user: {
+      authData: undefined,
+    },
+  }),
+];

@@ -6,7 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
-  const { paths, isDev, apiUrl } = options;
+  const { paths, isDev, apiUrl, project } = options;
   const plugins = [
     // Generates html with js bundle already connected to it
     new HtmlWebpackPlugin({
@@ -21,6 +21,7 @@ export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
     new webpack.DefinePlugin({
       GLOBAL_IS_DEV: JSON.stringify(isDev),
       GLOBAL_API_URL: JSON.stringify(apiUrl),
+      GLOBAL_PROJECT: JSON.stringify(project),
     }),
   ];
 

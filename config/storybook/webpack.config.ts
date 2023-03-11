@@ -17,6 +17,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config.plugins?.push(new DefinePlugin({
     GLOBAL_IS_DEV: JSON.stringify(true),
     GLOBAL_API_URL: JSON.stringify(''),
+    GLOBAL_PROJECT: JSON.stringify('storybook'),
   }));
   if (config.module?.rules) {
     config.module.rules = config.module.rules.map((rule: RuleSetRule | '...') => {
