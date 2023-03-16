@@ -3,13 +3,14 @@ import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { type FC, Suspense } from 'react';
 import { useTheme } from './providers/ThemeProvider';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { userActions } from 'entities/User';
+import { getUserInitialized, userActions } from 'entities/User';
 
 export const App: FC = () => {
   const { theme } = useTheme();
   const dispatch = useDispatch();
+  const isUserInitialized = useSelector(getUserInitialized);
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
@@ -21,7 +22,7 @@ export const App: FC = () => {
         <Navbar />
         <div className="content-page">
           <Sidebar />
-          <AppRouter />
+          {isUserInitialized && <AppRouter />}
         </div>
       </Suspense>
     </div>

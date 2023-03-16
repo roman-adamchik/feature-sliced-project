@@ -13,7 +13,7 @@ export enum AppRoutes {
   PROFILE = 'profile',
 }
 
-type AppRoutesProps = RouteProps & {
+export type AppRoutesProps = RouteProps & {
   authOnly?: boolean
 };
 
