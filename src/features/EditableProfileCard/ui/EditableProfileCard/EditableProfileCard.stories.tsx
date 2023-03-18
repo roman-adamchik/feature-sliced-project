@@ -33,9 +33,15 @@ const Template: ComponentStory<typeof EditableProfileCard> = (
 export const Primary = Template.bind({});
 
 export const WithError = Template.bind({});
-WithError.args = {
-};
+WithError.decorators = [StoreDecorator({
+  profile: {
+    error: 'error',
+  },
+})];
 
 export const Loading = Template.bind({});
-Loading.args = {
-};
+Loading.decorators = [StoreDecorator({
+  profile: {
+    isLoading: true,
+  },
+})];

@@ -2,7 +2,7 @@ import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 import { CountrySelect } from './CountrySelect';
 
 export default {
-  title: 'entity/CountrySelect',
+  title: 'entities/CountrySelect',
   component: CountrySelect,
   args: {
     placeholder: 'Select country',

@@ -2,7 +2,7 @@ import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 import { CurrencySelect } from './CurrencySelect';
 
 export default {
-  title: 'entity/CurrencySelect',
+  title: 'entities/CurrencySelect',
   component: CurrencySelect,
   args: {
     placeholder: 'Select currency',

@@ -1,3 +1,4 @@
+import { type ArticleDetailsSchema } from 'entities/Article';
 import { type CounterSchema } from 'entities/Counter';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUserName';
@@ -14,6 +15,7 @@ export interface StateSchema {
   // async reducers below
   loginForm?: LoginSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
