@@ -2,7 +2,7 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import cls from './ArticleDetails.module.scss';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ import { type ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 interface ArticleDetailsProps {
   className?: string
@@ -38,11 +39,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const error = useSelector(getArticleDetailsError);
   const articleData = useSelector(getArticleDetailsData);
 
-  useEffect(() => {
-    if (GLOBAL_PROJECT !== 'storybook') {
-      void dispatch(fetchArticleById(id));
-    }
-  }, [dispatch, id]);
+  useInitialEffect(() => {
+    void dispatch(fetchArticleById(id));
+  });
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {

@@ -7,6 +7,7 @@ import { type AnyAction, type Reducer, type CombinedState } from 'redux';
 import { type AxiosInstance } from 'axios';
 import { type NavigateFunction } from 'react-router-dom';
 import { type ProfileSchema } from 'features/EditableProfileCard';
+import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -16,6 +17,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
