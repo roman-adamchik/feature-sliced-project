@@ -4,8 +4,9 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import cls from './Sidebar.module.scss';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { SidebarItemsList } from '../../model/items';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { useSelector } from 'react-redux';
+import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 interface SidebarProps {
   className?: string
@@ -15,6 +16,7 @@ export const Sidebar = memo((props: SidebarProps) => {
   const { className = '' } = props;
 
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const sidebarItemsList = useSelector(getSidebarItems);
 
   const toggleCollapsed = (): void => {
     setIsCollapsed((prev) => !prev);
@@ -38,7 +40,7 @@ export const Sidebar = memo((props: SidebarProps) => {
         {isCollapsed ? '>' : '<'}
       </Button>
       <div className={cls.items}>
-        {SidebarItemsList.map((item) =>
+        {sidebarItemsList.map((item) =>
           <SidebarItem
             item={item}
             key={item.path}
