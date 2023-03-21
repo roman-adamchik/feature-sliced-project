@@ -1,9 +1,11 @@
 import { ArticleDetails } from 'entities/Article';
-import { ArticleCommentList } from 'features/ArticleCommentList';
-import { type FC } from 'react';
+import { AddCommentToArticle } from 'features/AddCommentToArticle';
+import { ArticleCommentList, fetchCommentsByArticleId } from 'features/ArticleCommentList';
+import { useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -17,6 +19,13 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   } = props;
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const dispatch = useAppDispatch();
+
+  const fetchComments = useCallback(() => {
+    if (id) {
+      void dispatch(fetchCommentsByArticleId(id));
+    }
+  }, [dispatch, id]);
 
   if (!id) {
     return (
@@ -30,6 +39,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
     <div className={classNames(cls.articleDetailsPage, {}, [className])}>
       <ArticleDetails id={id}/>
       <Text title={t('Comments')} className={cls.commentTitle}/>
+      <AddCommentToArticle fetchComments={fetchComments}/>
       <ArticleCommentList articleId={id}/>
     </div>
   );

@@ -1,3 +1,4 @@
+import { getArticleDetailsData } from './model/selectors/articleDetails';
 import { type ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 import { type Article, ArticleType, ArticleBlockType } from './model/types/article';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
@@ -8,4 +9,5 @@ export {
   type Article,
   ArticleType,
   ArticleBlockType,
+  getArticleDetailsData,
 };

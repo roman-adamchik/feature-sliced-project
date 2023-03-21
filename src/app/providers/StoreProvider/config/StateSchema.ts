@@ -2,12 +2,14 @@ import { type ArticleDetailsSchema } from 'entities/Article';
 import { type CounterSchema } from 'entities/Counter';
 import { type UserSchema } from 'entities/User';
 import { type LoginSchema } from 'features/AuthByUserName';
-import { type EnhancedStore, type ReducersMapObject, type Dispatch } from '@reduxjs/toolkit';
+import { type EnhancedStore, type ReducersMapObject } from '@reduxjs/toolkit';
 import { type AnyAction, type Reducer, type CombinedState } from 'redux';
 import { type AxiosInstance } from 'axios';
 import { type NavigateFunction } from 'react-router-dom';
 import { type ProfileSchema } from 'features/EditableProfileCard';
 import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList';
+import { type AddCommentFormSchema } from 'entities/Comment';
+import { type AppDispatch } from './store';
 
 export interface StateSchema {
   counter: CounterSchema
@@ -18,6 +20,7 @@ export interface StateSchema {
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentSchema
+  addCommentForm?: AddCommentFormSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -40,6 +43,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
   rejectValue: T
   extra: ThunkExtraArg
-  dispatch: Dispatch
+  dispatch: AppDispatch
   state: StateSchema
 }

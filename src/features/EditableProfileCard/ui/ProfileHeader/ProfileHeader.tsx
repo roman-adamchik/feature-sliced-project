@@ -9,6 +9,8 @@ import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { getUserAuthData } from 'entities/User';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 
 interface ProfileHeaderProps {
   className?: string
@@ -19,8 +21,11 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
   const { className = '' } = props;
 
   const { t } = useTranslation();
-  const readonly = useSelector(getProfileReadonly);
   const dispatch = useAppDispatch();
+  const readonly = useSelector(getProfileReadonly);
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
+  const canEdit = authData?.id === profileData?.id;
 
   const handleEdit = useCallback(() => {
     dispatch(profileActions.setReadonly(false));
@@ -31,37 +36,41 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
   }, [dispatch]);
 
   const handleSave = useCallback(() => {
-    void dispatch(updateProfileData());
-  }, [dispatch]);
+    if (profileData?.id) {
+      void dispatch(updateProfileData());
+    }
+  }, [dispatch, profileData]);
 
   return (
     <div className={classNames(cls.profileHeader, {}, [className])}>
       <Text title={t('Profile')}/>
-      {readonly
-        ? <Button
+      {canEdit && <>
+        {readonly
+          ? <Button
             theme={ButtonTheme.OUTLINE}
             className={cls.editBtn}
             onClick={handleEdit}
           >
-        {t('Edit')}
-      </Button>
-        : <>
-      <Button
-            theme={ButtonTheme.OUTLINE_NEGATIVE}
-            className={cls.editBtn}
-            onClick={handleCancelEdit}
+            {t('Edit')}
+          </Button>
+          : <>
+          <Button
+                theme={ButtonTheme.OUTLINE_NEGATIVE}
+                className={cls.editBtn}
+                onClick={handleCancelEdit}
           >
-        {t('Cancel')}
-      </Button>
-        <Button
-            theme={ButtonTheme.OUTLINE}
-            className={cls.saveBtn}
-            onClick={handleSave}
+            {t('Cancel')}
+          </Button>
+          <Button
+                theme={ButtonTheme.OUTLINE}
+                className={cls.saveBtn}
+                onClick={handleSave}
           >
-        {t('Save')}
-      </Button>
-        </>
+            {t('Save')}
+          </Button>
+          </>
         }
+      </>}
     </div>
   );
 };

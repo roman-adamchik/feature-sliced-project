@@ -13,6 +13,7 @@ const profileData = {
   city: 'New York',
   username: 'admin',
   avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+  id: '1',
 };
 
 describe('updateProfileData.test', () => {

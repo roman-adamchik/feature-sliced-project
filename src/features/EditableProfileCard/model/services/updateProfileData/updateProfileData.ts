@@ -14,13 +14,14 @@ ThunkConfig<ProfileValidationErrors[]>
     const { rejectWithValue, extra, getState } = thunkAPI;
     const formData = getProfileForm(getState());
     const errors = validateProfileData(formData);
+    const profileId = formData?.id || '';
 
     if (errors.length) {
       return rejectWithValue(errors);
     }
 
     try {
-      const response = await extra.api.put<Profile>('/profile', formData);
+      const response = await extra.api.put<Profile>(`/profile/${profileId}`, formData);
       const profile = response.data;
 
       if (!profile) throw new Error();

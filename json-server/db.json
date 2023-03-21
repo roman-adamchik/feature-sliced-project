@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 6022,
       "createdAt": "26.02.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -97,6 +99,54 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "cool story",
+      "id": "ppI_YGQ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "wow amazing!!!",
+      "id": "8l-N4jT"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test",
+      "id": "4yDuXFl"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test 2",
+      "id": "ZYoSRtc"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test 3",
+      "id": "_S384tv"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test 444",
+      "id": "NsejBOK"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test 555",
+      "id": "Y1xc-ap"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "test 666",
+      "id": "yvNWhoA"
     }
   ],
   "users": [
@@ -115,14 +165,28 @@
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
     }
   ],
-  "profile": {
-    "name": "John",
-    "lastname": "Smith",
-    "age": 49,
-    "currency": "ILS",
-    "country": "Israel",
-    "city": "New York",
-    "username": "admin",
-    "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "name": "John",
+      "lastname": "Smith",
+      "age": 49,
+      "currency": "ILS",
+      "country": "Israel",
+      "city": "New York",
+      "username": "admin",
+      "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Jack",
+      "lastname": "Dawson",
+      "age": 19,
+      "currency": "USD",
+      "country": "USA",
+      "city": "Los Angeles",
+      "username": "user",
+      "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
+    }
+  ]
 }

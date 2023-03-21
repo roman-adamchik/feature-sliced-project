@@ -14,6 +14,7 @@ export enum ProfileValidationErrors {
 }
 
 export interface Profile {
+  'id'?: string
   'name'?: string
   'lastname'?: string
   'age'?: number
