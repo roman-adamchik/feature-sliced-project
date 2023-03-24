@@ -4,10 +4,16 @@ import { ArticleBlockType, ArticleType, type Article } from '../../model/types/a
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ArticleDetails } from './ArticleDetails';
+import avatar from 'shared/assets/tests/avatar.jpg';
 
 const article: Article = {
   id: '1',
   title: 'Javascript news',
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar,
+  },
   subtitle: "What's new in JS in 2023?",
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 6022,
@@ -73,7 +79,7 @@ const article: Article = {
 };
 
 export default {
-  title: 'entities/ArticleDetails',
+  title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
   decorators: [StoreDecorator({
     articleDetails: {

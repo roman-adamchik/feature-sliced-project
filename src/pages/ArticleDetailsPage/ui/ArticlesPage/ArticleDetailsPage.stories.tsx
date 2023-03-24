@@ -4,10 +4,16 @@ import { ArticleBlockType, type Article, ArticleType } from 'entities/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
+import avatar from 'shared/assets/tests/avatar.jpg';
 
 const article: Article = {
   id: '1',
   title: 'Javascript news',
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar,
+  },
   subtitle: "What's new in JS in 2023?",
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 6022,

@@ -1,0 +1,12 @@
+.articleList {
+  display: flex;
+  gap: 30px;
+}
+
+.list {
+  flex-flow: column nowrap;
+}
+
+.table {
+  flex-flow: row wrap;
+}

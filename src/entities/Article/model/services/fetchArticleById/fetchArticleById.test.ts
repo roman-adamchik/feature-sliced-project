@@ -5,6 +5,10 @@ import { type Article, ArticleBlockType, ArticleType } from '../../types/article
 const articleData: Article = {
   id: '1',
   title: 'Javascript news',
+  user: {
+    id: '1',
+    username: 'Admin',
+  },
   subtitle: "What's new in JS in 2023?",
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 6022,

@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { type SidebarItemType } from '../../model/items';
 import cls from './SidebarItem.module.scss';
 import { getUserAuthData } from 'entities/User';
 import { useSelector } from 'react-redux';
+import { type SidebarItemType } from '../../model/types/sidebar';
 interface SidebarItemProps {
   item: SidebarItemType
   isCollapsed: boolean
@@ -33,3 +33,5 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
   </AppLink>
   );
 });
+
+SidebarItem.displayName = 'SidebarItem';

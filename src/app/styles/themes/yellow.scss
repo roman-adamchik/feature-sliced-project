@@ -1,12 +1,12 @@
 .app-theme-yellow {
-  --bg-color: #fbf9f4;
-  --inverted-bg-color: #dabf52;
-  --primary-color: #dbba36;
-  --secondary-color: #c0a023;
-  --inverted-primary-color: #fcf6e6;
-  --inverted-secondary-color: #f7e4ba;
+  --bg-color: #faf4fb;
+  --inverted-bg-color: #bd5012;
+  --primary-color: #9a1a0e;
+  --secondary-color: #d01f0e;
+  --inverted-primary-color: #dbd5dc;
+  --inverted-secondary-color: #faf4fb;
   --error-light-color: #f00;
-  --error-dark-color: #c91414;
+  --error-dark-color: #ce0505;
 
   // skeleton
   --skeleton-color: #fff;
@@ -14,4 +14,7 @@
 
   // code
   --code-bg: #fff;
+
+  // card
+  --card-bg: #d5d5d7;
 }

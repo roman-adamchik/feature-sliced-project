@@ -2,6 +2,7 @@
   "About": "О нас",
   "About page": "О нас",
   "Article is not found": "Article is not found",
+  "Back to articles list": "Back to articles list",
   "Cancel": "Cancel",
   "Comments": "Comments",
   "Edit": "Edit",
@@ -29,6 +30,7 @@
   "Please try again later": "Please try again later",
   "Profile": "Profile",
   "Profile page": "Profile page",
+  "Read more...": "Read more...",
   "Reload": "Перезагрузить",
   "Save": "Save",
   "Select country": "Select country",
@@ -46,5 +48,6 @@
   "Your last name": "Your last name",
   "Your name": "Your name",
   "Your username": "Your username",
-  "toggle": "свернуть"
+  "toggle": "свернуть",
+  "Читать далее...": "Читать далее..."
 }
