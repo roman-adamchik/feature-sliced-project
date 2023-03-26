@@ -4,7 +4,7 @@ const ArticlesPageAsync = lazy<FC>(
   async () =>
     await new Promise((resolve) => {
       // only for testing purposes
-      setTimeout(() => { resolve(import('./ArticlesPage')); }, 500);
+      setTimeout(() => { resolve(import('./ArticlesPage')); }, 400);
     }),
 );
 

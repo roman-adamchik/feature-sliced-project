@@ -58,7 +58,7 @@ module.exports = {
       'error', 
       { 
         ignoreComments: true,
-        code: 100, 
+        code: 110, 
         ignoreStrings: true }
     ],
     '@typescript-eslint/no-misused-promises': [

@@ -7,6 +7,7 @@ import { profileReducer } from 'features/EditableProfileCard';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentList/model/slice/articleDetailsCommentsSlice';
 import { addCommentFormReducer } from 'entities/Comment/model/slice/addCommentFormSlice';
+import { articlePageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
 
 const defaultReducers: ReducersList = {
   loginForm: loginReducer,
@@ -14,6 +15,7 @@ const defaultReducers: ReducersList = {
   articleDetails: articleDetailsReducer,
   articleDetailsComments: articleDetailsCommentsReducer,
   addCommentForm: addCommentFormReducer,
+  articlesPage: articlePageReducer,
 };
 
 export const StoreDecorator = (

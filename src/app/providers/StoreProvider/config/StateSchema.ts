@@ -10,17 +10,19 @@ import { type ProfileSchema } from 'features/EditableProfileCard';
 import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList';
 import { type AddCommentFormSchema } from 'entities/Comment';
 import { type AppDispatch } from './store';
+import { type ArticlePageSchema } from 'pages/ArticlesPage';
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
 
-  // async reducers below
+  // async reducers
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
   articleDetailsComments?: ArticleDetailsCommentSchema
   addCommentForm?: AddCommentFormSchema
+  articlesPage?: ArticlePageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -6,7 +6,7 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
   className?: string
-  articles: Article[]
+  articles?: Article[]
   isLoading?: boolean
   view?: ArticleListViewType
 }
@@ -42,6 +42,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
         }
       </div>
     );
+  }
+
+  if (!articles) {
+    return null;
   }
 
   return (
