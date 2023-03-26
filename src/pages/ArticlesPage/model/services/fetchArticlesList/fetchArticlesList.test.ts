@@ -15,14 +15,23 @@ const articlesData: DeepPartial<Article[]> = [
 
 describe('fetchArticlesList.test', () => {
   test('Successfull fetch articles', async () => {
-    const testAsyncThunk = new TestAsyncThunk(fetchArticlesList);
+    const testAsyncThunk = new TestAsyncThunk(fetchArticlesList, {
+      articlesPage: {
+        page: 2,
+        ids: [],
+        entities: {},
+        limit: 5,
+        isLoading: false,
+        hasMore: true,
+      },
+    });
 
     testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
       {
         data: articlesData,
       },
     ));
-    const result = await testAsyncThunk.callThunk(undefined);
+    const result = await testAsyncThunk.callThunk({ page: 1 });
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -30,13 +39,22 @@ describe('fetchArticlesList.test', () => {
   });
 
   test('Failed fetch article', async () => {
-    const testAsyncThunk = new TestAsyncThunk(fetchArticlesList);
+    const testAsyncThunk = new TestAsyncThunk(fetchArticlesList, {
+      articlesPage: {
+        page: 2,
+        ids: [],
+        entities: {},
+        limit: 5,
+        isLoading: false,
+        hasMore: true,
+      },
+    });
     testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
       {
         status: 403,
       },
     ));
-    const result = await testAsyncThunk.callThunk(undefined);
+    const result = await testAsyncThunk.callThunk({});
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('rejected');

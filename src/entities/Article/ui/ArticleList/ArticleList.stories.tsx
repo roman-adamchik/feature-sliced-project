@@ -98,6 +98,7 @@ export const LightTable = Template.bind({});
 
 export const LightTableLoading = Template.bind({});
 LightTableLoading.args = {
+  articles: [],
   isLoading: true,
 };
 
@@ -108,6 +109,7 @@ LightList.args = {
 
 export const LightListLoading = Template.bind({});
 LightListLoading.args = {
+  articles: [],
   view: ArticleListViewType.LIST,
   isLoading: true,
 };
@@ -118,6 +120,7 @@ DarkTable.decorators = [ThemeDecorator(Theme.DARK)];
 export const DarkTableLoading = Template.bind({});
 DarkTableLoading.decorators = [ThemeDecorator(Theme.DARK)];
 DarkTableLoading.args = {
+  articles: [],
   isLoading: true,
 };
 
@@ -130,6 +133,7 @@ DarkList.args = {
 export const DarkListLoading = Template.bind({});
 DarkListLoading.decorators = [ThemeDecorator(Theme.DARK)];
 DarkListLoading.args = {
+  articles: [],
   view: ArticleListViewType.LIST,
   isLoading: true,
 };

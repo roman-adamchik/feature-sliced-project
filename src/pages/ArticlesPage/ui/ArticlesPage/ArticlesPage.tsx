@@ -11,6 +11,8 @@ import { useSelector } from 'react-redux';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticleList } from 'pages/ArticlesPage/model/services/fetchNextArticlesList/fetchNextArticleList';
 
 interface ArticlesPageProps {
   className?: string
@@ -32,17 +34,26 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const error = useSelector(getArticlesPageError);
 
   useInitialEffect(() => {
-    void dispatch(fetchArticlesList());
     void dispatch(articlePageActions.initState());
+    void dispatch(fetchArticlesList({ page: 1 }));
   });
 
   const handleViewClick = useCallback((view: ArticleListViewType) => {
     dispatch(articlePageActions.setView(view));
   }, [dispatch]);
 
+  const handleLoadNextPart = useCallback(() => {
+    if (GLOBAL_PROJECT !== 'storybook') {
+      void dispatch(fetchNextArticleList());
+    }
+  }, [dispatch]);
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articlesPage, {}, [className])}>
+      <Page
+        className={classNames(cls.articlesPage, {}, [className])}
+        onScrollEnd={handleLoadNextPart}
+      >
         {error
           ? <Text text={t('Error loading article list')}/>
           : (
@@ -58,7 +69,7 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
               />
             </>
             )}
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

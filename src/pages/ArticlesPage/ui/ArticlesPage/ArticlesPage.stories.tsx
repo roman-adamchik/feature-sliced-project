@@ -321,6 +321,8 @@ const articlesPage = {
   },
   isLoading: false,
   view: 'list',
+  hasMore: true,
+  page: 1,
 } as ArticlePageSchema;
 
 export default {

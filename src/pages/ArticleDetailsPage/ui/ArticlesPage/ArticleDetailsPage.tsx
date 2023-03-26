@@ -10,6 +10,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleDetailsPage.module.scss';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -36,14 +37,14 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
         {t('Article is not found')}
-    </div>
+      </Page>
     );
   }
 
   return (
-    <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+    <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
       <Button theme={ButtonTheme.OUTLINE} onClick={handleBackToArticles}>
         {t('Back to articles list')}
       </Button>
@@ -51,7 +52,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <Text title={t('Comments')} className={cls.commentTitle}/>
       <AddCommentToArticle fetchComments={fetchComments}/>
       <ArticleCommentList articleId={id}/>
-    </div>
+    </Page>
   );
 };
 

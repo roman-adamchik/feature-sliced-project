@@ -27,22 +27,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
     />
   );
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
-        {new Array(view === ArticleListViewType.TABLE ? 9 : 3)
-          .fill(0)
-          .map((_, i) => (
-            <ArticleListItem
-              key={i}
-              view={view}
-              isLoading
-            />
-          ))
-        }
-      </div>
-    );
-  }
+  const getSkeletons = () => new Array(view === ArticleListViewType.TABLE ? 9 : 3)
+    .fill(0)
+    .map((_, i) => (
+      <ArticleListItem
+        key={i}
+        view={view}
+        isLoading
+      />
+    ));
 
   if (!articles) {
     return null;
@@ -55,6 +48,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
             articles.map(renderArticle)
           )
         : null
+      }
+      {
+        isLoading && getSkeletons()
       }
     </div>
   );
