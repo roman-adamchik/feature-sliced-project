@@ -24,8 +24,10 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
 
   useEffect(() => {
     Object.entries(reducers).forEach(([reducerKey, reducer]) => {
-      store.reducerManager.add(reducerKey as StateSchemaKey, reducer);
-      dispatch({ type: `@INIT ${reducerKey} reducer` });
+      const isReducerAdded = store.reducerManager.add(reducerKey as StateSchemaKey, reducer);
+      if (isReducerAdded) {
+        dispatch({ type: `@INIT ${reducerKey} reducer` });
+      }
     });
 
     return () => {

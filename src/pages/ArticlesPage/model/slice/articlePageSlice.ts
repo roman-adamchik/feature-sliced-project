@@ -15,6 +15,7 @@ const initialState = articlesAdapter.getInitialState<ArticlePageSchema>({
   view: ArticleListViewType.TABLE,
   hasMore: true,
   page: 1,
+  _initialized: false,
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -39,6 +40,7 @@ export const articlePageSlice = createSlice({
         : ArticleListViewType.TABLE;
       state.view = view;
       state.limit = view === ArticleListViewType.LIST ? 4 : 9;
+      state._initialized = true;
     },
   },
   extraReducers: (builder) => {

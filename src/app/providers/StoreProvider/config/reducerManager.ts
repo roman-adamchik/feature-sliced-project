@@ -28,10 +28,11 @@ export function createReducerManager (
 
     add: (key: StateSchemaKey, reducer: Reducer) => {
       if (!key || reducers[key]) {
-        return;
+        return false;
       }
       reducers[key] = reducer;
       combinedReducer = combineReducers(reducers);
+      return true;
     },
 
     remove: (key: StateSchemaKey) => {

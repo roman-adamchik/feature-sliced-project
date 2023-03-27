@@ -6,7 +6,6 @@ import {
 } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { type NavigateFunction } from 'react-router-dom';
 import { $api } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
 import { type ThunkExtraArg, type StateSchema } from './StateSchema';
@@ -14,7 +13,6 @@ import { type ThunkExtraArg, type StateSchema } from './StateSchema';
 export const createReduxStore = (
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: NavigateFunction,
 ) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
@@ -26,7 +24,6 @@ export const createReduxStore = (
 
   const extraArgument: ThunkExtraArg = {
     api: $api,
-    navigate,
   };
 
   const store = configureStore({
