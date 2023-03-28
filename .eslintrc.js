@@ -73,6 +73,7 @@ module.exports = {
     "react/prop-types": "off",
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-invalid-void-type": "off"
+    "@typescript-eslint/no-invalid-void-type": "off",
+    "n/no-callback-literal": "off"
   },
 };

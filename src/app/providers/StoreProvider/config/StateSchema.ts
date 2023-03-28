@@ -10,10 +10,12 @@ import { type ArticleDetailsCommentSchema } from 'features/ArticleCommentList';
 import { type AddCommentFormSchema } from 'entities/Comment';
 import { type AppDispatch } from './store';
 import { type ArticlePageSchema } from 'pages/ArticlesPage';
+import { type UISchema } from 'features/UI';
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
+  ui: UISchema
 
   // async reducers
   loginForm?: LoginSchema
