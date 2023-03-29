@@ -1,5 +1,4 @@
 import {
-  memo,
   useCallback,
   type SelectHTMLAttributes,
   type ChangeEvent,
@@ -10,20 +9,20 @@ import cls from './Select.module.scss';
 
 type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'value' | 'onChange'>;
 
-export interface SelectOption {
-  value: string
+export interface SelectOption<T extends string> {
+  value: T
   content: string
 }
 
-interface SelectProps extends HTMLSelectProps {
+interface SelectProps<T extends string> extends HTMLSelectProps {
   className?: string
   readOnly?: boolean
-  options?: SelectOption[]
-  value?: string
-  onChange?: (value: string) => void
+  options?: Array<SelectOption<T>>
+  value?: T
+  onChange?: (value: T) => void
 }
 
-export const Select = memo((props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className = '',
     readOnly,
@@ -34,7 +33,7 @@ export const Select = memo((props: SelectProps) => {
   } = props;
 
   const handleChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value);
+    onChange?.(e.target.value as T);
   }, [onChange]);
 
   const optionsList = useMemo(() => {
@@ -70,4 +69,4 @@ export const Select = memo((props: SelectProps) => {
       </select>
     </div>
   );
-});
+};

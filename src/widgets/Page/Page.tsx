@@ -13,14 +13,14 @@ import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 interface PageProps {
   className?: string
   children: ReactNode
-  onScrollEnd?: () => void
+  handleScrollEnd?: () => void
 }
 
 export const Page = (props: PageProps) => {
   const {
     className = '',
     children,
-    onScrollEnd,
+    handleScrollEnd,
   } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -29,7 +29,7 @@ export const Page = (props: PageProps) => {
   const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
   useInfiniteScroll({
-    cb: onScrollEnd,
+    cb: handleScrollEnd,
     wrapperRef,
     triggerRef,
   });
@@ -52,7 +52,7 @@ export const Page = (props: PageProps) => {
       onScroll={handleScroll}
     >
       {children}
-      <div ref={triggerRef}/>
+      {handleScrollEnd && <div className={cls.trigger} ref={triggerRef}/>}
     </section>
   );
 };

@@ -18,10 +18,10 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await testAsyncThunk.callThunk();
+    await testAsyncThunk.callThunk(new URLSearchParams());
 
     expect(testAsyncThunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({ page: 1 });
+    expect(fetchArticlesList).toBeCalled();
   });
 
   test('Already initialized reducer', async () => {
@@ -37,7 +37,7 @@ describe('initArticlesPage.test', () => {
       },
     });
 
-    await testAsyncThunk.callThunk();
+    await testAsyncThunk.callThunk(new URLSearchParams());
 
     expect(testAsyncThunk.dispatch).toBeCalledTimes(2);
     expect(fetchArticlesList).not.toHaveBeenCalled();

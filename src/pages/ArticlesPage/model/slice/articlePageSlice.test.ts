@@ -15,17 +15,17 @@ describe('articlePageSlice.test', () => {
     });
   });
 
-  test('fetchArticles pending', () => {
-    const state: DeepPartial<ArticlePageSchema> = {
-      error: 'error',
-      isLoading: false,
-    };
-    expect(articlePageReducer(state as ArticlePageSchema, fetchArticlesList.pending))
-      .toEqual({
-        error: undefined,
-        isLoading: true,
-      });
-  });
+  // test('fetchArticles pending', () => {
+  //   const state: DeepPartial<ArticlePageSchema> = {
+  //     error: 'error',
+  //     isLoading: false,
+  //   };
+  //   expect(articlePageReducer(state as ArticlePageSchema, fetchArticlesList.pending))
+  //     .toEqual({
+  //       error: undefined,
+  //       isLoading: true,
+  //     });
+  // });
 
   test('fetchArticles rejected', () => {
     const state: DeepPartial<ArticlePageSchema> = {

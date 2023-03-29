@@ -16,6 +16,8 @@ export const useInfiniteScroll = (props: UseInfiniteScrollOptions) => {
   useEffect(() => {
     const wrapperElement = wrapperRef.current;
     const triggerElement = triggerRef.current;
+    if (!triggerElement) return;
+
     const options = {
       root: wrapperElement,
       rootMargin: '0px',

@@ -20,7 +20,7 @@ describe('fetchNextArticleList.test', () => {
     await testAsyncThunk.callThunk();
 
     expect(testAsyncThunk.dispatch).toBeCalledTimes(4);
-    expect(fetchArticlesList).toBeCalledWith({ page: 3 });
+    expect(fetchArticlesList).toBeCalledWith({});
   });
 
   test('No more data to fetch', async () => {

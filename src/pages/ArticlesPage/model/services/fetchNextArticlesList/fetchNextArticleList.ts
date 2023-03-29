@@ -20,7 +20,7 @@ ThunkConfig<string>
     if (hasMore && !isLoading) {
       const newPage = page + 1;
       dispatch(articlePageActions.setPage(newPage));
-      void dispatch(fetchArticlesList({ page: newPage }));
+      void dispatch(fetchArticlesList({}));
     }
   },
 );

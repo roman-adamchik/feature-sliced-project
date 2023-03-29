@@ -31,7 +31,7 @@ describe('fetchArticlesList.test', () => {
         data: articlesData,
       },
     ));
-    const result = await testAsyncThunk.callThunk({ page: 1 });
+    const result = await testAsyncThunk.callThunk({});
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');

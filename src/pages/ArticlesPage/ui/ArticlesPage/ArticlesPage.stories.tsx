@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorato
 import ArticlesPage from './ArticlesPage';
 import { type ArticlePageSchema } from '../../model/types/articlePageSchema';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ArticleListViewType } from 'entities/Article';
+import { ArticleListViewType, ArticleSortField, ArticleType } from 'entities/Article';
 
 const articlesPage = {
   ids: [
@@ -323,6 +323,11 @@ const articlesPage = {
   view: 'list',
   hasMore: true,
   page: 1,
+  limit: 9,
+  order: 'asc',
+  search: '',
+  sort: ArticleSortField.TITLE,
+  type: ArticleType.ALL,
 } as ArticlePageSchema;
 
 export default {

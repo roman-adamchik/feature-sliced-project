@@ -1,4 +1,4 @@
-import { ArticleList, ArticleViewSelector, type ArticleListViewType } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -11,8 +11,10 @@ import { Text } from 'shared/ui/Text/Text';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
 import { fetchNextArticleList } from '../../model/services/fetchNextArticlesList/fetchNextArticleList';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { articlePageActions, articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
 import cls from './ArticlesPage.module.scss';
+import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
   className?: string
@@ -32,14 +34,11 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
   const error = useSelector(getArticlesPageError);
+  const [searchParams] = useSearchParams();
 
   useInitialEffect(() => {
-    void dispatch(initArticlesPage());
+    void dispatch(initArticlesPage(searchParams));
   });
-
-  const handleViewClick = useCallback((view: ArticleListViewType) => {
-    dispatch(articlePageActions.setView(view));
-  }, [dispatch]);
 
   const handleLoadNextPart = useCallback(() => {
     if (GLOBAL_PROJECT !== 'storybook') {
@@ -51,20 +50,18 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
     <DynamicModuleLoader reducers={reducers}>
       <Page
         className={classNames(cls.articlesPage, {}, [className])}
-        onScrollEnd={handleLoadNextPart}
+        handleScrollEnd={handleLoadNextPart}
       >
         {error
           ? <Text text={t('Error loading article list')}/>
           : (
             <>
-              <ArticleViewSelector
-                view={view}
-                handleViewClick={handleViewClick}
-              />
+              <ArticlesPageFilter />
               <ArticleList
                 view={view}
                 articles={articles}
                 isLoading={isLoading}
+                className={cls.articleList}
               />
             </>
             )}
