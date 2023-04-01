@@ -78,14 +78,146 @@ const article: Article = {
   ],
 };
 
+const recommendedArticle1 = {
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar,
+  },
+  id: '7',
+  title: 'JS news',
+  subtitle: "What's new in JS in 2023?",
+  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  views: 1322,
+  userId: '1',
+  createdAt: '1.01.2023',
+  type: [
+    'IT',
+  ],
+  blocks: [
+    {
+      id: '1',
+      type: 'TEXT',
+      title: 'Introduced top-level await',
+      paragraphs: [
+        'Prior to this, the await keyword could only be used inside async functions, and a syntax error would occur if forced: await is only valid in async functions and the top level bodies of modules',
+        'It is now possible to use await at the top level of a file, which will be treated as an ECMAScript module. Here is the official example:',
+      ],
+    },
+  ],
+} as Article;
+
+const recommendedArticle2 = {
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar,
+  },
+  id: '4',
+  title: 'PHP news',
+  subtitle: "What's new in PHP in 2023?",
+  img: 'https://twtv3.ams3.digitaloceanspaces.com/posts/php-twt.png',
+  views: 3342,
+  userId: '1',
+  createdAt: '13.03.2019',
+  type: [
+    'IT',
+  ],
+  blocks: [
+    {
+      id: '1',
+      type: 'TEXT',
+      title: 'Introduced top-level await',
+      paragraphs: [
+        'Prior to this, the await keyword could only be used inside async functions, and a syntax error would occur if forced: await is only valid in async functions and the top level bodies of modules',
+        'It is now possible to use await at the top level of a file, which will be treated as an ECMAScript module. Here is the official example:',
+      ],
+    },
+  ],
+} as Article;
+
+const recommendedArticle3 = {
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar,
+  },
+  id: '5',
+  title: 'JS news',
+  subtitle: "What's new in JS in 2023?",
+  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  views: 3282,
+  userId: '1',
+  createdAt: '23.01.2020',
+  type: [
+    'IT',
+  ],
+  blocks: [
+    {
+      id: '1',
+      type: 'TEXT',
+      title: 'Introduced top-level await',
+      paragraphs: [
+        'Prior to this, the await keyword could only be used inside async functions, and a syntax error would occur if forced: await is only valid in async functions and the top level bodies of modules',
+        'It is now possible to use await at the top level of a file, which will be treated as an ECMAScript module. Here is the official example:',
+      ],
+    },
+  ],
+} as Article;
+
+const recommendedArticle4 = {
+  user: {
+    id: '1',
+    username: 'Admin',
+    avatar,
+  },
+  id: '6',
+  title: 'JS news',
+  subtitle: "What's new in JS in 2023?",
+  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  views: 32200,
+  userId: '1',
+  createdAt: '09.08.2022',
+  type: [
+    'IT',
+  ],
+  blocks: [
+    {
+      id: '1',
+      type: 'TEXT',
+      title: 'Introduced top-level await',
+      paragraphs: [
+        'Prior to this, the await keyword could only be used inside async functions, and a syntax error would occur if forced: await is only valid in async functions and the top level bodies of modules',
+        'It is now possible to use await at the top level of a file, which will be treated as an ECMAScript module. Here is the official example:',
+      ],
+    },
+  ],
+} as Article;
+
 export default {
   title: 'pages/ArticleDetailsPage',
   component: ArticleDetailsPage,
-  decorators: [StoreDecorator({
-    articleDetails: {
-      data: article,
-    },
-  })],
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        data: article,
+      },
+      articleRecommendationsList: {
+        ids: [
+          '1',
+          '2',
+          '3',
+          '4',
+        ],
+        entities: {
+          1: recommendedArticle1,
+          2: recommendedArticle2,
+          3: recommendedArticle3,
+          4: recommendedArticle4,
+        },
+      },
+    }),
+  ],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = () => <ArticleDetailsPage />;

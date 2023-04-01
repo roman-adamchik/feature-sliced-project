@@ -1,9 +1,9 @@
-import { type ArticlerecommendationsListSchema } from './model/types/articlerecommendationsListSchema';
-import { articlerecommendationsListReducer } from './model/slices/articlerecommendationsListSlice';
-import { ArticlerecommendationsList } from './ui/ArticleRecomendationsList/ArticleRecommendationsList';
+import { type ArticleRecommendationsListSchema } from './model/types/articleRecommendationsListSchema';
+import { articleRecommendationsListReducer } from './model/slices/articleRecommendationsListSlice';
+import { ArticleRecommendationsList } from './ui/ArticleRecomendationsList/ArticleRecommendationsList';
 
 export {
-  articlerecommendationsListReducer,
-  type ArticlerecommendationsListSchema,
-  ArticlerecommendationsList,
+  articleRecommendationsListReducer,
+  type ArticleRecommendationsListSchema,
+  ArticleRecommendationsList,
 };
