@@ -14,7 +14,9 @@ const initialState = articlesrecommendationsAdapter.getInitialState<Articlerecom
 });
 
 export const getArticlesrecommendations = articlesrecommendationsAdapter.getSelectors(
-  (state: StateSchema) => state.articlerecommendationsList || articlesrecommendationsAdapter.getInitialState(),
+  (state: StateSchema) =>
+    state.articlerecommendationsList ||
+    articlesrecommendationsAdapter.getInitialState(),
 );
 
 export const articlerecommendationsListSlice = createSlice({
