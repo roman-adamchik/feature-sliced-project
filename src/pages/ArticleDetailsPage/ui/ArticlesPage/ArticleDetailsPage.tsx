@@ -11,6 +11,7 @@ import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleDetailsPage.module.scss';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { Page } from 'widgets/Page/Page';
+import { ArticlerecommendationsList } from 'features/ArticleRecommendationsList';
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -49,6 +50,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
         {t('Back to articles list')}
       </Button>
       <ArticleDetails id={id}/>
+      <ArticlerecommendationsList />
       <Text title={t('Comments')} className={cls.commentTitle}/>
       <AddCommentToArticle fetchComments={fetchComments}/>
       <ArticleCommentList articleId={id}/>

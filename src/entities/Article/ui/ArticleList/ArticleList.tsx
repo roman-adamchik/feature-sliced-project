@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
-import { memo } from 'react';
+import { type HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListViewType, type Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Text, TextSize } from 'shared/ui/Text/Text';
@@ -11,6 +11,7 @@ interface ArticleListProps {
   articles?: Article[]
   isLoading?: boolean
   view?: ArticleListViewType
+  target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -19,6 +20,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     articles,
     view = ArticleListViewType.TABLE,
     isLoading,
+    target,
   } = props;
   const { t } = useTranslation();
 
@@ -27,6 +29,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
       article={article}
       key={article.id}
       view={view}
+      target={target}
     />
   );
 

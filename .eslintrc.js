@@ -52,7 +52,12 @@ module.exports = {
       2,
       {
         markupOnly: true,
-        ignoreAttribute: ['to', 'data-testid', 'reducerKey', 'alt'],
+        ignoreAttribute: [
+          'to',
+          'data-testid',
+          'reducerKey',
+          'alt', 
+          'target'],
       }],
     'max-len': [
       'error', 
