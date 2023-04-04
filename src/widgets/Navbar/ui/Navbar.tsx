@@ -6,6 +6,9 @@ import cls from './Navbar.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import { LoginModal } from 'features/AuthByUserName';
 import { useTranslation } from 'react-i18next';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 
 interface NavbarProps {
   className?: string
@@ -34,6 +37,17 @@ export const Navbar = memo((props: NavbarProps) => {
   if (userAuthData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
+      <Text
+        className={cls.appName}
+        title={t('Techno blog app')}
+        theme={TextTheme.INVERTED}
+      />
+      <AppLink
+        to={RoutePath.article_create}
+        theme={AppLinkTheme.SECONDARY}
+      >
+        {t('Create new article')}
+      </AppLink>
       <Button
         className={classNames(cls.button)}
         onClick={handleLogoutClick}
