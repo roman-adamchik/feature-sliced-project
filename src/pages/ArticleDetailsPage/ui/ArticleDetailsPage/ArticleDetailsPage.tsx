@@ -1,7 +1,7 @@
 import { ArticleDetails } from 'entities/Article';
 import { AddCommentToArticle } from 'features/AddCommentToArticle';
 import { ArticleCommentList, fetchCommentsByArticleId } from 'features/ArticleCommentList';
-import { useCallback, type FC } from 'react';
+import { memo, useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -16,7 +16,7 @@ interface ArticleDetailsPageProps {
   className?: string
 }
 
-const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
+const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
   const {
     className = '',
   } = props;
@@ -48,6 +48,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
       <ArticleCommentList articleId={id}/>
     </Page>
   );
-};
+});
 
 export default ArticleDetailsPage;

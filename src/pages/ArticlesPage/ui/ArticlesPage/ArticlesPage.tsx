@@ -1,5 +1,5 @@
 import { ArticleList } from 'entities/Article';
-import { useCallback, type FC } from 'react';
+import { memo, useCallback, type FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -24,7 +24,7 @@ const reducers: ReducersList = {
   articlesPage: articlePageReducer,
 };
 
-const ArticlesPage: FC<ArticlesPageProps> = (props) => {
+const ArticlesPage: FC<ArticlesPageProps> = memo((props) => {
   const {
     className = '',
   } = props;
@@ -68,6 +68,6 @@ const ArticlesPage: FC<ArticlesPageProps> = (props) => {
       </Page>
     </DynamicModuleLoader>
   );
-};
+});
 
 export default ArticlesPage;

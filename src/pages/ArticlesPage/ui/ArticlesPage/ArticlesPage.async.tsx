@@ -1,11 +1,5 @@
-import { type FC, lazy, memo } from 'react';
+import { type FC, lazy } from 'react';
 
-const ArticlesPageAsync = lazy<FC>(
-  async () =>
-    await new Promise((resolve) => {
-      // only for testing purposes
-      setTimeout(() => { resolve(import('./ArticlesPage')); }, 400);
-    }),
+export const ArticlesPageAsync = lazy<FC>(
+  async () => await import('./ArticlesPage'),
 );
-
-export default memo(ArticlesPageAsync);

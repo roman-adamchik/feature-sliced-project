@@ -10,6 +10,8 @@ export default ({ config }: { config: Configuration }): Configuration => {
     build: '',
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: '',
+    buildLocales: '',
   };
   config.resolve?.extensions?.push('.tsx', '.ts');
   config.resolve?.modules?.unshift(paths.src);
