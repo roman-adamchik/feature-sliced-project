@@ -9,4 +9,15 @@
 
 .table {
   flex-flow: row wrap;
+
+  .card {
+    display: inline-flex;
+    flex-wrap: wrap;
+    height: 300px;
+  }
+
+  .row {
+    display: flex;
+    gap: 30px;
+  }
 }
