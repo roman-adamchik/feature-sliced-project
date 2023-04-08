@@ -12,9 +12,9 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { type Currency } from 'entities/Currency';
 import { type Country } from 'entities/Country';
-import { getProfileValidateErrors } from 'features/EditableProfileCard/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ProfileValidationErrors } from 'features/EditableProfileCard/model/types/profile';
+import { ProfileValidationErrors } from '../../model/types/profile';
 import { useTranslation } from 'react-i18next';
 
 interface EditableProfileCardProps {

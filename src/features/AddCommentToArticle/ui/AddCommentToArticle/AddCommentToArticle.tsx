@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { sendCommentForArticle } from 'features/AddCommentToArticle/model/services/sendCommentForArticle/sendCommentForArticle';
+import { sendCommentForArticle } from '../../model/services/sendCommentForArticle/sendCommentForArticle';
 import { AddCommentForm } from 'entities/Comment';
 
 interface AddCommentFormProps {

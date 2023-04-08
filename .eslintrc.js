@@ -33,7 +33,12 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react', 'i18next', "react-hooks"],
+  plugins: [
+    'react',
+    'i18next',
+    "react-hooks",
+    "fsd-slivki"
+  ],
   rules: {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
@@ -79,6 +84,7 @@ module.exports = {
     "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
-    "n/no-callback-literal": "off"
+    "n/no-callback-literal": "off",
+    "fsd-slivki/path-check-relative": "error",
   },
 };
