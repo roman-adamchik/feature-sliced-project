@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './ArticleCommentList.module.scss';
 import { memo } from 'react';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
@@ -36,8 +35,8 @@ export const ArticleCommentList = memo((props: ArticleCommentListProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleCommentList, {}, [className])}>
-      <CommentList comments={comments} isLoading={isLoading} error={error}/>
+      <div className={classNames('', {}, [className])}>
+        <CommentList comments={comments} isLoading={isLoading} error={error}/>
       </div>
     </DynamicModuleLoader>
   );

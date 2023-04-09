@@ -1,5 +1,4 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import cls from './EditableProfileCard.module.scss';
 import { useSelector } from 'react-redux';
 import { ProfileCard } from 'entities/Profile';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
@@ -16,6 +15,7 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfileValidationErrors } from '../../model/types/profile';
 import { useTranslation } from 'react-i18next';
+import { VStack } from 'shared/ui/Stack';
 
 interface EditableProfileCardProps {
   className?: string
@@ -79,7 +79,11 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(cls.editableProfileCard, {}, [className])}>
+    <VStack
+      className={classNames('', {}, [className])}
+      gap='16'
+      align='stretch'
+    >
       <ProfileHeader />
       {validationErrors?.length && validationErrors.map(err => (
         <Text
@@ -102,6 +106,6 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
         handleCountryChange={handleCountryChange}
         readonly={readonly}
       />
-    </div>
+    </VStack>
   );
 };

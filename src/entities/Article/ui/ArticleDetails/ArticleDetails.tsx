@@ -18,6 +18,7 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { HStack, VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
   className?: string
@@ -46,11 +47,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
       case ArticleBlockType.CODE:
-        return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block}/>;
+        return <ArticleCodeBlockComponent key={block.id} block={block}/>;
       case ArticleBlockType.IMAGE:
-        return <ArticleImageBlockComponent key={block.id} className={cls.block} block={block}/>;
+        return <ArticleImageBlockComponent key={block.id} block={block}/>;
       case ArticleBlockType.TEXT:
-        return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block}/>;
+        return <ArticleTextBlockComponent key={block.id} block={block}/>;
       default:
         return null;
     }
@@ -61,29 +62,26 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   if (isLoading) {
     content = (
       <>
-        <Skeleton
-          width={200}
-          height={200}
-          borderRadius={'50%'}
-          className={cls.avatar}
-        />
+        <HStack justify='center' maxWidth>
+          <Skeleton
+            width={200}
+            height={200}
+            borderRadius={'50%'}
+          />
+        </HStack>
         <Skeleton
           height={32}
           width={300}
-          className={cls.title}
         />
         <Skeleton
           height={24}
           width={600}
-          className={cls.skeleton}
         />
         <Skeleton
           height={200}
-          className={cls.skeleton}
         />
         <Skeleton
           height={200}
-          className={cls.skeleton}
         />
       </>
     );
@@ -97,28 +95,32 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   } else {
     content = (
       <>
-        <div className={cls.avatarWrapper}>
+        <HStack justify='center' maxWidth>
           <Avatar
             size={200}
             src={articleData?.img}
             alt="avatar"
-            className={cls.avatar}
           />
-        </div>
+        </HStack>
         <Text
-          className={cls.title}
           size={TextSize.L}
           title={articleData?.title}
           text={articleData?.subtitle}
         />
-        <div className={cls.articleInfo}>
+        <HStack
+          className={cls.articleInfo}
+          gap='4'
+        >
           <EyeIcon />
           <Text text={String(articleData?.views)}/>
-        </div>
-        <div className={cls.articleInfo}>
+        </HStack>
+        <HStack
+          className={cls.articleInfo}
+          gap='4'
+        >
           <CalendarIcon />
           <Text text={articleData?.createdAt}/>
-        </div>
+        </HStack>
         {articleData?.blocks.map(block => renderBlock(block))}
       </>
     );
@@ -126,9 +128,12 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.articleDetails, {}, [className])}>
+      <VStack
+        className={classNames(cls.articleDetails, {}, [className])}
+        gap='8'
+      >
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   );
 });

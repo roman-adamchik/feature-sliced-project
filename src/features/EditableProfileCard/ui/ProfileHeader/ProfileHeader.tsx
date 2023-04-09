@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './ProfileHeader.module.scss';
 import { useSelector } from 'react-redux';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { useCallback } from 'react';
@@ -11,6 +10,7 @@ import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { getUserAuthData } from 'entities/User';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfileHeaderProps {
   className?: string
@@ -42,13 +42,15 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
   }, [dispatch, profileData]);
 
   return (
-    <div className={classNames(cls.profileHeader, {}, [className])}>
+    <HStack
+      className={classNames('', {}, [className])}
+      justify='between'
+    >
       <Text title={t('Profile')}/>
-      {canEdit && <>
+      {canEdit && <HStack justify='between' gap='16'>
         {readonly
           ? <Button
             theme={ButtonTheme.OUTLINE}
-            className={cls.editBtn}
             onClick={handleEdit}
           >
             {t('Edit')}
@@ -56,21 +58,19 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
           : <>
           <Button
                 theme={ButtonTheme.OUTLINE_NEGATIVE}
-                className={cls.editBtn}
                 onClick={handleCancelEdit}
           >
             {t('Cancel')}
           </Button>
           <Button
                 theme={ButtonTheme.OUTLINE}
-                className={cls.saveBtn}
                 onClick={handleSave}
           >
             {t('Save')}
           </Button>
           </>
         }
-      </>}
-    </div>
+      </HStack>}
+    </HStack>
   );
 };

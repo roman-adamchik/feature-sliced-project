@@ -24,17 +24,17 @@ export const CommentCard = memo((props: CommentCardProps) => {
   if (isLoading) {
     return (
       <div className={classNames(cls.commentCard, {}, [className])}>
-      <div className={cls.header}>
-        <Skeleton
-          borderRadius='50%'
-          height={30}
-          width={30}
-        />
-        <Skeleton
-          height={24}
-          width={180}
-        />
-      </div>
+        <div className={cls.header}>
+          <Skeleton
+            borderRadius='50%'
+            height={30}
+            width={30}
+          />
+          <Skeleton
+            height={24}
+            width={180}
+          />
+        </div>
         <Skeleton
             height={80}
             width='100%'

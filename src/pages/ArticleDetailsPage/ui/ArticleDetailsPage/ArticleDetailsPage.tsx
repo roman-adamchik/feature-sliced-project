@@ -7,10 +7,10 @@ import { useParams } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
-import cls from './ArticleDetailsPage.module.scss';
 import { Page } from 'widgets/Page/Page';
 import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -32,20 +32,25 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
 
   if (!id) {
     return (
-      <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         {t('Article is not found')}
       </Page>
     );
   }
 
   return (
-    <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+    <Page className={classNames('', {}, [className])}>
+      <VStack
+        gap='16'
+        align='stretch'
+      >
       <ArticleDetailsPageHeader />
       <ArticleDetails id={id}/>
       <ArticleRecommendationsList />
-      <Text title={t('Comments')} className={cls.commentTitle}/>
+      <Text title={t('Comments')}/>
       <AddCommentToArticle fetchComments={fetchComments}/>
       <ArticleCommentList articleId={id}/>
+      </VStack>
     </Page>
   );
 });

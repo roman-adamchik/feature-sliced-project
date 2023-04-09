@@ -62,7 +62,13 @@ module.exports = {
           'data-testid',
           'reducerKey',
           'alt', 
-          'target'],
+          'target',
+          'justify',
+          'align',
+          'direction',
+          'gap',
+          
+        ],
       }],
     'max-len': [
       'error', 
