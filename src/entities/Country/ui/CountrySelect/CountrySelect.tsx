@@ -1,8 +1,8 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 import { Country } from '../../model/types/country';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
   className?: string
@@ -32,12 +32,14 @@ export const CountrySelect = (props: CountrySelectProps) => {
   }, [onChange]);
 
   return (
-    <Select className={classNames('', {}, [className])}
-      options={currencyOptions}
+    <ListBox className={classNames('', {}, [className])}
+      items={currencyOptions}
       value={value}
-      placeholder={t('Select country')}
-      readOnly={readonly}
+      defaultValue={t('Select country')}
+      readonly={readonly}
       onChange={handleChange}
+      direction='top'
+      label={t('Select country')}
     />
   );
 };
