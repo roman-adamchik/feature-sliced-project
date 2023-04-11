@@ -44,6 +44,18 @@
   text-align: right;
 }
 
+.size_s {
+  .title {
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-m);
+  }
+
+  .text {
+    font-size: var(--font-size-s);
+    line-height: var(--font-line-s);
+  }
+}
+
 .size_m {
   .title {
     font-size: var(--font-size-l);

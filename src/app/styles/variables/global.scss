@@ -1,11 +1,22 @@
 :root {
   --font-family-main: menlo, avenir, sans-serif;
+
+  // Size S
+  --font-size-s: 12px;
+  --font-line-s: 20px;
+  --font-s: var(--font-line-s) / var(--font-line-s) var(--font-family-main);
+
+  // Size M
   --font-size-m: 16px;
   --font-line-m: 24px;
   --font-m: var(--font-line-m) / var(--font-line-m) var(--font-family-main);
+
+  // Size L
   --font-size-l: 24px;
   --font-line-l: 32px;
   --font-l: var(--font-line-l) / var(--font-line-l) var(--font-family-main);
+
+  // Size XL
   --font-size-xl: 32px;
   --font-line-xl: 40px;
   --font-xl: var(--font-line-xl) / var(--font-line-xl) var(--font-family-main);
