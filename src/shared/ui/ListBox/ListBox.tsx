@@ -5,7 +5,7 @@ import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../Button/Button';
 import { HStack } from '../Stack';
 
-interface ListBoxItem {
+export interface ListBoxItem {
   value: string
   content: ReactNode
   unavailable?: boolean
