@@ -38,7 +38,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
       defaultValue={t('Select country')}
       readonly={readonly}
       onChange={handleChange}
-      direction='top'
+      direction='top right'
       label={t('Select country')}
     />
   );

@@ -40,7 +40,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
       defaultValue={t('Select currency')}
       label={t('Select currency')}
       readonly={readonly}
-      direction='top'
+      direction='top right'
     />
   );
 };

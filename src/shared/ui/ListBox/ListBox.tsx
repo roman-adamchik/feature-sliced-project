@@ -4,14 +4,13 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames, type Mods } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '../Button/Button';
 import { HStack } from '../Stack';
+import { type DropdownDirection } from 'shared/types/ui';
 
 export interface ListBoxItem {
   value: string
   content: ReactNode
   unavailable?: boolean
 }
-
-type DropdownDirection = 'top' | 'bottom';
 
 interface ListBoxProps {
   className?: string
@@ -32,12 +31,15 @@ export const ListBox = (props: ListBoxProps) => {
     defaultValue,
     onChange,
     readonly,
-    direction = 'bottom',
+    direction = 'bottom right',
     label,
   } = props;
 
   const optionsMods: Mods = {
-    [cls.optionsTop]: direction === 'top',
+    [cls.optionsTopLeft]: direction === 'top left',
+    [cls.optionsTopRight]: direction === 'top right',
+    [cls.optionsBottomLeft]: direction === 'bottom left',
+    [cls.optionsBottomLeft]: direction === 'bottom right',
   };
 
   return (

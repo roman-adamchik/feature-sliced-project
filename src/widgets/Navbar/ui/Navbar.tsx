@@ -9,6 +9,8 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface NavbarProps {
   className?: string
@@ -48,13 +50,24 @@ export const Navbar = memo((props: NavbarProps) => {
       >
         {t('Create new article')}
       </AppLink>
-      <Button
-        className={classNames(cls.button)}
-        onClick={handleLogoutClick}
-        theme={ButtonTheme.CLEAR_INVERTED}
-      >
-        {t('Logout')}
-      </Button>
+      <Dropdown
+        items={[
+          {
+            key: 'profile',
+            content: t('Profile'),
+            href: RoutePath.profile + userAuthData.id,
+          },
+          {
+            key: 'logout',
+            content: t('Logout'),
+            onClick: handleLogoutClick,
+          },
+        ]}
+        triggerElement={<Avatar src={userAuthData.avatar} alt="avatar" size={30}/>}
+        className={cls.dropdown}
+        direction='bottom left'
+      />
+
     </header>
     );
   }

@@ -23,7 +23,7 @@
       "module": "CommonJS"
     }
   },
-  "files": ["webpack.config.ts"],
+  "files": ["webpack.config.ts", "./src/shared/ui/ListBox/DropdownDirection.tsx"],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
