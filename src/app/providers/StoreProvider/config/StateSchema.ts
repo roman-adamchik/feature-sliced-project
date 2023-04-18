@@ -11,12 +11,13 @@ import { type AddCommentFormSchema } from 'entities/Comment';
 import { type AppDispatch } from './store';
 import { type ArticlePageSchema } from 'pages/ArticlesPage';
 import { type UISchema } from 'features/UI';
-import { type ArticleRecommendationsListSchema } from 'features/ArticleRecommendationsList';
+import { type rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
   ui: UISchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // async reducers
   loginForm?: LoginSchema
@@ -25,7 +26,6 @@ export interface StateSchema {
   articleDetailsComments?: ArticleDetailsCommentSchema
   addCommentForm?: AddCommentFormSchema
   articlesPage?: ArticlePageSchema
-  articleRecommendationsList?: ArticleRecommendationsListSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

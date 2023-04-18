@@ -522,6 +522,18 @@
       "userId": "1",
       "text": "and what about java?",
       "id": "CRda_f8"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "test",
+      "id": "nLZMxtz"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "one more comment",
+      "id": "J-CJNBO"
     }
   ],
   "users": [
@@ -546,7 +558,7 @@
       "name": "John",
       "lastname": "Smith",
       "age": 49,
-      "currency": "BYN",
+      "currency": "EUR",
       "country": "USA",
       "city": "New York",
       "username": "admin",

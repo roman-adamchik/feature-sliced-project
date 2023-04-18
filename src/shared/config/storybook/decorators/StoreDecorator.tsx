@@ -8,7 +8,6 @@ import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetai
 import { articleDetailsCommentsReducer } from 'features/ArticleCommentList/model/slice/articleDetailsCommentsSlice';
 import { addCommentFormReducer } from 'entities/Comment/model/slice/addCommentFormSlice';
 import { articlePageReducer } from 'pages/ArticlesPage/model/slice/articlePageSlice';
-import { articleRecommendationsListReducer } from 'features/ArticleRecommendationsList';
 
 const defaultReducers: ReducersList = {
   loginForm: loginReducer,
@@ -17,7 +16,6 @@ const defaultReducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer,
   addCommentForm: addCommentFormReducer,
   articlesPage: articlePageReducer,
-  articleRecommendationsList: articleRecommendationsListReducer,
 };
 
 export const StoreDecorator = (

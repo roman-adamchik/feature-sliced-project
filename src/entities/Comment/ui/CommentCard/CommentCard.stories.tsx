@@ -5,7 +5,7 @@ import { CommentCard } from './CommentCard';
 import avatar from 'shared/assets/tests/avatar.jpg';
 
 export default {
-  title: 'entities/CommentCard',
+  title: 'entities/comment/CommentCard',
   component: CommentCard,
   args: {
     comment: {

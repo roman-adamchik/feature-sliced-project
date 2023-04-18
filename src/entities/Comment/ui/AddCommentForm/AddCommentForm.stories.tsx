@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 
 export default {
-  title: 'entities/AddCommentForm',
+  title: 'entities/comment/AddCommentForm',
   component: AddCommentForm,
   args: {
     sendComment: action('sendComment'),
