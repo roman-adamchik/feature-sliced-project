@@ -97,46 +97,54 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         placeholder={t('Your name')}
         readOnly={readonly}
         onChange={handleNameChange}
+        data-testid='ProfileCard.firstName'
       />
       <Input
         value={data?.lastname}
         placeholder={t('Your last name')}
         readOnly={readonly}
         onChange={handleLastnameChange}
+        data-testid='ProfileCard.lastName'
       />
       <Input
         value={data?.age}
         placeholder={t('Your age')}
         readOnly={readonly}
         onChange={handleAgeChange}
+        data-testid='ProfileCard.age'
       />
       <Input
         value={data?.city}
         placeholder={t('Your city')}
         readOnly={readonly}
         onChange={handleCityChange}
+        data-testid='ProfileCard.city'
       />
       <Input
         value={data?.username}
         placeholder={t('Your username')}
         readOnly={readonly}
         onChange={handleUsernameChange}
+        data-testid='ProfileCard.username'
       />
       <Input
         value={data?.avatar}
         placeholder={t('Your avatar url')}
         readOnly={readonly}
         onChange={handleAvatarChange}
+        data-testid='ProfileCard.avatar'
       />
       <CurrencySelect
         readonly={readonly}
         value={data?.currency}
         onChange={handleCurrencyChange}
+        data-testid='ProfileCard.currency'
       />
       <CountrySelect
         readonly={readonly}
         value={data?.country}
         onChange={handleCountryChange}
+        data-testid='ProfileCard.country'
       />
     </VStack>
   );

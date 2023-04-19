@@ -52,6 +52,7 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
           ? <Button
             theme={ButtonTheme.OUTLINE}
             onClick={handleEdit}
+            data-testid='ProfileHeader.editButton'
           >
             {t('Edit')}
           </Button>
@@ -59,12 +60,14 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
           <Button
                 theme={ButtonTheme.OUTLINE_NEGATIVE}
                 onClick={handleCancelEdit}
+                data-testid='ProfileHeader.cancelButton'
           >
             {t('Cancel')}
           </Button>
           <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={handleSave}
+                data-testid='ProfileHeader.saveButton'
           >
             {t('Save')}
           </Button>

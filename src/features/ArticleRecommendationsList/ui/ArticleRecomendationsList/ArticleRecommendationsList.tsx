@@ -31,6 +31,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
           isLoading={isLoading}
           className={cls.recommendations}
           target="_blank"
+          virtualized={false}
       />
     </VStack>
   );
