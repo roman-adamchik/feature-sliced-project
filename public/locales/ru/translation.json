@@ -1,6 +1,9 @@
 {
   "About": "О нас",
   "About page": "О нас",
+  "Admin": "Admin",
+  "Admin Panel": "Admin Panel",
+  "Admin panel": "Admin panel",
   "All": "All",
   "Article is not found": "Article is not found",
   "Asc": "Asc",
@@ -19,6 +22,7 @@
   "Error loading article list": "Error loading article list",
   "Error loading comments": "Error loading comments",
   "Error loading the article": "Error loading the article",
+  "Forbidden page": "Forbidden page",
   "IT": "IT",
   "Incorrect age": "Incorrect age",
   "Incorrect avatar link": "Incorrect avatar link",

@@ -1,4 +1,4 @@
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User';
 import { memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -22,6 +22,8 @@ export const Navbar = memo((props: NavbarProps) => {
   const { t } = useTranslation();
   const userAuthData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
+  const isAdmin = useSelector(isUserAdmin);
+  const isManager = useSelector(isUserManager);
 
   const handleModalOpen = useCallback(() => {
     setIsModalOpen(true);
@@ -35,6 +37,8 @@ export const Navbar = memo((props: NavbarProps) => {
     setIsModalOpen(false);
     dispatch(userActions.logout());
   }, [dispatch]);
+
+  const isAdminPanelAvailable = isAdmin || isManager;
 
   if (userAuthData) {
     return (
@@ -52,6 +56,13 @@ export const Navbar = memo((props: NavbarProps) => {
       </AppLink>
       <Dropdown
         items={[
+          ...(isAdminPanelAvailable
+            ? [{
+                key: 'adminPage',
+                content: t('Admin'),
+                href: RoutePath.admin_panel,
+              }]
+            : []),
           {
             key: 'profile',
             content: t('Profile'),

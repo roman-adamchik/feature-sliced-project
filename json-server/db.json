@@ -541,15 +541,22 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
+      "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
     }
   ],
   "profile": [
