@@ -6,7 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text } from 'shared/ui/Text/Text';
 
 interface ArticleDetailsCommentsProps {
-  id: string
+  id?: string
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {

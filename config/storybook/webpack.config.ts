@@ -18,7 +18,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config.module?.rules?.push(BuildCssLoader(true));
   config.plugins?.push(new DefinePlugin({
     GLOBAL_IS_DEV: JSON.stringify(true),
-    GLOBAL_API_URL: JSON.stringify(''),
+    GLOBAL_API_URL: JSON.stringify('https://testapi.com'),
     GLOBAL_PROJECT: JSON.stringify('storybook'),
   }));
   if (config.module?.rules) {

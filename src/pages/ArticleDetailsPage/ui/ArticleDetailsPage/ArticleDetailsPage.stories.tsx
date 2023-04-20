@@ -195,7 +195,7 @@ const article: Article = {
 // } as Article;
 
 export default {
-  title: 'pages/ArticleDetailsPage',
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   decorators: [
     StoreDecorator({

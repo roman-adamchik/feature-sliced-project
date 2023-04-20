@@ -3,6 +3,7 @@ import { Theme } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybook/decorators/ThemeDecorator";
 import { StyleDecorator } from "shared/config/storybook/decorators/StyleDecorator"
 import { RouterDecorator } from "shared/config/storybook/decorators/RouterDecorator";
+import { SuspenseDecorator } from "shared/config/storybook/decorators/SuspenseDecorator";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -17,3 +18,4 @@ export const parameters = {
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(Theme.LIGHT));
 addDecorator(RouterDecorator);
+addDecorator(SuspenseDecorator);

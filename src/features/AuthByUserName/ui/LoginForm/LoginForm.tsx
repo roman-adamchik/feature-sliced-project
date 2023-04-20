@@ -32,11 +32,11 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const handleUsernameChange = useCallback((value) => {
+  const handleUsernameChange = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
   }, [dispatch]);
 
-  const handlePasswordChange = useCallback((value) => {
+  const handlePasswordChange = useCallback((value: string) => {
     dispatch(loginActions.setPassword(value));
   }, [dispatch]);
 

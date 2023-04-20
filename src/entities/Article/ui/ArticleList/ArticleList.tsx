@@ -82,6 +82,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
+      // @ts-expect-error deprecated library need to replace in future
       <WindowScroller
         scrollElement={document.getElementById('page') ?? window}
       >
@@ -94,11 +95,13 @@ export const ArticleList = memo((props: ArticleListProps) => {
           scrollTop,
         }) => (
           <div
+            // @ts-expect-error deprecated library need to replace in future
             ref={registerChild}
             className={classNames(cls.articleList, {}, [className, cls[view]])}
           >
             {virtualized
               ? (
+              // @ts-expect-error deprecated library need to replace in future
               <List
                 autoHeight
                 autoWidth={isListView}

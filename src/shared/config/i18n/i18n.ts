@@ -12,6 +12,7 @@ void i18n
     fallbackLng: 'en',
     keySeparator: false,
     debug: GLOBAL_IS_DEV,
+    returnNull: false,
 
     interpolation: {
       escapeValue: false,
