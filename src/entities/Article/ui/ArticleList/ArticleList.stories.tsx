@@ -1,8 +1,9 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
-import { ArticleListViewType, type Article } from '../../model/types/article';
+import { type Article } from '../../model/types/article';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ArticleList } from './ArticleList';
+import { ArticleListViewType } from '../../model/consts/consts';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 const article = {

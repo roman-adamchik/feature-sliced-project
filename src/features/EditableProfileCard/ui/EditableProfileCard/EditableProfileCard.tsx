@@ -13,12 +13,12 @@ import { type Currency } from 'entities/Currency';
 import { type Country } from 'entities/Country';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { ProfileValidationErrors } from '../../model/types/profile';
 import { useTranslation } from 'react-i18next';
 import { VStack } from 'shared/ui/Stack';
 import { DynamicModuleLoader, type ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { ProfileValidationErrors } from '../../model/consts/consts';
 
 interface EditableProfileCardProps {
   className?: string

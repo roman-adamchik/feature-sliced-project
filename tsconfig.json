@@ -16,6 +16,7 @@
     },
     "esModuleInterop": true, // allow to use regular JS imports with packages written in CommonJS
     "allowSyntheticDefaultImports": true, // allow to use regular JS imports instead of "import * as ..."
+    "isolatedModules": true,
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "ts-node": {

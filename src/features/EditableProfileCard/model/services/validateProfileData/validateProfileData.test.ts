@@ -1,7 +1,7 @@
 import { validateProfileData } from './validateProfileData';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { ProfileValidationErrors } from '../../types/profile';
+import { ProfileValidationErrors } from '../../consts/consts';
 
 const profileData = {
   name: 'John',

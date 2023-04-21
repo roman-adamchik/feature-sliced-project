@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { memo, type HTMLAttributeAnchorTarget } from 'react';
-import { ArticleBlockType, ArticleListViewType, type ArticleTextBlock, type Article } from '../../model/types/article';
+import { type ArticleTextBlock, type Article } from '../../model/types/article';
 import { Text } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { Card } from 'shared/ui/Card/Card';
@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ArticleBlockType, ArticleListViewType } from '../../model/consts/consts';
 
 interface ArticleListItemProps {
   className?: string

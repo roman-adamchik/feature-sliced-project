@@ -1,11 +1,12 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
 import { type HTMLAttributeAnchorTarget, memo, type ReactNode } from 'react';
-import { ArticleListViewType, type Article } from '../../model/types/article';
+import { type Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { List, WindowScroller, type ListRowProps } from 'react-virtualized';
+import { ArticleListViewType } from '../../model/consts/consts';
 
 interface ArticleListProps {
   className?: string
