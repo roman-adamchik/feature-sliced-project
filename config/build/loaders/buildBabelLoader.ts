@@ -44,13 +44,6 @@ export const buildBabelLoader = (props: buildBabelLoaderProps): RuleSetRule => {
     use: {
       loader: 'babel-loader',
       options: {
-        presets: [
-          '@babel/preset-env',
-          '@babel/preset-typescript',
-          ['@babel/preset-react', {
-            runtime: 'automatic',
-          }],
-        ],
         plugins: [
           ...plugins,
           ...(mode === 'production' ? productionOnlyPlugins : []),
