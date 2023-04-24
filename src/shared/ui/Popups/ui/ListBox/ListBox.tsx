@@ -1,10 +1,12 @@
 import cls from './ListBox.module.scss';
+import clsPopup from '../../styles/popup.module.scss';
 import { Fragment, type ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames, type Mods } from 'shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '../Button/Button';
-import { HStack } from '../Stack';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Button, ButtonTheme } from '../../../Button/Button';
+import { HStack } from '../../../Stack';
 import { type DropdownDirection } from 'shared/types/ui';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface ListBoxItem {
   value: string
@@ -35,19 +37,18 @@ export const ListBox = (props: ListBoxProps) => {
     label,
   } = props;
 
-  const optionsMods: Mods = {
-    [cls.optionsTopLeft]: direction === 'top left',
-    [cls.optionsTopRight]: direction === 'top right',
-    [cls.optionsBottomLeft]: direction === 'bottom left',
-    [cls.optionsBottomLeft]: direction === 'bottom right',
-  };
-
   return (
     <HStack gap='4'>
-      {label && <span className={classNames(cls.label, { [cls.disabled]: readonly })}>{`${label}>`}</span>}
+      {label && (
+        <span
+          className={classNames(cls.label, { [clsPopup.disabled]: readonly })}
+        >
+          {`${label}>`}
+        </span>
+      )}
       <HListBox
         as='div'
-        className={classNames(cls.listBox, {}, [className])}
+        className={classNames('', {}, [className, clsPopup.popup])}
         value={value}
         onChange={onChange}
         disabled={readonly}
@@ -62,7 +63,7 @@ export const ListBox = (props: ListBoxProps) => {
             {value ?? defaultValue}
           </Button>
         </HListBox.Button>
-        <HListBox.Options className={classNames(cls.options, optionsMods)}>
+        <HListBox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
           {items?.map((item) => (
             <HListBox.Option
               key={item.value}
@@ -75,8 +76,8 @@ export const ListBox = (props: ListBoxProps) => {
                   className={classNames(
                     cls.item,
                     {
-                      [cls.active]: active,
-                      [cls.disabled]: disabled,
+                      [clsPopup.active]: active,
+                      [clsPopup.disabled]: disabled,
                     },
                   )}
                 >

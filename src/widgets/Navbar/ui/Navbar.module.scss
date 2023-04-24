@@ -4,15 +4,18 @@
   background: var(--inverted-bg-color);
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 0 20px;
 }
 
-.button,
-.dropdown {
+.button {
   margin-left: auto;
 }
 
 .appName {
   width: var(--sidebar-width);
   margin-left: 15px;
+}
+
+.actions {
+  margin-left: auto;
 }

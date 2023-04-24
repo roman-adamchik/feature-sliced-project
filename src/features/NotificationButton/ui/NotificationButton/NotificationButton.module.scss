@@ -1,0 +1,16 @@
+.notificationButton {
+  opacity: 1;
+}
+
+.trigger {
+  min-height: 150px;
+  max-height: 300px;
+  width: 500px;
+  overflow-y: auto;
+}
+
+.alarmIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--inverted-primary-color);
+}
