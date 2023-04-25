@@ -2,13 +2,13 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import {
   type FC,
   type ReactNode,
-  type MouseEvent,
   useState,
   useRef,
   useEffect,
   useCallback,
 } from 'react';
 import { classNames, type Mods } from 'shared/lib/classNames/classNames';
+import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -46,10 +46,6 @@ export const Modal: FC<ModalProps> = (props) => {
     }
   }, [onClose]);
 
-  const handleContentClick = (e: MouseEvent): void => {
-    e.stopPropagation();
-  };
-
   const keyDownHandler = useCallback((e: KeyboardEvent): void => {
     if (e.code === 'Escape') {
       closeHandler();
@@ -85,16 +81,11 @@ export const Modal: FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div className={classNames(cls.modal, mods, [className, theme])}>
+        <Overlay onClick={closeHandler} className={cls.overlay}/>
         <div
-        className={cls.overlay}
-        onClick={closeHandler}
-        >
-          <div
           className={cls.content}
-          onClick={handleContentClick}
-          >
-            {children}
-          </div>
+        >
+          {children}
         </div>
       </div>
     </Portal>

@@ -7,6 +7,9 @@
   z-index: -1;
   opacity: 0;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlay {
@@ -14,9 +17,6 @@
   height: 100%;
   background-color: var(--color-bg-overlay);
   opacity: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .content {
@@ -40,7 +40,8 @@
 
   .content {
     transform: scaleY(1);
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.2s;
+    opacity: 1;
   }
 }
 
@@ -51,5 +52,6 @@
 
   .content {
     transform: scaleY(0.6);
+    opacity: 0;
   }
 }

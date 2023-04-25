@@ -2,10 +2,10 @@
   opacity: 1;
 }
 
-.trigger {
+.notificationList {
   min-height: 150px;
   max-height: 300px;
-  width: 500px;
+  min-width: 300px;
   overflow-y: auto;
 }
 
