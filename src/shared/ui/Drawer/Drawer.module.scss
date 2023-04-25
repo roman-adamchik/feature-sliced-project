@@ -1,4 +1,4 @@
-.Drawer {
+.drawer {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -47,5 +47,11 @@
 
   .content {
     transform: translateY(0%);
+  }
+}
+
+.isClosing {
+  .content {
+    transform: translateY(100%);
   }
 }

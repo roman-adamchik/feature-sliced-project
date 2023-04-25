@@ -2,12 +2,9 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import {
   type FC,
   type ReactNode,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
 } from 'react';
 import { classNames, type Mods } from 'shared/lib/classNames/classNames';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import { Overlay } from '../Overlay/Overlay';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
@@ -20,8 +17,6 @@ interface ModalProps {
   lazy?: boolean
 }
 
-const ANIMATION_DELAY = 300;
-
 export const Modal: FC<ModalProps> = (props) => {
   const {
     className = '',
@@ -30,44 +25,8 @@ export const Modal: FC<ModalProps> = (props) => {
     onClose,
     lazy,
   } = props;
-
-  const [isClosing, setIsClosing] = useState<boolean>(false);
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-  const modalRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
-
-  const closeHandler = useCallback((): void => {
-    if (onClose) {
-      setIsClosing(true);
-      modalRef.current = setTimeout(() => {
-        onClose();
-        setIsClosing(false);
-      }, ANIMATION_DELAY);
-    }
-  }, [onClose]);
-
-  const keyDownHandler = useCallback((e: KeyboardEvent): void => {
-    if (e.code === 'Escape') {
-      closeHandler();
-    }
-  }, [closeHandler]);
-
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', keyDownHandler);
-    }
-
-    return () => {
-      clearInterval(modalRef.current);
-      window.removeEventListener('keydown', keyDownHandler);
-    };
-  }, [isOpen, keyDownHandler]);
+  const { isClosing, isMounted, close } = useModal({ isOpen, onClose });
 
   const mods: Mods = {
     [cls.opened]: isOpen,
@@ -81,7 +40,7 @@ export const Modal: FC<ModalProps> = (props) => {
   return (
     <Portal>
       <div className={classNames(cls.modal, mods, [className, theme])}>
-        <Overlay onClick={closeHandler} className={cls.overlay}/>
+        <Overlay onClick={close} className={cls.overlay}/>
         <div
           className={cls.content}
         >
