@@ -1,43 +1,12 @@
-.drawer {
+.Drawer {
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  opacity: 0;
-  pointer-events: none;
-  z-index: -1;
+  z-index: 100;
   display: flex;
   align-items: flex-end;
-}
-
-.content {
-  height: 70%;
-  background: var(--bg-color);
-  bottom: 0;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  position: relative;
-  width: 100%;
-  min-height: 100px;
-  padding: 20px;
-  transition: 0.3s transform;
-  transform: translateY(100%);
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 10000;
-}
-
-.content::before {
-  content: "";
-  position: relative;
-  display: block;
-  width: 100px;
-  height: 10px;
-  background: var(--bg-color);
-  margin: auto;
-  bottom: 40px;
-  border-radius: 12px;
 }
 
 .opened {
@@ -50,8 +19,14 @@
   }
 }
 
-.isClosing {
-  .content {
-    transform: translateY(100%);
-  }
+.sheet {
+  z-index: var(--modal-z-index);
+  position: fixed;
+  left: 2vw;
+  height: calc(100vh + 100px);
+  width: 96vw;
+  border-radius: 12px 12px 0;
+  background: var(--bg-color);
+  touch-action: none;
+  padding: 15px;
 }

@@ -12,6 +12,7 @@ import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { HStack } from 'shared/ui/Stack';
 import { NotificationButton } from 'features/NotificationButton';
 import { AvatarDropdown } from 'features/AvatarDropdown';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 
 interface NavbarProps {
   className?: string
@@ -46,7 +47,9 @@ export const Navbar = memo((props: NavbarProps) => {
         {t('Create new article')}
       </AppLink>
       <HStack gap='16' className={cls.actions}>
-        <NotificationButton />
+        <AnimationProvider>
+          <NotificationButton />
+        </AnimationProvider>
         <AvatarDropdown setIsModalOpen={setIsModalOpen}/>
       </HStack>
     </header>
