@@ -95,5 +95,6 @@ module.exports = {
     "n/no-callback-literal": "off",
     "fsd-slivki/path-check-relative": "error",
     "@typescript-eslint/consistent-type-imports": 'off',
+    "@typescript-eslint/no-non-null-assertion": "off"
   },
 };
