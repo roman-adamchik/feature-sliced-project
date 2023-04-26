@@ -1,10 +1,10 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import ArticlesPage from './ArticlesPage';
 import { type ArticlePageSchema } from '../../model/types/articlePageSchema';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ArticleListViewType, ArticleSortField, ArticleType } from 'entities/Article';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ArticleListViewType, ArticleSortField, ArticleType } from '@/entities/Article';
 
 const articlesPage = {
   ids: [

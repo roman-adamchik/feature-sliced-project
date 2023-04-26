@@ -1,9 +1,9 @@
-import { addCommentFormActions } from 'entities/Comment';
-import { getUserAuthData } from 'entities/User';
+import { addCommentFormActions } from '@/entities/Comment';
+import { getUserAuthData } from '@/entities/User';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type ThunkConfig } from 'app/providers/StoreProvider';
-import { type Comment } from 'entities/Comment';
-import { getArticleDetailsData } from 'entities/Article';
+import { type ThunkConfig } from '@/app/providers/StoreProvider';
+import { type Comment } from '@/entities/Comment';
+import { getArticleDetailsData } from '@/entities/Article';
 
 export const sendCommentForArticle = createAsyncThunk<Comment, string, ThunkConfig<string>>(
   'addCommentForm/sendCommentForArticle',

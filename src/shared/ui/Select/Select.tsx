@@ -4,7 +4,7 @@ import {
   type ChangeEvent,
   useMemo,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
 type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'value' | 'onChange'>;

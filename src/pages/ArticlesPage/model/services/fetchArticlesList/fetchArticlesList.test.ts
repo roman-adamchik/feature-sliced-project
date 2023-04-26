@@ -1,5 +1,5 @@
-import { type Article } from 'entities/Article';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { type Article } from '@/entities/Article';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchArticlesList } from './fetchArticlesList';
 
 const articlesData: DeepPartial<Article[]> = [

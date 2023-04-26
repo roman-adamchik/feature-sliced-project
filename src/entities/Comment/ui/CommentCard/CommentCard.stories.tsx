@@ -1,8 +1,8 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { CommentCard } from './CommentCard';
-import avatar from 'shared/assets/tests/avatar.jpg';
+import avatar from '@/shared/assets/tests/avatar.jpg';
 
 export default {
   title: 'entities/comment/CommentCard',

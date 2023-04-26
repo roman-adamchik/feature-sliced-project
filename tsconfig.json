@@ -10,7 +10,7 @@
     "moduleResolution": "node",
     "baseUrl": ".", // for absolute import
     "paths": {
-      "*": [
+      "@/*": [
         "./src/*"
       ]
     },
@@ -28,6 +28,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "config/**/*"
+    "config/**/*",
+    "scripts/**/*"
   ],
 }

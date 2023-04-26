@@ -1,4 +1,4 @@
-import { ArticleListViewType } from 'entities/Article';
+import { ArticleListViewType } from '@/entities/Article';
 import { articlePageActions, articlePageReducer } from './articlePageSlice';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { type ArticlePageSchema } from '../types/articlePageSchema';

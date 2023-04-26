@@ -1,5 +1,5 @@
-import { type StateSchema } from 'app/providers/StoreProvider';
-import { ArticleListViewType } from 'entities/Article';
+import { type StateSchema } from '@/app/providers/StoreProvider';
+import { ArticleListViewType } from '@/entities/Article';
 import { getArticlesPageError, getArticlesPageIsLoading, getArticlesPageView } from './articlesPageSelectors';
 
 describe('getArticlesPageIsLoading', () => {

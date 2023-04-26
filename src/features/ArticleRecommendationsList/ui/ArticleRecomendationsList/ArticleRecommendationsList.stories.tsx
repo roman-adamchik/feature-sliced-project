@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import { type ComponentStory, type ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 import withMock from 'storybook-addon-mock';
 

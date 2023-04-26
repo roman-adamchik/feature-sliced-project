@@ -1,4 +1,4 @@
-import 'app/styles/index.scss';
+import '@/app/styles/index.scss';
 import { type Story } from '@storybook/react';
 import { type ReactElement } from 'react';
 

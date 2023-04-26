@@ -1,11 +1,11 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails } from '@/entities/Article';
 import { memo, type FC } from 'react';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'widgets/Page/Page';
-import { ArticleRecommendationsList } from 'features/ArticleRecommendationsList';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page/Page';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 
 interface ArticleDetailsPageProps {
