@@ -24,6 +24,7 @@ export const Popover = (props: PopoverProps) => {
   return (
     <HPopover className={classNames(cls.popover, {}, [className, clsPopup.popup])}>
     <HPopover.Button
+      as='div'
       className={clsPopup.trigger}
     >
       {triggerElement}
