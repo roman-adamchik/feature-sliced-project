@@ -7,6 +7,7 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
   className?: string
@@ -18,6 +19,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
   } = props;
   const { id } = useParams<{ id: string }>();
 
+  if (!id) return null;
+
   return (
     <Page className={classNames('', {}, [className])}>
       <VStack
@@ -26,6 +29,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
       >
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id}/>
+        <ArticleRating articleId={id}/>
         <ArticleRecommendationsList />
         <ArticleDetailsComments id={id}/>
       </VStack>

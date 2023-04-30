@@ -584,7 +584,7 @@
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
     },
     {
-      "id": "2",
+      "id": "3",
       "username": "manager",
       "password": "123",
       "roles": [
@@ -615,6 +615,63 @@
       "city": "Los Angeles",
       "username": "user",
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Manager",
+      "lastname": "Dawson",
+      "age": 19,
+      "currency": "USD",
+      "country": "USA",
+      "city": "Los Angeles",
+      "username": "manager",
+      "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
+    }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": "4",
+      "feedback": "Good article!",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "rate": "4",
+      "feedback": "Good article!",
+      "articleId": "2",
+      "userId": "1"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "feedback": "best article!",
+      "rate": 5,
+      "id": "J7VzU1O"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": "4",
+      "feedback": "Good author!",
+      "profileId": "2",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "rate": "4",
+      "feedback": "Good author!",
+      "profileId": "3",
+      "userId": "1"
+    },
+    {
+      "profileId": "1",
+      "userId": "1",
+      "feedback": "cool author",
+      "rate": 3,
+      "id": "8W4Nxv0"
     }
   ]
 }
