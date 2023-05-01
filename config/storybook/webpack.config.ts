@@ -33,6 +33,7 @@ export default ({ config }: { config: Configuration }): Configuration => {
 
   config?.module?.rules?.push(buildSvgLoader());
   config.resolve!.alias = {
+    ...config.resolve?.alias,
     '@': paths.src,
   };
 
