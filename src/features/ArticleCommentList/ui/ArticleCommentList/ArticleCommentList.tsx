@@ -1,7 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+import {
+  articleDetailsCommentsReducer,
+  getArticleComments,
+} from '../../model/slice/articleDetailsCommentsSlice';
 import { CommentList } from '@/entities/Comment';
 import { useSelector } from 'react-redux';
 import { getArticleCommentsError, getArticleCommentsIsLoading } from '../../selectors/comments/comments';

@@ -93,7 +93,7 @@ module.exports = {
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-invalid-void-type": "off",
     "n/no-callback-literal": "off",
-    "fsd-slivki/path-check-relative": "error",
+    "fsd-slivki/path-check-relative": ["error", {alias: '@'}],
     "@typescript-eslint/consistent-type-imports": 'off',
     "@typescript-eslint/no-non-null-assertion": "off"
   },
