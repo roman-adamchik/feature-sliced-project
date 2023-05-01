@@ -94,7 +94,13 @@ module.exports = {
     "@typescript-eslint/no-invalid-void-type": "off",
     "n/no-callback-literal": "off",
     "fsd-slivki/path-check-relative": ["error", {alias: '@'}],
-    "fsd-slivki/path-check-public-api": ["error", {alias: '@'}],
+    "fsd-slivki/path-check-public-api": [
+      "error",
+      {
+        alias: '@',
+        testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
+      }
+    ],
     "@typescript-eslint/consistent-type-imports": 'off',
     "@typescript-eslint/no-non-null-assertion": "off"
   },

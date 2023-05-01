@@ -1,4 +1,3 @@
-import { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 import {
   ArticleType, ArticleBlockType, ArticleListViewType, ArticleSortField,
 } from './model/consts/consts';
@@ -12,7 +11,6 @@ import { type Article } from './model/types/article';
 import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 
 export {
-  articleDetailsReducer,
   ArticleDetails,
   type ArticleDetailsSchema,
   type Article,
