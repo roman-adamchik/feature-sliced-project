@@ -9,10 +9,10 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleListViewType } from '../../model/consts/consts';
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticleListItemProps {
   className?: string

@@ -30,8 +30,7 @@
   "author": "",
   "license": "ISC",
   "browserslist": [
-    "defaults and supports es6-module",
-    "maintained node versions"
+    "defaults and supports es6-module"
   ],
   "devDependencies": {
     "@babel/core": "^7.17.5",
