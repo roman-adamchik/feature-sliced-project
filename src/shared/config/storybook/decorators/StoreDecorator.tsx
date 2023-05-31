@@ -3,7 +3,7 @@ import { type StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { type ReactElement } from 'react';
 import { loginReducer } from '@/features/AuthByUserName/testing';
 import { type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileReducer } from '@/features/EditableProfileCard';
+import { profileReducer } from '@/features/EditableProfileCard/testing';
 import { articleDetailsReducer } from '@/entities/Article/testing';
 import { articleDetailsCommentsReducer } from '@/features/ArticleCommentList/testing';
 import { addCommentFormReducer } from '@/entities/Comment/testing';

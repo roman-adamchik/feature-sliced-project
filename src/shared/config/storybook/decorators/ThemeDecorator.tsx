@@ -1,5 +1,7 @@
+// eslint-disable-next-line fsd-slivki/path-check-layers
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { type Story } from '@storybook/react';
-import { ThemeProvider, type Theme } from '@/app/providers/ThemeProvider';
 import { type ReactElement } from 'react';
 
 export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story): ReactElement => {

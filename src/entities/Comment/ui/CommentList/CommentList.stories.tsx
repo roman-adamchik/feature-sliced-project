@@ -1,6 +1,6 @@
 import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 import avatar from '@/shared/assets/tests/avatar.jpg';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { CommentList } from './CommentList';
 

@@ -24,7 +24,7 @@
       "module": "CommonJS"
     }
   },
-  "files": ["webpack.config.ts"],
+  "files": ["webpack.config.ts", "src/shared/const/theme.ts"],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",

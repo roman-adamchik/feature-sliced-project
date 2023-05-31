@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { type ComponentStory, type ComponentMeta } from '@storybook/react';
 import { type ListBoxItem } from './ListBox';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ListBox } from './ListBox';
 

@@ -101,6 +101,13 @@ module.exports = {
         testFiles: ['**/*.test.*', '**/*.stories.*', '**/StoreDecorator.tsx']
       }
     ],
+    "fsd-slivki/path-check-layers": [
+      "error",
+      {
+        alias: '@', 
+        ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+      }
+    ],
     "@typescript-eslint/consistent-type-imports": 'off',
     "@typescript-eslint/no-non-null-assertion": "off"
   },
