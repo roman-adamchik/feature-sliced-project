@@ -3,7 +3,7 @@ import { ArticleCommentList, fetchCommentsByArticleId } from '@/features/Article
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleDetailsCommentsProps {
   id?: string

@@ -12,7 +12,7 @@ import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileF
 import { type Currency } from '@/entities/Currency';
 import { type Country } from '@/entities/Country';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { VStack } from '@/shared/ui/Stack';
 import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
