@@ -56,10 +56,10 @@ i18next documentation - [https://react.i18next.com/](https://react.i18next.com/)
 
 The project uses 4 types of tests:
 
-Regular unit tests with jest - npm run test:unit
-Component tests with React Testing Library - npm run test:unit
-Screenshot testing with loki - npm run test:ui
-End-to-end (e2e) testing with Cypress - npm run test:e2e
+- Regular unit tests with jest - `npm run test:unit`
+- Component tests with React Testing Library - `npm run test:unit`
+- Screenshot testing with loki - `npm run test:ui`
+- End-to-end (e2e) testing with Cypress - `npm run test:e2e`
 
 More details about the tests can be found in the - [testing documentation](/docs/tests.md)
 
@@ -69,11 +69,11 @@ More details about the tests can be found in the - [testing documentation](/docs
 
 The project uses ESLint to check TypeScript code and Stylelint to check style files.
 
-In addition, for strict control of major architectural principles, a custom ESLint plugin *eslint-plugin-fsd-slivki* is used, which includes 3 rules:
+In addition, for strict control of major architectural principles, a custom ESLint plugin [*eslint-plugin-fsd-slivki*](https://www.npmjs.com/package/eslint-plugin-fsd-slivki) is used, which includes 3 rules:
 
-1) path-check-relative - prohibits the use of absolute imports within the same module
-2) path-check-layers - checks the correct usage of layers from the FSD perspective (e.g., widgets cannot be used in features and entities)
-3) path-check-public-api - allows imports from other modules only from the public API. It has auto fix.
+1) `path-check-relative` - prohibits the use of absolute imports within the same module
+2) `path-check-layers` - checks the correct usage of layers from the FSD perspective (e.g., widgets cannot be used in features and entities)
+3) `path-check-public-api` - allows imports from other modules only from the public API. It has auto fix.
 
 ##### Run linters
 - `npm run lint:ts` - check ts files
@@ -99,8 +99,8 @@ See more about [Storybook](/docs/storybook.md)
 ## Project config
 
 Project has two config for dev mods:
-1. Webpack - ./config/build
-2. vite - vite.config.ts
+1. Webpack - `./config/build`
+2. vite - `./vite.config.ts`
 
 Both builders are customized for base app features.
 
