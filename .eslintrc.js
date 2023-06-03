@@ -37,7 +37,8 @@ module.exports = {
     'react',
     'i18next',
     "react-hooks",
-    "fsd-slivki"
+    "fsd-slivki",
+    "unused-imports"
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -109,6 +110,7 @@ module.exports = {
       }
     ],
     "@typescript-eslint/consistent-type-imports": 'off',
-    "@typescript-eslint/no-non-null-assertion": "off"
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "unused-imports/no-unused-imports": "error",
   },
 };
