@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { Avatar } from '@/shared/ui/Avatar';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
   className?: string
@@ -43,13 +43,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
           ? [{
               key: 'adminPage',
               content: t('Admin'),
-              href: RoutePath.admin_panel,
+              href: getRouteAdminPanel(),
             }]
           : []),
         {
           key: 'profile',
           content: t('Profile'),
-          href: `${RoutePath.profile}${userAuthData.id}`,
+          href: getRouteProfile(userAuthData.id),
         },
         {
           key: 'logout',
