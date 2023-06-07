@@ -1,20 +1,23 @@
 /* eslint-disable i18next/no-literal-string */
 import { type FC } from 'react';
 import { Button } from '@/shared/ui/Button';
-import { useSelector, useDispatch } from 'react-redux';
-import { counterActions } from '../model/slice/counterSlice';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { useCounterActions } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
 export const Counter: FC = () => {
-  const dispatch = useDispatch();
-  const count = useSelector(getCounterValue);
+  const count = useCounterValue();
+  const { add, increment, decrement } = useCounterActions();
 
   const handleIncrement = (): void => {
-    dispatch(counterActions.increment());
+    increment();
   };
 
   const handleDecrement = (): void => {
-    dispatch(counterActions.decrement());
+    decrement();
+  };
+
+  const handleAddFive = (): void => {
+    add(5);
   };
 
   return (
@@ -31,6 +34,12 @@ export const Counter: FC = () => {
         data-testid='decrement-btn'
       >
         Decrement
+      </Button>
+      <Button
+        onClick={handleAddFive}
+        data-testid='add-five-btn'
+      >
+        Add Five
       </Button>
     </div>
   );
