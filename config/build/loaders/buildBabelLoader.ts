@@ -44,6 +44,7 @@ export const buildBabelLoader = (props: buildBabelLoaderProps): RuleSetRule => {
     use: {
       loader: 'babel-loader',
       options: {
+        cacheDirectory: true,
         plugins: [
           ...plugins,
           ...(mode === 'production' ? productionOnlyPlugins : []),

@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPageFilter.module.scss';
 import { memo, useCallback } from 'react';
-import { type ArticleListViewType, ArticleViewSelector, ArticleSortSelector, type ArticleSortField, type ArticleType, ArticleTypeTabs } from '@/entities/Article';
+import { type ArticleListViewType, type ArticleSortField, type ArticleType } from '@/entities/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { articlePageActions } from '../../model/slice/articlePageSlice';
 import { useSelector } from 'react-redux';
@@ -13,6 +13,9 @@ import { type SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { type TabItem } from '@/shared/ui/Tabs';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 
 interface ArticlesPageFilterProps {
   className?: string

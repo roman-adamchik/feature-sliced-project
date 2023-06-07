@@ -10,6 +10,7 @@ import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
   const { paths, isDev, apiUrl, project } = options;
+  const isProd = !isDev;
   const plugins = [
     // Generates html with js bundle already connected to it
     new HtmlWebpackPlugin({
@@ -17,19 +18,10 @@ export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
     }),
     // Shows the progress bar for building process
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css',
-    }),
     new webpack.DefinePlugin({
       GLOBAL_IS_DEV: JSON.stringify(isDev),
       GLOBAL_API_URL: JSON.stringify(apiUrl),
       GLOBAL_PROJECT: JSON.stringify(project),
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: paths.locales, to: paths.buildLocales },
-      ],
     }),
     new CircularDependencyPlugin({
       exclude: /node_modules/,
@@ -50,6 +42,18 @@ export function buildPlugins (options: BuildOptions): WebpackPluginInstance[] {
     plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
     plugins.push(new webpack.HotModuleReplacementPlugin());
     plugins.push(new BundleAnalyzerPlugin({ openAnalyzer: false }));
+  }
+
+  if (isProd) {
+    plugins.push(new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
+    }));
+    plugins.push(new CopyPlugin({
+      patterns: [
+        { from: paths.locales, to: paths.buildLocales },
+      ],
+    }));
   }
 
   return plugins;

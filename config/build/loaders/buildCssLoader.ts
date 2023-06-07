@@ -3,6 +3,7 @@ import { type RuleSetRule } from 'webpack';
 
 export const BuildCssLoader = (isDev: boolean): RuleSetRule => ({
   test: /\.s[ac]ss$/i,
+  exclude: /node_modules/,
   use: [
     // Creates `style` nodes from JS strings
     isDev ? 'style-loader' : MiniCssExtractPlugin.loader,

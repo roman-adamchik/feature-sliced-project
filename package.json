@@ -24,14 +24,12 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "storybook:build": "build-storybook -c ./config/storybook",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "postinstall": "node ./scripts/clearCache/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "browserslist": [
-    "defaults and supports es6-module"
-  ],
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/plugin-transform-runtime": "^7.21.4",
