@@ -18,6 +18,17 @@
   }
 }
 
+.isNoImage {
+  box-shadow: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+  &::before {
+    content: none;
+  }
+}
+
 @keyframes load {
   from {
     left: -150px;

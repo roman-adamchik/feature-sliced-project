@@ -13,6 +13,8 @@ import { ArticleListItemSkeleton } from './ArticleListItemSkeleton';
 import { AppLink } from '@/shared/ui/AppLink';
 import { ArticleBlockType, ArticleListViewType } from '../../model/consts/consts';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { Image } from '@/shared/ui/Image';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
   className?: string
@@ -38,10 +40,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   const types = <Text text={article.type.join(', ')} className={cls.types} />;
   const views = (
-      <>
-          <Text text={String(article.views)} className={cls.views} />
-          <EyeIcon className={cls.eyeIcon} />
-      </>
+    <>
+      <Text text={String(article.views)} className={cls.views} />
+      <EyeIcon className={cls.eyeIcon} />
+    </>
   );
 
   if (view === ArticleListViewType.LIST) {
@@ -59,7 +61,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
           </div>
           <Text title={article.title} className={cls.title} />
           {types}
-          <img src={article.img} className={cls.img} alt={article.title} />
+          <Image
+            src={article.img}
+            className={cls.img}
+            alt={article.title}
+            fallback={<Skeleton width={'100%'} height={200}/>}
+            errorFallback={<Skeleton width={'100%'} height={200} isNoImage/>}
+          />
           {textBlock && (
               <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
           )}
@@ -87,10 +95,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
-          <img
+          <Image
             src={article.img}
             alt={article.title}
             className={cls.img}
+            fallback={<Skeleton width={200} height={200}/>}
+            errorFallback={<Skeleton width={200} height={200} isNoImage/>}
           />
           <Text
             text={article.createdAt}
