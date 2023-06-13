@@ -6,10 +6,14 @@ import { Counter } from '@/entities/Counter';
 const MainPage = memo(() => {
   const { t } = useTranslation();
 
-  return <Page>
-    {t('Main page')}
-    <Counter />
-    </Page>;
+  return (
+    <Page
+      data-testid='MainPage'
+    >
+      {t('Main page')}
+      <Counter />
+    </Page>
+  );
 });
 
 export default MainPage;

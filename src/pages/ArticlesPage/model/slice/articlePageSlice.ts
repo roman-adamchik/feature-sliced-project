@@ -4,7 +4,7 @@ import { type StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleListViewType, ArticleSortField, ArticleType, type Article } from '@/entities/Article';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { type ArticlePageSchema } from '../types/articlePageSchema';
-import { type SortOrder } from '@/shared/types';
+import { type SortOrder } from '@/shared/types/sort';
 
 const articlesAdapter = createEntityAdapter<Article>();
 
