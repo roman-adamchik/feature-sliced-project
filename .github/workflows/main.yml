@@ -5,6 +5,10 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+permissions: 
+  contents: write
+  pages: write
+  id-token: write
 jobs:
   build-and-ui-testing:
     runs-on: ${{matrix.os}}
