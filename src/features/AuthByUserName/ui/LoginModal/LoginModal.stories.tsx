@@ -43,7 +43,6 @@ WithError.decorators = [
 
 export const WithErrorDark = Template.bind({});
 WithErrorDark.decorators = [
-  ThemeDecorator(Theme.DARK),
   StoreDecorator({
     loginForm: {
       isLoading: false,
@@ -52,4 +51,5 @@ WithErrorDark.decorators = [
       error: 'error',
     },
   }),
+  ThemeDecorator(Theme.DARK),
 ];

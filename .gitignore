@@ -4,5 +4,6 @@ node_modules
 .idea
 /storybook-static
 /.loki/report.html
+/.loki/index.html
 /.loki/report.json
 /reports
