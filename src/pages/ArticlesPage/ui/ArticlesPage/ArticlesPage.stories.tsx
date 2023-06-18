@@ -5,6 +5,13 @@ import ArticlesPage from './ArticlesPage';
 import { type ArticlePageSchema } from '../../model/types/articlePageSchema';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { ArticleListViewType, ArticleSortField, ArticleType } from '@/entities/Article';
+import avatarImage from '@/shared/assets/tests/avatar.jpg';
+import jsLogo from '@/shared/assets/tests/js-logo.png';
+import articleImage1 from '@/shared/assets/tests/article-details-image-01.jpeg';
+import articleImage2 from '@/shared/assets/tests/article-details-image-02.jpeg';
+import pythonLogo from '@/shared/assets/tests/python-logo.png';
+import javaLogo from '@/shared/assets/tests/java-logo.jpg';
+import phpLogo from '@/shared/assets/tests/php-logo.png';
 
 const articlesPage = {
   ids: [
@@ -18,7 +25,7 @@ const articlesPage = {
       id: '1',
       title: 'Javascript news',
       subtitle: 'What\'s new in JS in 2023?',
-      img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+      img: jsLogo,
       views: 6022,
       userId: '1',
       createdAt: '26.02.2023',
@@ -51,7 +58,7 @@ const articlesPage = {
         {
           id: '2',
           type: 'IMAGE',
-          src: 'https://yakovfain.files.wordpress.com/2013/04/dsc03412.jpg',
+          src: articleImage1,
           title: 'Picture 1 - developers workspace',
         },
         {
@@ -70,7 +77,7 @@ const articlesPage = {
         {
           id: '8',
           type: 'IMAGE',
-          src: 'https://www.idlehearts.com/images/in-javascript-there-is-a-beautiful-elegant-highly-expressive-language-that-is.jpg',
+          src: articleImage2,
           title: 'Image 2 - screenshot',
         },
         {
@@ -87,14 +94,14 @@ const articlesPage = {
         username: 'admin',
         password: '123',
         role: 'ADMIN',
-        avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+        avatar: avatarImage,
       },
     },
     2: {
       id: '2',
       title: 'Python news',
       subtitle: 'What\'s new in Python in 2023?',
-      img: 'https://www.python.org/static/community_logos/python-logo-master-v3-TM.png',
+      img: pythonLogo,
       views: 3043,
       userId: '2',
       createdAt: '18.01.2023',
@@ -127,7 +134,7 @@ const articlesPage = {
         {
           id: '2',
           type: 'IMAGE',
-          src: 'https://yakovfain.files.wordpress.com/2013/04/dsc03412.jpg',
+          src: articleImage1,
           title: 'Picture 1 - developers workspace',
         },
         {
@@ -146,7 +153,7 @@ const articlesPage = {
         {
           id: '8',
           type: 'IMAGE',
-          src: 'https://www.idlehearts.com/images/in-javascript-there-is-a-beautiful-elegant-highly-expressive-language-that-is.jpg',
+          src: articleImage2,
           title: 'Image 2 - screenshot',
         },
         {
@@ -163,14 +170,14 @@ const articlesPage = {
         username: 'user',
         password: '123',
         role: 'USER',
-        avatar: 'https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg',
+        avatar: avatarImage,
       },
     },
     3: {
       id: '3',
       title: 'Java news',
       subtitle: 'What\'s new in Java in 2023?',
-      img: 'https://www.jrebel.com/sites/default/files/image/2020-05/image-blog-revel-top-java-tools.jpg',
+      img: javaLogo,
       views: 1055,
       userId: '1',
       createdAt: '29.03.2023',
@@ -203,7 +210,7 @@ const articlesPage = {
         {
           id: '2',
           type: 'IMAGE',
-          src: 'https://yakovfain.files.wordpress.com/2013/04/dsc03412.jpg',
+          src: articleImage1,
           title: 'Picture 1 - developers workspace',
         },
         {
@@ -222,7 +229,7 @@ const articlesPage = {
         {
           id: '8',
           type: 'IMAGE',
-          src: 'https://www.idlehearts.com/images/in-javascript-there-is-a-beautiful-elegant-highly-expressive-language-that-is.jpg',
+          src: articleImage2,
           title: 'Image 2 - screenshot',
         },
         {
@@ -239,14 +246,14 @@ const articlesPage = {
         username: 'admin',
         password: '123',
         role: 'ADMIN',
-        avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+        avatar: avatarImage,
       },
     },
     4: {
       id: '4',
       title: 'PHP news',
       subtitle: 'What\'s new in PHP in 2023?',
-      img: 'https://twtv3.ams3.digitaloceanspaces.com/posts/php-twt.png',
+      img: phpLogo,
       views: 322,
       userId: '1',
       createdAt: '15.07.2020',
@@ -279,7 +286,7 @@ const articlesPage = {
         {
           id: '2',
           type: 'IMAGE',
-          src: 'https://yakovfain.files.wordpress.com/2013/04/dsc03412.jpg',
+          src: articleImage1,
           title: 'Picture 1 - developers workspace',
         },
         {
@@ -298,7 +305,7 @@ const articlesPage = {
         {
           id: '8',
           type: 'IMAGE',
-          src: 'https://www.idlehearts.com/images/in-javascript-there-is-a-beautiful-elegant-highly-expressive-language-that-is.jpg',
+          src: articleImage2,
           title: 'Image 2 - screenshot',
         },
         {
@@ -315,7 +322,7 @@ const articlesPage = {
         username: 'admin',
         password: '123',
         role: 'ADMIN',
-        avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+        avatar: avatarImage,
       },
     },
   },

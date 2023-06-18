@@ -4,6 +4,8 @@ import { type Article } from '../../model/types/article';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ArticleListItem } from './ArticleListItem';
 import { ArticleListViewType } from '../../model/consts/consts';
+import avatarImage from '@/shared/assets/tests/avatar.jpg';
+import jsLogo from '@/shared/assets/tests/js-logo.png';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 const article = {
@@ -12,10 +14,10 @@ const article = {
   user: {
     id: '1',
     username: 'Admin',
-    avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+    avatar: avatarImage,
   },
   subtitle: "What's new in JS in 2023?",
-  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  img: jsLogo,
   views: 6022,
   createdAt: '26.02.2023',
   type: [

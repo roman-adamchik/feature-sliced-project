@@ -4,6 +4,10 @@ import { type Article } from '../../model/types/article';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ArticleList } from './ArticleList';
 import { ArticleListViewType } from '../../model/consts/consts';
+import avatarImage from '@/shared/assets/tests/avatar.jpg';
+import jsLogo from '@/shared/assets/tests/js-logo.png';
+import articleImage1 from '@/shared/assets/tests/article-details-image-01.jpeg';
+import articleImage2 from '@/shared/assets/tests/article-details-image-02.jpeg';
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 const article = {
@@ -12,10 +16,10 @@ const article = {
   user: {
     id: '1',
     username: 'Admin',
-    avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+    avatar: avatarImage,
   },
   subtitle: "What's new in JS in 2023?",
-  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  img: jsLogo,
   views: 6022,
   createdAt: '26.02.2023',
   type: [
@@ -47,7 +51,7 @@ const article = {
     {
       id: '2',
       type: 'IMAGE',
-      src: 'https://yakovfain.files.wordpress.com/2013/04/dsc03412.jpg',
+      src: articleImage1,
       title: 'Picture 1 - developers workspace',
     },
     {
@@ -66,7 +70,7 @@ const article = {
     {
       id: '8',
       type: 'IMAGE',
-      src: 'https://www.idlehearts.com/images/in-javascript-there-is-a-beautiful-elegant-highly-expressive-language-that-is.jpg',
+      src: articleImage2,
       title: 'Image 2 - screenshot',
     },
     {

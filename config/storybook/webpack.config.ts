@@ -1,3 +1,4 @@
+import { buildFileLoader } from '../build/loaders/buildFileLoader';
 import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 import { type BuildPaths } from '../build/types/config';
 import path from 'path';
@@ -31,7 +32,22 @@ export default ({ config }: { config: Configuration }): Configuration => {
     });
   }
 
+  if (config.module?.rules) {
+    config.module.rules = config?.module?.rules?.filter((rule: RuleSetRule | '...') => {
+      return (rule !== '...' && !(
+        /.png/.test(rule.test as string) ||
+        /.jpeg/.test(rule.test as string) ||
+        /.jpg/.test(rule.test as string) ||
+        /.jpe?g/.test(rule.test as string) ||
+        /.gif/.test(rule.test as string) ||
+        /.woff2/.test(rule.test as string) ||
+        /.woff/.test(rule.test as string)
+      ));
+    });
+  }
+
   config?.module?.rules?.push(buildSvgLoader());
+  config?.module?.rules?.push(buildFileLoader());
   config.resolve!.alias = {
     ...config.resolve?.alias,
     '@': paths.src,

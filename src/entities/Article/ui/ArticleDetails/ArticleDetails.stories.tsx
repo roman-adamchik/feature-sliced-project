@@ -6,6 +6,9 @@ import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecora
 import { ArticleDetails } from './ArticleDetails';
 import avatar from '@/shared/assets/tests/avatar.jpg';
 import { ArticleBlockType, ArticleType } from '../../model/consts/consts';
+import jsLogo from '@/shared/assets/tests/js-logo.png';
+import articleImage1 from '@/shared/assets/tests/article-details-image-01.jpeg';
+import articleImage2 from '@/shared/assets/tests/article-details-image-02.jpeg';
 
 const article: Article = {
   id: '1',
@@ -16,7 +19,7 @@ const article: Article = {
     avatar,
   },
   subtitle: "What's new in JS in 2023?",
-  img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
+  img: jsLogo,
   views: 6022,
   createdAt: '26.02.2023',
   type: [ArticleType.IT],
@@ -46,7 +49,7 @@ const article: Article = {
     {
       id: '2',
       type: ArticleBlockType.IMAGE,
-      src: 'https://yakovfain.files.wordpress.com/2013/04/dsc03412.jpg',
+      src: articleImage1,
       title: 'Picture 1 - developers workspace',
     },
     {
@@ -65,7 +68,7 @@ const article: Article = {
     {
       id: '8',
       type: ArticleBlockType.IMAGE,
-      src: 'https://www.idlehearts.com/images/in-javascript-there-is-a-beautiful-elegant-highly-expressive-language-that-is.jpg',
+      src: articleImage2,
       title: 'Image 2 - screenshot',
     },
     {

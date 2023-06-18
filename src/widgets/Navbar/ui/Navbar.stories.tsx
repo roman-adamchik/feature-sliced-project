@@ -3,6 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecora
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { Navbar } from './Navbar';
 import { Theme } from '@/shared/const/theme';
+import avatarImage from '@/shared/assets/tests/avatar.jpg';
 
 export default {
   title: 'widgets/Navbar',
@@ -13,6 +14,7 @@ export default {
         authData: {
           id: '1',
           username: 'Test',
+          avatar: avatarImage,
         },
       },
     }),
