@@ -75,7 +75,7 @@
     "css-loader": "^6.6.0",
     "eslint": "^8.34.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
-    "eslint-plugin-fsd-slivki": "0.0.12",
+    "eslint-plugin-fsd-slivki": "0.0.14",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^15.6.1",

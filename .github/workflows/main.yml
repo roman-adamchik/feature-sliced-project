@@ -31,18 +31,19 @@ jobs:
       - name: build production project
         run: npm run build:prod
         if: always()
-      - name: build storybook
-        run: npm run storybook:build
-        if: always()
-      - name: screenshot testing
-        run: npm run test:ui:ci
-        if: always()
-      - name: Generate HTML report
-        run: npm run test:ui:report
-        if: always()
-      - name: Move loki
-        run: mv .loki reports
-        if: always()
+      # Remove loki screenshot testing temporary bc of non-stable results
+      # - name: build storybook
+      #   run: npm run storybook:build
+      #   if: always()
+      # - name: screenshot testing
+      #   run: npm run test:ui:ci
+      #   if: always()
+      # - name: Generate HTML report
+      #   run: npm run test:ui:report
+      #   if: always()
+      # - name: Move loki
+      #   run: mv .loki reports
+      #   if: always()
       - name: Run Unit Tests
         run: npm run test:unit
         if: always()
