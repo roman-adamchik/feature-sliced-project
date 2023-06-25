@@ -1,12 +1,13 @@
-import { t } from 'i18next';
 import { useEffect, useState } from 'react';
 import { Button } from '@/shared/ui/Button';
+import { useTranslation } from 'react-i18next';
 
 /**
  * This component is only for testing ErrorBoundary
  */
 export const ErrorButton = () => {
   const [error, setError] = useState(false);
+  const { t } = useTranslation();
 
   const toggleError = (): void => {
     setError(prevState => !prevState);

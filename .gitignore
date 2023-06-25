@@ -6,4 +6,4 @@ node_modules
 /.loki/report.html
 /.loki/index.html
 /.loki/report.json
-/reports
+/reports/unit

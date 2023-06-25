@@ -40,6 +40,12 @@ jobs:
       - name: Generate HTML report
         run: npm run test:ui:report
         if: always()
+      - name: Move loki
+        run: mv .loki reports
+        if: always()
+      - name: Run Unit Tests
+        run: npm run test:unit
+        if: always()
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
@@ -47,7 +53,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: '.loki'
+          path: 'reports'
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
