@@ -591,6 +591,15 @@
         "MANAGER"
       ],
       "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "testpas",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
     }
   ],
   "profile": [
@@ -618,6 +627,17 @@
     },
     {
       "id": "3",
+      "name": "Manager",
+      "lastname": "Dawson",
+      "age": 19,
+      "currency": "USD",
+      "country": "USA",
+      "city": "Los Angeles",
+      "username": "manager",
+      "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
+    },
+    {
+      "id": "4",
       "name": "Manager",
       "lastname": "Dawson",
       "age": 19,

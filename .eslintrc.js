@@ -26,7 +26,13 @@ module.exports = {
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off'
       }
-    }
+    },
+    {
+      files: ['cypress/support/**/*.ts'],
+      rules: {
+        "@typescript-eslint/no-namespace": "off",
+      }
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',

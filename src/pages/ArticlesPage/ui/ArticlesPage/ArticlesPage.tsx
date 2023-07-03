@@ -42,6 +42,7 @@ const ArticlesPage: FC<ArticlesPageProps> = memo((props) => {
       <Page
         className={classNames(cls.articlesPage, {}, [className])}
         handleScrollEnd={handleLoadNextPart}
+        data-testid='ArticlesPage'
       >
         <ArticlesPageFilter />
         <ArticleInfiniteList className={cls.articleList}/>
