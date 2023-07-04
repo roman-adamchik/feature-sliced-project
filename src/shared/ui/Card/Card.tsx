@@ -10,6 +10,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
   children: ReactNode
   theme?: CardTheme
+  'data-testid'?: string
 }
 
 export const Card = (props: CardProps) => {

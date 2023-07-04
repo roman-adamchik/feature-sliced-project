@@ -24,6 +24,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
   children?: ReactNode
   fullWidth?: boolean
+  'data-testid'?: string
 }
 
 export const Button = memo((props: ButtonProps) => {

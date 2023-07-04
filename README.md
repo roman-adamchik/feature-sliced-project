@@ -21,6 +21,7 @@ npm run start:dev or npm run start:dev:vite - run server + frontend project in d
 - `npm run lint:scss` - Lint check for scss style files
 - `npm run lint:scss:fix` - Fix scss style files with linter
 - `npm run test:unit` - Run unit tests with jest
+- `npm run test:e2e` - Run e2e tests with cypress
 - `npm run test:ui` - Run screenshot tests with loki
 - `npm run test:ui:ok` - Approve new screenshots
 - `npm run test:ui:ci` - Run screenshot tests in CI

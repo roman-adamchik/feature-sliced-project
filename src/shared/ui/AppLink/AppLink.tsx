@@ -11,6 +11,7 @@ export enum AppLinkTheme {
 interface AppLinkProps extends LinkProps {
   className?: string
   theme?: AppLinkTheme
+  'data-testid'?: string
 }
 
 export const AppLink = memo((props: AppLinkProps) => {
@@ -19,6 +20,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     children,
     to,
     theme = AppLinkTheme.PRIMARY,
+    'data-testid': dataTestId,
     ...restProps
   } = props;
 
@@ -26,6 +28,7 @@ export const AppLink = memo((props: AppLinkProps) => {
     <Link
       className={classNames(cls.appLink, {}, [className, cls[theme]])}
       to={to}
+      data-testid={dataTestId}
       {...restProps}
     >
       {children}

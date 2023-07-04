@@ -638,13 +638,13 @@
     },
     {
       "id": "4",
-      "name": "Manager",
-      "lastname": "Dawson",
-      "age": 19,
+      "name": "testuser",
+      "lastname": "testuser",
+      "age": 32,
       "currency": "USD",
       "country": "USA",
       "city": "Los Angeles",
-      "username": "manager",
+      "username": "user",
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg"
     }
   ],
@@ -669,6 +669,18 @@
       "feedback": "best article!",
       "rate": 5,
       "id": "J7VzU1O"
+    },
+    {
+      "articleId": "12",
+      "userId": "4",
+      "rate": 3,
+      "id": "cuu5qfM"
+    },
+    {
+      "articleId": "7",
+      "userId": "4",
+      "rate": 3,
+      "id": "G1MmA2D"
     }
   ],
   "profile-ratings": [

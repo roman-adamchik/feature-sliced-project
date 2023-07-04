@@ -43,6 +43,7 @@ export interface FlexProps extends DivProps {
   direction: FlexDirection
   gap?: FlexGap
   maxWidth?: boolean
+  'data-testid'?: string
 }
 
 export const Flex = (props: FlexProps) => {
@@ -70,7 +71,10 @@ export const Flex = (props: FlexProps) => {
   };
 
   return (
-        <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
+        <div
+          className={classNames(cls.Flex, mods, classes)}
+          {...otherProps}
+        >
             {children}
         </div>
   );

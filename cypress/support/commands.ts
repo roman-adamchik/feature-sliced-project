@@ -1,27 +1,11 @@
-import { LOCAL_STORAGE_AUTH_DATA_KEY } from '../../src/shared/const/localStorage';
+import * as commonCommands from './commands/common';
+import * as profileCommands from './commands/profile';
+import * as articleCommands from './commands/article';
+import * as commentsCommands from './commands/comments';
+import * as ratingCommands from './commands/rating';
 
-Cypress.Commands.add('login', (
-  username: string = 'testuser',
-  password: string = 'testpas',
-) => {
-  cy.request({
-    method: 'POST',
-    url: 'http://localhost:8000/login',
-    body: {
-      username,
-      password,
-    },
-  }).then(({ body }) => {
-    window.localStorage.setItem(LOCAL_STORAGE_AUTH_DATA_KEY, JSON.stringify(body));
-  });
-});
-
-declare global {
-  namespace Cypress {
-    interface Chainable {
-      login: (email?: string, password?: string) => Chainable<void>
-    }
-  }
-}
-
-export {};
+Cypress.Commands.addAll(commonCommands);
+Cypress.Commands.addAll(profileCommands);
+Cypress.Commands.addAll(articleCommands);
+Cypress.Commands.addAll(commentsCommands);
+Cypress.Commands.addAll(ratingCommands);
