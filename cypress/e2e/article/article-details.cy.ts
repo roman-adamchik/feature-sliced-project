@@ -40,4 +40,15 @@ describe('User opened article details page', () => {
     cy.setRate(RATE_NUMBER, FEEDBACK);
     cy.get('[data-selected=true').should('have.length', RATE_NUMBER);
   });
+
+  it('and rate the article (fixture example)', () => {
+    const FEEDBACK = 'Test feedback';
+    const RATE_NUMBER = 3;
+
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+    cy.getByTestId('ArticleDetails.avatarWrapper');
+    cy.getByTestId('RatingCard').scrollIntoView();
+    cy.setRate(RATE_NUMBER, FEEDBACK);
+    cy.get('[data-selected=true').should('have.length', RATE_NUMBER);
+  });
 });
