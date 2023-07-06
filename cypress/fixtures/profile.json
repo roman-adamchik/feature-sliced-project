@@ -1,0 +1,11 @@
+{
+  "id": "1",
+  "name": "John",
+  "lastname": "Smith",
+  "age": 49,
+  "currency": "EUR",
+  "country": "USA",
+  "city": "New York",
+  "username": "admin",
+  "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
+}

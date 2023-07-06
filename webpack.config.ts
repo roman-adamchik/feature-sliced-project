@@ -12,9 +12,9 @@ export default (env: BuildEnv): Configuration => {
     locales: path.resolve(__dirname, 'public', 'locales'),
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
   };
-  const mode: BuildType = env.mode || 'development';
-  const PORT = env.port || 3000;
-  const apiUrl = env.apiUrl || 'http://localhost:8000';
+  const mode: BuildType = env?.mode || 'development';
+  const PORT = env?.port || 3000;
+  const apiUrl = env?.apiUrl || 'http://localhost:8000';
 
   const isDev = mode === 'development';
 
