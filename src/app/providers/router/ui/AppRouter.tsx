@@ -8,22 +8,25 @@ import { RouterConfig } from '../config/routerConfig';
 const AppRouter = () => {
   const renderWithWrapper = useCallback((route: AppRoutesProps) => {
     const element = (
-      <Suspense fallback={<PageLoader />}>
-        {route.element}
-      </Suspense>);
+      <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
+    );
 
-    return <Route
-      key={route.path}
-      path={route.path}
-      element={route.authOnly ? <RequireAuth roles={route.roles}>{element}</RequireAuth> : element}
-    />;
+    return (
+      <Route
+        key={route.path}
+        path={route.path}
+        element={
+          route.authOnly ? (
+            <RequireAuth roles={route.roles}>{element}</RequireAuth>
+          ) : (
+            element
+          )
+        }
+      />
+    );
   }, []);
 
-  return (
-      <Routes>
-        {Object.values(RouterConfig).map(renderWithWrapper)}
-      </Routes>
-  );
+  return <Routes>{Object.values(RouterConfig).map(renderWithWrapper)}</Routes>;
 };
 
 export default memo(AppRouter);

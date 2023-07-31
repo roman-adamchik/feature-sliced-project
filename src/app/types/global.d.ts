@@ -17,9 +17,11 @@ declare const GLOBAL_IS_DEV: boolean;
 declare const GLOBAL_API_URL: string;
 declare const GLOBAL_PROJECT: 'storybook' | 'frontend' | 'jest';
 
-type DeepPartial<T> = T extends object ? {
-  [P in keyof T]?: DeepPartial<T[P]>;
-} : T;
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
 
 type OptionalRecord<K extends keyof any, T> = {
   [P in K]?: T;

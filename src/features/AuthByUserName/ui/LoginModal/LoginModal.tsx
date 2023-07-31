@@ -6,17 +6,13 @@ import LoginFormAsync from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
-  className?: string
-  isOpen: boolean
-  onClose: () => void
+  className?: string;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export const LoginModal = memo((props: LoginModalProps) => {
-  const {
-    className = '',
-    isOpen,
-    onClose,
-  } = props;
+  const { className = '', isOpen, onClose } = props;
 
   return (
     <Modal
@@ -25,7 +21,7 @@ export const LoginModal = memo((props: LoginModalProps) => {
       onClose={onClose}
       lazy
     >
-      <Suspense fallback={<Loader />} >
+      <Suspense fallback={<Loader />}>
         <LoginFormAsync />
       </Suspense>
     </Modal>

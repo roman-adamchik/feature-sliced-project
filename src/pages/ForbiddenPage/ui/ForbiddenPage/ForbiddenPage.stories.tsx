@@ -7,12 +7,12 @@ import ForbiddenPage from './ForbiddenPage';
 export default {
   title: 'pages/ForbiddenPage',
   component: ForbiddenPage,
-  decorators: [
-    StoreDecorator({}),
-  ],
+  decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ForbiddenPage>;
 
-const Template: ComponentStory<typeof ForbiddenPage> = (args) => <ForbiddenPage {...args}/>;
+const Template: ComponentStory<typeof ForbiddenPage> = (args) => (
+  <ForbiddenPage {...args} />
+);
 
 export const Light = Template.bind({});
 

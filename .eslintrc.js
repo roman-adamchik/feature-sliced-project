@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'standard-with-typescript',
     'plugin:i18next/recommended',
+    'prettier',
     ],
   overrides: [
     {
@@ -119,5 +120,6 @@ module.exports = {
     "@typescript-eslint/consistent-type-imports": 'off',
     "@typescript-eslint/no-non-null-assertion": "off",
     "unused-imports/no-unused-imports": "error",
+    "react/jsx-max-props-per-line": ["error", {maximum: 4}]
   },
 };

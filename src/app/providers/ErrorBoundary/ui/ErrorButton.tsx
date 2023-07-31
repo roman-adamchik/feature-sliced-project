@@ -10,7 +10,7 @@ export const ErrorButton = () => {
   const { t } = useTranslation();
 
   const toggleError = (): void => {
-    setError(prevState => !prevState);
+    setError((prevState) => !prevState);
   };
 
   useEffect(() => {
@@ -19,9 +19,5 @@ export const ErrorButton = () => {
     }
   }, [error]);
 
-  return (
-    <Button onClick={toggleError}>
-      {t('Throw error')}
-    </Button>
-  );
+  return <Button onClick={toggleError}>{t('Throw error')}</Button>;
 };

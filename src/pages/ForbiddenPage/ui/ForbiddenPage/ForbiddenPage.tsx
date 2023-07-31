@@ -4,19 +4,17 @@ import { type FC, memo } from 'react';
 import { Page } from '@/widgets/Page';
 
 interface ForbiddenPageProps {
-  className?: string
+  className?: string;
 }
 
 const ForbiddenPage: FC<ForbiddenPageProps> = memo((props) => {
-  const {
-    className = '',
-  } = props;
+  const { className = '' } = props;
   const { t } = useTranslation();
 
   return (
     <Page
       className={classNames('', {}, [className])}
-      data-testid='ForbiddenPage'
+      data-testid="ForbiddenPage"
     >
       {t('Forbidden page')}
     </Page>

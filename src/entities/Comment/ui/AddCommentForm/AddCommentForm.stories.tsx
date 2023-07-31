@@ -21,7 +21,9 @@ export default {
   ],
 } as ComponentMeta<typeof AddCommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args}/>;
+const Template: ComponentStory<typeof AddCommentForm> = (args) => (
+  <AddCommentForm {...args} />
+);
 
 export const Light = Template.bind({});
 

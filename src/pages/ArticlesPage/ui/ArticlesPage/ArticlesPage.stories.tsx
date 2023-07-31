@@ -4,7 +4,11 @@ import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecora
 import ArticlesPage from './ArticlesPage';
 import { type ArticlePageSchema } from '../../model/types/articlePageSchema';
 import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
-import { ArticleListViewType, ArticleSortField, ArticleType } from '@/entities/Article';
+import {
+  ArticleListViewType,
+  ArticleSortField,
+  ArticleType,
+} from '@/entities/Article';
 import avatarImage from '@/shared/assets/tests/avatar.jpg';
 import jsLogo from '@/shared/assets/tests/js-logo.png';
 import articleImage1 from '@/shared/assets/tests/article-details-image-01.jpeg';
@@ -14,24 +18,17 @@ import javaLogo from '@/shared/assets/tests/java-logo.jpg';
 import phpLogo from '@/shared/assets/tests/php-logo.png';
 
 const articlesPage = {
-  ids: [
-    '1',
-    '2',
-    '3',
-    '4',
-  ],
+  ids: ['1', '2', '3', '4'],
   entities: {
     1: {
       id: '1',
       title: 'Javascript news',
-      subtitle: 'What\'s new in JS in 2023?',
+      subtitle: "What's new in JS in 2023?",
       img: jsLogo,
       views: 6022,
       userId: '1',
       createdAt: '26.02.2023',
-      type: [
-        'IT',
-      ],
+      type: ['IT'],
       blocks: [
         {
           id: '1',
@@ -45,7 +42,7 @@ const articlesPage = {
         {
           id: '4',
           type: 'CODE',
-          code: 'const arr = [\'1\', \'2\', \'3\'];\n// \'3\'\nconsole.log(arr.at(-1));\n// \'2\'\nconsole.log(arr.at(-2));',
+          code: "const arr = ['1', '2', '3'];\n// '3'\nconsole.log(arr.at(-1));\n// '2'\nconsole.log(arr.at(-2));",
         },
         {
           id: '5',
@@ -64,7 +61,7 @@ const articlesPage = {
         {
           id: '3',
           type: 'CODE',
-          code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+          code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
           id: '7',
@@ -100,14 +97,12 @@ const articlesPage = {
     2: {
       id: '2',
       title: 'Python news',
-      subtitle: 'What\'s new in Python in 2023?',
+      subtitle: "What's new in Python in 2023?",
       img: pythonLogo,
       views: 3043,
       userId: '2',
       createdAt: '18.01.2023',
-      type: [
-        'IT',
-      ],
+      type: ['IT'],
       blocks: [
         {
           id: '1',
@@ -121,7 +116,7 @@ const articlesPage = {
         {
           id: '4',
           type: 'CODE',
-          code: 'const arr = [\'1\', \'2\', \'3\'];\n// \'3\'\nconsole.log(arr.at(-1));\n// \'2\'\nconsole.log(arr.at(-2));',
+          code: "const arr = ['1', '2', '3'];\n// '3'\nconsole.log(arr.at(-1));\n// '2'\nconsole.log(arr.at(-2));",
         },
         {
           id: '5',
@@ -140,7 +135,7 @@ const articlesPage = {
         {
           id: '3',
           type: 'CODE',
-          code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+          code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
           id: '7',
@@ -176,14 +171,12 @@ const articlesPage = {
     3: {
       id: '3',
       title: 'Java news',
-      subtitle: 'What\'s new in Java in 2023?',
+      subtitle: "What's new in Java in 2023?",
       img: javaLogo,
       views: 1055,
       userId: '1',
       createdAt: '29.03.2023',
-      type: [
-        'IT',
-      ],
+      type: ['IT'],
       blocks: [
         {
           id: '1',
@@ -197,7 +190,7 @@ const articlesPage = {
         {
           id: '4',
           type: 'CODE',
-          code: 'const arr = [\'1\', \'2\', \'3\'];\n// \'3\'\nconsole.log(arr.at(-1));\n// \'2\'\nconsole.log(arr.at(-2));',
+          code: "const arr = ['1', '2', '3'];\n// '3'\nconsole.log(arr.at(-1));\n// '2'\nconsole.log(arr.at(-2));",
         },
         {
           id: '5',
@@ -216,7 +209,7 @@ const articlesPage = {
         {
           id: '3',
           type: 'CODE',
-          code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+          code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
           id: '7',
@@ -252,14 +245,12 @@ const articlesPage = {
     4: {
       id: '4',
       title: 'PHP news',
-      subtitle: 'What\'s new in PHP in 2023?',
+      subtitle: "What's new in PHP in 2023?",
       img: phpLogo,
       views: 322,
       userId: '1',
       createdAt: '15.07.2020',
-      type: [
-        'IT',
-      ],
+      type: ['IT'],
       blocks: [
         {
           id: '1',
@@ -273,7 +264,7 @@ const articlesPage = {
         {
           id: '4',
           type: 'CODE',
-          code: 'const arr = [\'1\', \'2\', \'3\'];\n// \'3\'\nconsole.log(arr.at(-1));\n// \'2\'\nconsole.log(arr.at(-2));',
+          code: "const arr = ['1', '2', '3'];\n// '3'\nconsole.log(arr.at(-1));\n// '2'\nconsole.log(arr.at(-2));",
         },
         {
           id: '5',
@@ -292,7 +283,7 @@ const articlesPage = {
         {
           id: '3',
           type: 'CODE',
-          code: 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);',
+          code: "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);",
         },
         {
           id: '7',
@@ -352,12 +343,14 @@ const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage />;
 export const LightList = Template.bind({});
 
 export const LightTable = Template.bind({});
-LightTable.decorators = [StoreDecorator({
-  articlesPage: {
-    ...articlesPage,
-    view: ArticleListViewType.TABLE,
-  },
-})];
+LightTable.decorators = [
+  StoreDecorator({
+    articlesPage: {
+      ...articlesPage,
+      view: ArticleListViewType.TABLE,
+    },
+  }),
+];
 
 export const DarkList = Template.bind({});
 DarkList.decorators = [ThemeDecorator(Theme.DARK)];

@@ -10,20 +10,22 @@ import avatarUrl from '@/shared/assets/tests/avatar.jpg';
 export default {
   title: 'pages/ProfilePage',
   component: ProfilePage,
-  decorators: [StoreDecorator({
-    profile: {
-      form: {
-        name: 'John',
-        lastname: 'Smith',
-        age: 49,
-        currency: Currency.ILS,
-        country: Country.Israel,
-        city: 'New York',
-        username: 'admin',
-        avatar: avatarUrl,
+  decorators: [
+    StoreDecorator({
+      profile: {
+        form: {
+          name: 'John',
+          lastname: 'Smith',
+          age: 49,
+          currency: Currency.ILS,
+          country: Country.Israel,
+          city: 'New York',
+          username: 'admin',
+          avatar: avatarUrl,
+        },
       },
-    },
-  })],
+    }),
+  ],
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;

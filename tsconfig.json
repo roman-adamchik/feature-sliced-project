@@ -10,9 +10,7 @@
     "moduleResolution": "node",
     "baseUrl": ".", // for absolute import
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "esModuleInterop": true, // allow to use regular JS imports with packages written in CommonJS
     "allowSyntheticDefaultImports": true, // allow to use regular JS imports instead of "import * as ..."
@@ -25,10 +23,5 @@
     }
   },
   "files": ["webpack.config.ts", "src/shared/const/theme.ts"],
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "config/**/*",
-    "scripts/**/*"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "config/**/*", "scripts/**/*", "*.ts"]
 }

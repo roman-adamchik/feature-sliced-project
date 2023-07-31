@@ -11,18 +11,19 @@ const profileData = {
   country: Country.Israel,
   city: 'New York',
   username: 'admin',
-  avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+  avatar:
+    'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
 };
 
 describe('fetchProfileData.test', () => {
   test('Successfull fetch profile', async () => {
     const testAsyncThunk = new TestAsyncThunk(fetchProfileData);
 
-    testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.get.mockReturnValue(
+      Promise.resolve({
         data: profileData,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk('1');
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();
@@ -32,11 +33,11 @@ describe('fetchProfileData.test', () => {
 
   test('Failed fetch profile', async () => {
     const testAsyncThunk = new TestAsyncThunk(fetchProfileData);
-    testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.get.mockReturnValue(
+      Promise.resolve({
         status: 403,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk('1');
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();

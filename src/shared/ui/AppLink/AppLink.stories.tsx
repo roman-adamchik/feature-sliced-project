@@ -12,7 +12,9 @@ export default {
   },
 } as ComponentMeta<typeof AppLink>;
 
-const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
+const Template: ComponentStory<typeof AppLink> = (args) => (
+  <AppLink {...args} />
+);
 
 export const Primary = Template.bind({});
 

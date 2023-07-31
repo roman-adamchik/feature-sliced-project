@@ -22,7 +22,8 @@ export const resetProfile = (profileId: string) => {
       country: 'USA',
       city: 'Los Angeles',
       username: 'user',
-      avatar: 'https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg',
+      avatar:
+        'https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg',
     },
   });
 };
@@ -30,8 +31,8 @@ export const resetProfile = (profileId: string) => {
 declare global {
   namespace Cypress {
     interface Chainable {
-      updateProfile: (name?: string, lastname?: string) => Chainable<void>
-      resetProfile: (profileId: string) => Chainable<void>
+      updateProfile: (name?: string, lastname?: string) => Chainable<void>;
+      resetProfile: (profileId: string) => Chainable<void>;
     }
   }
 }

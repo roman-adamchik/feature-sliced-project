@@ -9,13 +9,11 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { Drawer } from '@/shared/ui/Drawer';
 
 interface NotificationButtonProps {
-  className?: string
+  className?: string;
 }
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
-  const {
-    className = '',
-  } = props;
+  const { className = '' } = props;
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const onDrawerOpen = useCallback(() => {
@@ -28,27 +26,29 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
   const triggerElement = (
     <Button theme={ButtonTheme.CLEAR} onClick={onDrawerOpen}>
-      <AlarmIcon className={cls.alarmIcon}/>
+      <AlarmIcon className={cls.alarmIcon} />
     </Button>
   );
 
-  return (<>
-    <BrowserView>
-      <Popover
-        className={classNames(cls.notificationButton, {}, [className])}
-        triggerElement={triggerElement}
-        direction='bottom left'
-      >
-        <NotificationList className={cls.notificationList}/>
-      </Popover>
-    </BrowserView>
-    <MobileView>
-      {triggerElement}
-      <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
-        <NotificationList className={cls.notificationList}/>
-      </Drawer>
-    </MobileView>
-  </>);
+  return (
+    <>
+      <BrowserView>
+        <Popover
+          className={classNames(cls.notificationButton, {}, [className])}
+          triggerElement={triggerElement}
+          direction="bottom left"
+        >
+          <NotificationList className={cls.notificationList} />
+        </Popover>
+      </BrowserView>
+      <MobileView>
+        {triggerElement}
+        <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
+          <NotificationList className={cls.notificationList} />
+        </Drawer>
+      </MobileView>
+    </>
+  );
 });
 
 NotificationButton.displayName = 'NotificationButton';

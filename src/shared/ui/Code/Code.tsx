@@ -5,15 +5,12 @@ import { Button, ButtonTheme } from '../Button/Button';
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 
 interface CodeProps {
-  className?: string
-  text: string
+  className?: string;
+  text: string;
 }
 
 export const Code = memo((props: CodeProps) => {
-  const {
-    className = '',
-    text,
-  } = props;
+  const { className = '', text } = props;
 
   const handleCopy = useCallback(() => {
     void navigator.clipboard.writeText(text);
@@ -26,11 +23,9 @@ export const Code = memo((props: CodeProps) => {
         theme={ButtonTheme.CLEAR}
         onClick={handleCopy}
       >
-        <CopyIcon/>
+        <CopyIcon />
       </Button>
-      <code>
-        {text}
-      </code>
+      <code>{text}</code>
     </pre>
   );
 });

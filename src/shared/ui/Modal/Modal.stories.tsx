@@ -7,7 +7,8 @@ export default {
   title: 'shared/Modal',
   component: Modal,
   args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus consequuntur nesciunt, quidem incidunt reprehenderit nemo quasi libero eveniet sit. Explicabo!',
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus consequuntur nesciunt, quidem incidunt reprehenderit nemo quasi libero eveniet sit. Explicabo!',
     isOpen: true,
   },
 } as ComponentMeta<typeof Modal>;

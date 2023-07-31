@@ -10,28 +10,23 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { ArticleRating } from '@/features/ArticleRating';
 
 interface ArticleDetailsPageProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
-  const {
-    className = '',
-  } = props;
+  const { className = '' } = props;
   const { id } = useParams<{ id: string }>();
 
   if (!id) return null;
 
   return (
     <Page className={classNames('', {}, [className])}>
-      <VStack
-        gap='16'
-        align='stretch'
-      >
+      <VStack gap="16" align="stretch">
         <ArticleDetailsPageHeader />
-        <ArticleDetails id={id}/>
-        <ArticleRating articleId={id}/>
+        <ArticleDetails id={id} />
+        <ArticleRating articleId={id} />
         <ArticleRecommendationsList />
-        <ArticleDetailsComments id={id}/>
+        <ArticleDetailsComments id={id} />
       </VStack>
     </Page>
   );

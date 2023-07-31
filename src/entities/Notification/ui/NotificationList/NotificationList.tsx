@@ -7,13 +7,11 @@ import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface NotificationListProps {
-  className?: string
+  className?: string;
 }
 
 export const NotificationList = memo((props: NotificationListProps) => {
-  const {
-    className = '',
-  } = props;
+  const { className = '' } = props;
   const { isLoading, data } = useNotifications(null, {
     pollingInterval: 5000,
   });
@@ -21,24 +19,22 @@ export const NotificationList = memo((props: NotificationListProps) => {
   if (isLoading) {
     return (
       <VStack
-        gap='16'
+        gap="16"
         className={classNames(cls.notificationList, {}, [className])}
       >
-        <Skeleton width='100%' borderRadius='8px' height='80px'/>
-        <Skeleton width='100%' borderRadius='8px' height='80px'/>
-        <Skeleton width='100%' borderRadius='8px' height='80px'/>
-    </VStack>
+        <Skeleton width="100%" borderRadius="8px" height="80px" />
+        <Skeleton width="100%" borderRadius="8px" height="80px" />
+        <Skeleton width="100%" borderRadius="8px" height="80px" />
+      </VStack>
     );
   }
 
   return (
     <VStack
-      gap='16'
+      gap="16"
       className={classNames(cls.notificationList, {}, [className])}
     >
-      {data?.map(item => (
-        <NotificationItem key={item.id} item={item}/>
-      ))}
+      {data?.map((item) => <NotificationItem key={item.id} item={item} />)}
     </VStack>
   );
 });

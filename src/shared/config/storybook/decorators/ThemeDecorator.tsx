@@ -4,12 +4,14 @@ import { Theme } from '@/shared/const/theme';
 import { type Story } from '@storybook/react';
 import { type ReactElement } from 'react';
 
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story): ReactElement => {
-  return (
-    <ThemeProvider initialTheme={theme}>
-      <div className={`app ${theme}`}>
-        <StoryComponent />
-      </div>
-    </ThemeProvider>
-  );
-};
+export const ThemeDecorator =
+  (theme: Theme) =>
+  (StoryComponent: Story): ReactElement => {
+    return (
+      <ThemeProvider initialTheme={theme}>
+        <div className={`app ${theme}`}>
+          <StoryComponent />
+        </div>
+      </ThemeProvider>
+    );
+  };

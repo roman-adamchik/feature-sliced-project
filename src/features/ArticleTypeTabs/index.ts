@@ -1,5 +1,3 @@
 import { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
 
-export {
-  ArticleTypeTabs,
-};
+export { ArticleTypeTabs };

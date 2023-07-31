@@ -7,19 +7,22 @@ import {
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Select.module.scss';
 
-type HTMLSelectProps = Omit<SelectHTMLAttributes<HTMLSelectElement>, 'value' | 'onChange'>;
+type HTMLSelectProps = Omit<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  'value' | 'onChange'
+>;
 
 export interface SelectOption<T extends string> {
-  value: T
-  content: string
+  value: T;
+  content: string;
 }
 
 interface SelectProps<T extends string> extends HTMLSelectProps {
-  className?: string
-  readOnly?: boolean
-  options?: Array<SelectOption<T>>
-  value?: T
-  onChange?: (value: T) => void
+  className?: string;
+  readOnly?: boolean;
+  options?: Array<SelectOption<T>>;
+  value?: T;
+  onChange?: (value: T) => void;
 }
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
@@ -32,17 +35,16 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     onChange,
   } = props;
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLSelectElement>) => {
-    onChange?.(e.target.value as T);
-  }, [onChange]);
+  const handleChange = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      onChange?.(e.target.value as T);
+    },
+    [onChange],
+  );
 
   const optionsList = useMemo(() => {
     return options?.map(({ value, content }) => (
-      <option
-        className={cls.option}
-        value={value}
-        key={value}
-      >
+      <option className={cls.option} value={value} key={value}>
         {content}
       </option>
     ));
@@ -55,9 +57,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
   return (
     <div className={classNames(cls.selectWrapper, mods, [className])}>
       {placeholder && (
-        <div className={cls.placeholder}>
-          {`${placeholder}>`}
-        </div>
+        <div className={cls.placeholder}>{`${placeholder}>`}</div>
       )}
       <select
         className={cls.select}

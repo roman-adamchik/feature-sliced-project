@@ -13,7 +13,8 @@ describe('getProfileForm.test', () => {
       country: Country.Israel,
       city: 'New York',
       username: 'admin',
-      avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+      avatar:
+        'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
     };
     const state: DeepPartial<StateSchema> = {
       profile: {

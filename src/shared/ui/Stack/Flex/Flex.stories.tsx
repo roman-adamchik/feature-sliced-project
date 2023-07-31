@@ -8,12 +8,12 @@ export default {
   component: Flex,
   args: {
     children: (
-        <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-        </>
+      <>
+        <div>first</div>
+        <div>first</div>
+        <div>first</div>
+        <div>first</div>
+      </>
     ),
   },
 } as ComponentMeta<typeof Flex>;

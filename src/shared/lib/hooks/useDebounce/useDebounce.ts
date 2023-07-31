@@ -6,13 +6,16 @@ export const useDebounce = (
 ) => {
   const timer: MutableRefObject<NodeJS.Timeout | undefined> = useRef();
 
-  return useCallback((...args: any[]) => {
-    if (timer.current) {
-      clearTimeout(timer.current);
-    }
+  return useCallback(
+    (...args: any[]) => {
+      if (timer.current) {
+        clearTimeout(timer.current);
+      }
 
-    timer.current = setTimeout(() => {
-      callback(...args);
-    }, delay);
-  }, [callback, delay]);
+      timer.current = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    },
+    [callback, delay],
+  );
 };

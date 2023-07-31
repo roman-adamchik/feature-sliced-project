@@ -1,6 +1,11 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Page.module.scss';
-import { type MutableRefObject, useRef, type ReactNode, type UIEvent } from 'react';
+import {
+  type MutableRefObject,
+  useRef,
+  type ReactNode,
+  type UIEvent,
+} from 'react';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useLocation } from 'react-router-dom';
@@ -12,22 +17,20 @@ import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends TestProps {
-  className?: string
-  children: ReactNode
-  handleScrollEnd?: () => void
+  className?: string;
+  children: ReactNode;
+  handleScrollEnd?: () => void;
 }
 
 export const Page = (props: PageProps) => {
-  const {
-    className = '',
-    children,
-    handleScrollEnd,
-  } = props;
+  const { className = '', children, handleScrollEnd } = props;
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
-  const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
+  const scrollPosition = useSelector((state: StateSchema) =>
+    getUIScrollByPath(state, pathname),
+  );
 
   useInfiniteScroll({
     cb: handleScrollEnd,
@@ -40,10 +43,12 @@ export const Page = (props: PageProps) => {
   });
 
   const handleScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    dispatch(uiActions.setScrollPosition({
-      path: pathname,
-      position: e.currentTarget.scrollTop,
-    }));
+    dispatch(
+      uiActions.setScrollPosition({
+        path: pathname,
+        position: e.currentTarget.scrollTop,
+      }),
+    );
   }, 500);
 
   return (
@@ -51,11 +56,11 @@ export const Page = (props: PageProps) => {
       ref={wrapperRef}
       className={classNames(cls.page, {}, [className])}
       onScroll={handleScroll}
-      id='page'
+      id="page"
       data-testid={props['data-testid']}
     >
       {children}
-      {handleScrollEnd && <div className={cls.trigger} ref={triggerRef}/>}
+      {handleScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
     </main>
   );
 };

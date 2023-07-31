@@ -8,7 +8,9 @@ export default {
   component: ArticleSortSelector,
 } as ComponentMeta<typeof ArticleSortSelector>;
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector {...args}/>;
+const Template: ComponentStory<typeof ArticleSortSelector> = (args) => (
+  <ArticleSortSelector {...args} />
+);
 
 export const Light = Template.bind({});
 

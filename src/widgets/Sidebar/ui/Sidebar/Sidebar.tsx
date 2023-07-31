@@ -10,7 +10,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from '@/shared/ui/Stack';
 
 interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 export const Sidebar = memo((props: SidebarProps) => {
@@ -40,14 +40,10 @@ export const Sidebar = memo((props: SidebarProps) => {
       >
         {isCollapsed ? '>' : '<'}
       </Button>
-      <VStack className={cls.items} gap='8' role='navigation'>
-        {sidebarItemsList.map((item) =>
-          <SidebarItem
-            item={item}
-            key={item.path}
-            isCollapsed={isCollapsed}
-          />,
-        )}
+      <VStack className={cls.items} gap="8" role="navigation">
+        {sidebarItemsList.map((item) => (
+          <SidebarItem item={item} key={item.path} isCollapsed={isCollapsed} />
+        ))}
       </VStack>
       <div className={cls.switchers}>
         <ThemeSwitcher />

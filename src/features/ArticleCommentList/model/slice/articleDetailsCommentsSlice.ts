@@ -22,18 +22,20 @@ const articleDetailsCommentsSlice = createSlice({
     error: undefined,
     isLoading: false,
   }),
-  reducers: {
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCommentsByArticleId.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<Comment[]>) => {
-        commentsAdapter.setAll(state, action.payload);
-        state.isLoading = false;
-      })
+      .addCase(
+        fetchCommentsByArticleId.fulfilled,
+        (state, action: PayloadAction<Comment[]>) => {
+          commentsAdapter.setAll(state, action.payload);
+          state.isLoading = false;
+        },
+      )
       .addCase(fetchCommentsByArticleId.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

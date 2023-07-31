@@ -5,20 +5,22 @@ import { memo, useCallback } from 'react';
 import { Dropdown } from '@/shared/ui/Popups';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
+import {
+  getUserAuthData,
+  isUserAdmin,
+  isUserManager,
+  userActions,
+} from '@/entities/User';
 import { Avatar } from '@/shared/ui/Avatar';
 import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
-  className?: string
-  setIsModalOpen: (value: boolean) => void
+  className?: string;
+  setIsModalOpen: (value: boolean) => void;
 }
 
 export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
-  const {
-    className = '',
-    setIsModalOpen,
-  } = props;
+  const { className = '', setIsModalOpen } = props;
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const userAuthData = useSelector(getUserAuthData);
@@ -40,11 +42,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     <Dropdown
       items={[
         ...(isAdminPanelAvailable
-          ? [{
-              key: 'adminPage',
-              content: t('Admin'),
-              href: getRouteAdminPanel(),
-            }]
+          ? [
+              {
+                key: 'adminPage',
+                content: t('Admin'),
+                href: getRouteAdminPanel(),
+              },
+            ]
           : []),
         {
           key: 'profile',
@@ -57,9 +61,11 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
           onClick: handleLogoutClick,
         },
       ]}
-      triggerElement={<Avatar src={userAuthData.avatar} alt="avatar" size={30}/>}
+      triggerElement={
+        <Avatar src={userAuthData.avatar} alt="avatar" size={30} />
+      }
       className={classNames(cls.avatarDropdown, {}, [className])}
-      direction='bottom left'
+      direction="bottom left"
     />
   );
 });

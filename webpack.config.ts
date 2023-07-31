@@ -1,4 +1,8 @@
-import { type BuildPaths, type BuildType, type BuildEnv } from './config/build/types/config';
+import {
+  type BuildPaths,
+  type BuildType,
+  type BuildEnv,
+} from './config/build/types/config';
 import path from 'path';
 import { type Configuration } from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';

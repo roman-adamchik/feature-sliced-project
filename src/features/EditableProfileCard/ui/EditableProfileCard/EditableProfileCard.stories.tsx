@@ -26,22 +26,26 @@ export default {
   ],
 } as ComponentMeta<typeof EditableProfileCard>;
 
-const Template: ComponentStory<typeof EditableProfileCard> = (
-  args,
-) => <EditableProfileCard {...args} />;
+const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
+  <EditableProfileCard {...args} />
+);
 
 export const Primary = Template.bind({});
 
 export const WithError = Template.bind({});
-WithError.decorators = [StoreDecorator({
-  profile: {
-    error: 'error',
-  },
-})];
+WithError.decorators = [
+  StoreDecorator({
+    profile: {
+      error: 'error',
+    },
+  }),
+];
 
 export const Loading = Template.bind({});
-Loading.decorators = [StoreDecorator({
-  profile: {
-    isLoading: true,
-  },
-})];
+Loading.decorators = [
+  StoreDecorator({
+    profile: {
+      isLoading: true,
+    },
+  }),
+];

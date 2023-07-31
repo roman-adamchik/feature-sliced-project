@@ -6,9 +6,7 @@
   "views": 5452,
   "userId": "1",
   "createdAt": "06.06.2017",
-  "type": [
-    "ECONOMICS"
-  ],
+  "type": ["ECONOMICS"],
   "blocks": [
     {
       "id": "1",
@@ -24,9 +22,7 @@
     "id": "1",
     "username": "admin",
     "password": "123",
-    "roles": [
-      "ADMIN"
-    ],
+    "roles": ["ADMIN"],
     "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg"
   }
 }

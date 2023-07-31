@@ -13,8 +13,7 @@ import { getProfileData } from '../../model/selectors/getProfileData/getProfileD
 import { HStack } from '@/shared/ui/Stack';
 
 interface ProfileHeaderProps {
-  className?: string
-
+  className?: string;
 }
 
 export const ProfileHeader = (props: ProfileHeaderProps) => {
@@ -42,38 +41,38 @@ export const ProfileHeader = (props: ProfileHeaderProps) => {
   }, [dispatch, profileData]);
 
   return (
-    <HStack
-      className={classNames('', {}, [className])}
-      justify='between'
-    >
-      <Text title={t('Profile')}/>
-      {canEdit && <HStack justify='between' gap='16'>
-        {readonly
-          ? <Button
-            theme={ButtonTheme.OUTLINE}
-            onClick={handleEdit}
-            data-testid='ProfileHeader.editButton'
-          >
-            {t('Edit')}
-          </Button>
-          : <>
-          <Button
+    <HStack className={classNames('', {}, [className])} justify="between">
+      <Text title={t('Profile')} />
+      {canEdit && (
+        <HStack justify="between" gap="16">
+          {readonly ? (
+            <Button
+              theme={ButtonTheme.OUTLINE}
+              onClick={handleEdit}
+              data-testid="ProfileHeader.editButton"
+            >
+              {t('Edit')}
+            </Button>
+          ) : (
+            <>
+              <Button
                 theme={ButtonTheme.OUTLINE_NEGATIVE}
                 onClick={handleCancelEdit}
-                data-testid='ProfileHeader.cancelButton'
-          >
-            {t('Cancel')}
-          </Button>
-          <Button
+                data-testid="ProfileHeader.cancelButton"
+              >
+                {t('Cancel')}
+              </Button>
+              <Button
                 theme={ButtonTheme.OUTLINE}
                 onClick={handleSave}
-                data-testid='ProfileHeader.saveButton'
-          >
-            {t('Save')}
-          </Button>
-          </>
-        }
-      </HStack>}
+                data-testid="ProfileHeader.saveButton"
+              >
+                {t('Save')}
+              </Button>
+            </>
+          )}
+        </HStack>
+      )}
     </HStack>
   );
 };

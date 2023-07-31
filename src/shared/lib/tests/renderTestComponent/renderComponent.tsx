@@ -12,15 +12,15 @@ import { Theme } from '@/shared/const/theme';
 import '@/app/styles/index.scss';
 
 export interface RenderTestComponentOptions {
-  route?: string
-  initialState?: DeepPartial<StateSchema>
-  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
-  theme?: Theme
+  route?: string;
+  initialState?: DeepPartial<StateSchema>;
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+  theme?: Theme;
 }
 
 interface TestProviderProps {
-  children: ReactNode
-  options?: RenderTestComponentOptions
+  children: ReactNode;
+  options?: RenderTestComponentOptions;
 }
 
 export const TestProvider = (props: TestProviderProps) => {
@@ -37,9 +37,7 @@ export const TestProvider = (props: TestProviderProps) => {
       <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
         <I18nextProvider i18n={i18nForTests}>
           <ThemeProvider initialTheme={theme}>
-            <div className={`app ${theme}`}>
-              {children}
-            </div>
+            <div className={`app ${theme}`}>{children}</div>
           </ThemeProvider>
         </I18nextProvider>
       </StoreProvider>
@@ -51,9 +49,5 @@ export const renderTestComponent = (
   component: ReactNode,
   options: RenderTestComponentOptions = {},
 ) => {
-  return render(
-    <TestProvider options={options}>
-      {component}
-    </TestProvider>,
-  );
+  return render(<TestProvider options={options}>{component}</TestProvider>);
 };

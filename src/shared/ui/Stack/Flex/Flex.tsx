@@ -1,5 +1,9 @@
 import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
-import { type DetailedHTMLProps, type HTMLAttributes, type ReactNode } from 'react';
+import {
+  type DetailedHTMLProps,
+  type HTMLAttributes,
+  type ReactNode,
+} from 'react';
 import cls from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between';
@@ -33,17 +37,20 @@ const gapClasses: Record<FlexGap, string> = {
   32: cls.gap32,
 };
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
 
 export interface FlexProps extends DivProps {
-  className?: string
-  children: ReactNode
-  justify?: FlexJustify
-  align?: FlexAlign
-  direction: FlexDirection
-  gap?: FlexGap
-  maxWidth?: boolean
-  'data-testid'?: string
+  className?: string;
+  children: ReactNode;
+  justify?: FlexJustify;
+  align?: FlexAlign;
+  direction: FlexDirection;
+  gap?: FlexGap;
+  maxWidth?: boolean;
+  'data-testid'?: string;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -71,11 +78,8 @@ export const Flex = (props: FlexProps) => {
   };
 
   return (
-        <div
-          className={classNames(cls.Flex, mods, classes)}
-          {...otherProps}
-        >
-            {children}
-        </div>
+    <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>
+      {children}
+    </div>
   );
 };

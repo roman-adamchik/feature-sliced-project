@@ -5,7 +5,7 @@ import { Page } from '@/widgets/Page';
 import cls from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
-  className?: string
+  className?: string;
 }
 
 export const NotFoundPage = memo((props: NotFoundPageProps) => {
@@ -16,7 +16,7 @@ export const NotFoundPage = memo((props: NotFoundPageProps) => {
   return (
     <Page
       className={classNames(cls.notFoundPage, {}, [className])}
-      data-testid='NotFoundPage'
+      data-testid="NotFoundPage"
     >
       {t('Page not found')}
     </Page>

@@ -21,14 +21,14 @@ export enum TextSize {
 }
 
 interface TextProps {
-  className?: string
-  title?: string
-  text?: string
-  theme?: TextTheme
-  align?: TextAlign
-  size?: TextSize
+  className?: string;
+  title?: string;
+  text?: string;
+  theme?: TextTheme;
+  align?: TextAlign;
+  size?: TextSize;
 
-  'data-testid'?: string
+  'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
@@ -52,17 +52,20 @@ export const Text = memo((props: TextProps) => {
 
   const HeaderTag = mapSizeToHeaderText[size];
 
-  const additionalClasses = [
-    className,
-    cls[theme],
-    cls[align],
-    cls[size],
-  ];
+  const additionalClasses = [className, cls[theme], cls[align], cls[size]];
 
   return (
-    <div className={classNames(cls.textWrapper, { }, additionalClasses)}>
-      {title && <HeaderTag className={cls.title} data-testid={`${dataTestId}.header`}>{title}</HeaderTag>}
-      {text && <p className={cls.text} data-testid={`${dataTestId}.paragraph`}>{text}</p>}
+    <div className={classNames(cls.textWrapper, {}, additionalClasses)}>
+      {title && (
+        <HeaderTag className={cls.title} data-testid={`${dataTestId}.header`}>
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p className={cls.text} data-testid={`${dataTestId}.paragraph`}>
+          {text}
+        </p>
+      )}
     </div>
   );
 });

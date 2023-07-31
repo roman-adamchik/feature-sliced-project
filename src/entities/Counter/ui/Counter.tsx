@@ -21,24 +21,15 @@ export const Counter: FC = () => {
   };
 
   return (
-    <div data-testid='counter'>
-      <h1 data-testid='value'>Value = {count}</h1>
-      <Button
-        onClick={handleIncrement}
-        data-testid='increment-btn'
-      >
+    <div data-testid="counter">
+      <h1 data-testid="value">Value = {count}</h1>
+      <Button onClick={handleIncrement} data-testid="increment-btn">
         Increment
       </Button>
-      <Button
-        onClick={handleDecrement}
-        data-testid='decrement-btn'
-      >
+      <Button onClick={handleDecrement} data-testid="decrement-btn">
         Decrement
       </Button>
-      <Button
-        onClick={handleAddFive}
-        data-testid='add-five-btn'
-      >
+      <Button onClick={handleAddFive} data-testid="add-five-btn">
         Add Five
       </Button>
     </div>

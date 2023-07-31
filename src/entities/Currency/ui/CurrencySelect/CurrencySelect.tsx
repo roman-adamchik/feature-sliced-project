@@ -5,10 +5,10 @@ import { useCallback } from 'react';
 import { ListBox } from '@/shared/ui/Popups';
 
 interface CurrencySelectProps {
-  className?: string
-  value?: Currency
-  readonly?: boolean
-  onChange?: (value: Currency) => void
+  className?: string;
+  value?: Currency;
+  readonly?: boolean;
+  onChange?: (value: Currency) => void;
 }
 
 const currencyOptions = [
@@ -19,17 +19,15 @@ const currencyOptions = [
 ];
 
 export const CurrencySelect = (props: CurrencySelectProps) => {
-  const {
-    className = '',
-    value,
-    readonly,
-    onChange,
-  } = props;
+  const { className = '', value, readonly, onChange } = props;
   const { t } = useTranslation();
 
-  const handleChange = useCallback((value: string) => {
-    onChange?.(value as Currency);
-  }, [onChange]);
+  const handleChange = useCallback(
+    (value: string) => {
+      onChange?.(value as Currency);
+    },
+    [onChange],
+  );
 
   return (
     <ListBox
@@ -40,7 +38,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
       defaultValue={t('Select currency')}
       label={t('Select currency')}
       readonly={readonly}
-      direction='top right'
+      direction="top right"
     />
   );
 };

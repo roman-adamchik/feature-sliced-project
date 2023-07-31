@@ -12,13 +12,13 @@ import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer';
 
 interface RatingCardProps {
-  className?: string
-  title?: string
-  feedbackTitle?: string
-  hasFeedback?: boolean
-  onCancel?: (starsCount: number) => void
-  onAccept?: (starsCount: number, feedback?: string) => void
-  rate?: number
+  className?: string;
+  title?: string;
+  feedbackTitle?: string;
+  hasFeedback?: boolean;
+  onCancel?: (starsCount: number) => void;
+  onAccept?: (starsCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
@@ -36,14 +36,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
   const [starsCount, setStarsCount] = useState(rate);
   const [feedback, setFeedback] = useState('');
 
-  const onSelectStars = useCallback((selectedStarsCount: number) => {
-    setStarsCount(selectedStarsCount);
-    if (hasFeedback) {
-      setIsModalOpen(true);
-    } else {
-      onAccept?.(selectedStarsCount);
-    }
-  }, [hasFeedback, onAccept]);
+  const onSelectStars = useCallback(
+    (selectedStarsCount: number) => {
+      setStarsCount(selectedStarsCount);
+      if (hasFeedback) {
+        setIsModalOpen(true);
+      } else {
+        onAccept?.(selectedStarsCount);
+      }
+    },
+    [hasFeedback, onAccept],
+  );
 
   const acceptHandle = useCallback(() => {
     setIsModalOpen(false);
@@ -56,24 +59,19 @@ export const RatingCard = memo((props: RatingCardProps) => {
   }, [onCancel, starsCount]);
 
   const modalContent = (
-  <>
-    <Text
-      title={feedbackTitle}
-    />
-    <Input
-      value={feedback}
-      onChange={setFeedback}
-      placeholder={t('Your feedback')}
-      data-testid='RatingCard.input'
-    />
-  </>
+    <>
+      <Text title={feedbackTitle} />
+      <Input
+        value={feedback}
+        onChange={setFeedback}
+        placeholder={t('Your feedback')}
+        data-testid="RatingCard.input"
+      />
+    </>
   );
 
   return (
-    <Card
-      className={classNames('', {}, [className])}
-      data-testid='RatingCard'
-    >
+    <Card className={classNames('', {}, [className])} data-testid="RatingCard">
       <VStack align="center" gap="8">
         <Text title={starsCount ? t('Thanks for your feedback') : title} />
         <StarRating
@@ -90,20 +88,17 @@ export const RatingCard = memo((props: RatingCardProps) => {
               <Button
                 onClick={cancelHandle}
                 theme={ButtonTheme.OUTLINE_NEGATIVE}
-                data-testid='RatingCard.close'
+                data-testid="RatingCard.close"
               >
                 {t('Close')}
               </Button>
-              <Button
-                onClick={acceptHandle}
-                data-testid='RatingCard.send'
-              >
+              <Button onClick={acceptHandle} data-testid="RatingCard.send">
                 {t('Send')}
               </Button>
             </HStack>
           </VStack>
         </Modal>
-        </BrowserView>
+      </BrowserView>
       <MobileView>
         <Drawer isOpen={isModalOpen} onClose={cancelHandle}>
           <VStack gap="32">

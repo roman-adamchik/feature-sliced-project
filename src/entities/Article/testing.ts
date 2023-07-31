@@ -1,5 +1,3 @@
 import { articleDetailsReducer } from './model/slice/articleDetailsSlice';
 
-export {
-  articleDetailsReducer,
-};
+export { articleDetailsReducer };

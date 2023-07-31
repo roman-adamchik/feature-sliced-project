@@ -12,7 +12,8 @@ const profileData = {
   country: Country.Israel,
   city: 'New York',
   username: 'admin',
-  avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+  avatar:
+    'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
   id: '1',
 };
 
@@ -24,11 +25,11 @@ describe('updateProfileData.test', () => {
       },
     });
 
-    testAsyncThunk.api.put.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.put.mockReturnValue(
+      Promise.resolve({
         data: profileData,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk(undefined);
 
     expect(testAsyncThunk.api.put).toHaveBeenCalled();
@@ -42,11 +43,11 @@ describe('updateProfileData.test', () => {
         form: profileData,
       },
     });
-    testAsyncThunk.api.put.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.put.mockReturnValue(
+      Promise.resolve({
         status: 403,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk(undefined);
 
     expect(testAsyncThunk.api.put).toHaveBeenCalled();
@@ -63,6 +64,8 @@ describe('updateProfileData.test', () => {
 
     const result = await testAsyncThunk.callThunk(undefined);
 
-    expect(result.payload).toEqual([ProfileValidationErrors.INCORRECT_USER_AGE]);
+    expect(result.payload).toEqual([
+      ProfileValidationErrors.INCORRECT_USER_AGE,
+    ]);
   });
 });

@@ -7,13 +7,11 @@ import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
 export default {
   title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
   component: ArticleDetailsPageHeader,
-  decorators: [
-    StoreDecorator({}),
-  ],
+  decorators: [StoreDecorator({})],
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
 const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
-  <ArticleDetailsPageHeader {...args}/>
+  <ArticleDetailsPageHeader {...args} />
 );
 
 export const Light = Template.bind({});

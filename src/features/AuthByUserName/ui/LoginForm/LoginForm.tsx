@@ -12,11 +12,14 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 export interface LoginFormProps {
-  className?: string
+  className?: string;
 }
 
 const initialReducers: ReducersList = {
@@ -32,35 +35,40 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
 
-  const handleUsernameChange = useCallback((value: string) => {
-    dispatch(loginActions.setUsername(value));
-  }, [dispatch]);
+  const handleUsernameChange = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch],
+  );
 
-  const handlePasswordChange = useCallback((value: string) => {
-    dispatch(loginActions.setPassword(value));
-  }, [dispatch]);
+  const handlePasswordChange = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch],
+  );
 
-  const handleLoginClick = useCallback((e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    void dispatch(loginByUsername({ username, password }));
-  }, [dispatch, password, username]);
+  const handleLoginClick = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      void dispatch(loginByUsername({ username, password }));
+    },
+    [dispatch, password, username],
+  );
 
   return (
-    <DynamicModuleLoader
-      reducers={initialReducers}
-      removeAfterUnmount
-    >
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <form className={classNames(cls.loginform, {}, [className])}>
-        <Text
-          title={t('Login form')}
-        />
-        {error && <Text
+        <Text title={t('Login form')} />
+        {error && (
+          <Text
             text={t('Wrong username or password')}
             theme={TextTheme.ERROR}
           />
-        }
+        )}
         <Input
-          type='text'
+          type="text"
           className={cls.input}
           placeholder={t('Username')}
           autofocus
@@ -68,7 +76,7 @@ const LoginForm: FC<LoginFormProps> = memo((props) => {
           value={username}
         />
         <Input
-          type='text'
+          type="text"
           className={cls.input}
           placeholder={t('Password')}
           onChange={handlePasswordChange}

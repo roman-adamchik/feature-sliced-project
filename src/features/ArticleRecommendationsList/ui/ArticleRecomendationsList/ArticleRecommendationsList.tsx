@@ -8,36 +8,37 @@ import { useArticleRecommendationsList } from '../../api/recomendationsListApi';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleRecommendationsListProps {
-  className?: string
+  className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-  const {
-    className = '',
-  } = props;
-  const { t } = useTranslation();
+export const ArticleRecommendationsList = memo(
+  (props: ArticleRecommendationsListProps) => {
+    const { className = '' } = props;
+    const { t } = useTranslation();
 
-  const { isLoading, data: recommendations } = useArticleRecommendationsList(3);
+    const { isLoading, data: recommendations } =
+      useArticleRecommendationsList(3);
 
-  return (
-    <VStack
-      gap='8'
-      className={classNames('', {}, [className])}
-      data-testid="ArticleRecommendationsList.wrapper"
-    >
-      <Text
-        size={TextSize.L}
-        className={cls.commentTitle}
-        title={t('Recommended')}
-      />
-      <ArticleList
+    return (
+      <VStack
+        gap="8"
+        className={classNames('', {}, [className])}
+        data-testid="ArticleRecommendationsList.wrapper"
+      >
+        <Text
+          size={TextSize.L}
+          className={cls.commentTitle}
+          title={t('Recommended')}
+        />
+        <ArticleList
           articles={recommendations}
           isLoading={isLoading}
           className={cls.recommendations}
           target="_blank"
-      />
-    </VStack>
-  );
-});
+        />
+      </VStack>
+    );
+  },
+);
 
 ArticleRecommendationsList.displayName = 'ArticleRecommendationsList';

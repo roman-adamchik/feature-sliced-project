@@ -15,10 +15,7 @@ const notification = {
 export default {
   title: 'entities/Notification/NotificationList',
   component: NotificationList,
-  decorators: [
-    StoreDecorator({}),
-    withMock,
-  ],
+  decorators: [StoreDecorator({}), withMock],
   parameters: {
     mockData: [
       {
@@ -36,7 +33,9 @@ export default {
   },
 } as ComponentMeta<typeof NotificationList>;
 
-const Template: ComponentStory<typeof NotificationList> = (args) => <NotificationList {...args}/>;
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+  <NotificationList {...args} />
+);
 
 export const Light = Template.bind({});
 

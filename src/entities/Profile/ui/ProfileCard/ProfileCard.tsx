@@ -12,19 +12,19 @@ import { HStack, VStack } from '@/shared/ui/Stack';
 import { type Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
-  className?: string
-  data?: Profile
-  isLoading?: boolean
-  error?: string
-  readonly?: boolean
-  handleNameChange?: (value: string) => void
-  handleLastnameChange?: (value: string) => void
-  handleAgeChange?: (value: string) => void
-  handleCityChange?: (value: string) => void
-  handleUsernameChange?: (value: string) => void
-  handleAvatarChange?: (value: string) => void
-  handleCurrencyChange?: (value: Currency) => void
-  handleCountryChange?: (value: Country) => void
+  className?: string;
+  data?: Profile;
+  isLoading?: boolean;
+  error?: string;
+  readonly?: boolean;
+  handleNameChange?: (value: string) => void;
+  handleLastnameChange?: (value: string) => void;
+  handleAgeChange?: (value: string) => void;
+  handleCityChange?: (value: string) => void;
+  handleUsernameChange?: (value: string) => void;
+  handleAvatarChange?: (value: string) => void;
+  handleCurrencyChange?: (value: Currency) => void;
+  handleCountryChange?: (value: Country) => void;
 }
 
 export const ProfileCard = memo((props: ProfileCardProps) => {
@@ -51,7 +51,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
       <HStack
         className={classNames(cls.profileCard, {}, [className, cls.loading])}
         maxWidth
-        justify='center'
+        justify="center"
       >
         <Loader />
       </HStack>
@@ -63,7 +63,7 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
       <HStack
         className={classNames(cls.profileCard, {}, [className, cls.error])}
         maxWidth
-        justify='center'
+        justify="center"
       >
         <Text
           theme={TextTheme.ERROR}
@@ -80,16 +80,10 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
   };
 
   return (
-    <VStack
-      className={classNames(cls.profileCard, mods, [className])}
-      gap='8'
-    >
+    <VStack className={classNames(cls.profileCard, mods, [className])} gap="8">
       {data?.avatar && (
-        <HStack
-          maxWidth
-          justify='center'
-        >
-          <Avatar src={data.avatar} alt='avatar'/>
+        <HStack maxWidth justify="center">
+          <Avatar src={data.avatar} alt="avatar" />
         </HStack>
       )}
       <Input
@@ -97,54 +91,54 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
         placeholder={t('Your name')}
         readOnly={readonly}
         onChange={handleNameChange}
-        data-testid='ProfileCard.firstName'
+        data-testid="ProfileCard.firstName"
       />
       <Input
         value={data?.lastname}
         placeholder={t('Your last name')}
         readOnly={readonly}
         onChange={handleLastnameChange}
-        data-testid='ProfileCard.lastName'
+        data-testid="ProfileCard.lastName"
       />
       <Input
         value={data?.age}
         placeholder={t('Your age')}
         readOnly={readonly}
         onChange={handleAgeChange}
-        data-testid='ProfileCard.age'
+        data-testid="ProfileCard.age"
       />
       <Input
         value={data?.city}
         placeholder={t('Your city')}
         readOnly={readonly}
         onChange={handleCityChange}
-        data-testid='ProfileCard.city'
+        data-testid="ProfileCard.city"
       />
       <Input
         value={data?.username}
         placeholder={t('Your username')}
         readOnly={readonly}
         onChange={handleUsernameChange}
-        data-testid='ProfileCard.username'
+        data-testid="ProfileCard.username"
       />
       <Input
         value={data?.avatar}
         placeholder={t('Your avatar url')}
         readOnly={readonly}
         onChange={handleAvatarChange}
-        data-testid='ProfileCard.avatar'
+        data-testid="ProfileCard.avatar"
       />
       <CurrencySelect
         readonly={readonly}
         value={data?.currency}
         onChange={handleCurrencyChange}
-        data-testid='ProfileCard.currency'
+        data-testid="ProfileCard.currency"
       />
       <CountrySelect
         readonly={readonly}
         value={data?.country}
         onChange={handleCountryChange}
-        data-testid='ProfileCard.country'
+        data-testid="ProfileCard.country"
       />
     </VStack>
   );

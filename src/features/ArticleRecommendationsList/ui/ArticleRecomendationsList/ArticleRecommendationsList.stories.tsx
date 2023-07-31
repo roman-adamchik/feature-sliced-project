@@ -12,9 +12,7 @@ const article = {
   views: 3043,
   userId: '2',
   createdAt: '18.01.2023',
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',
@@ -31,10 +29,7 @@ const article = {
 export default {
   title: 'features/ArticleRecommendationsList',
   component: ArticleRecommendationsList,
-  decorators: [
-    StoreDecorator({}),
-    withMock,
-  ],
+  decorators: [StoreDecorator({}), withMock],
   parameters: {
     mockData: [
       {
@@ -51,8 +46,9 @@ export default {
   },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) =>
-<ArticleRecommendationsList {...args}/>;
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (args) => (
+  <ArticleRecommendationsList {...args} />
+);
 
 export const Light = Template.bind({});
 

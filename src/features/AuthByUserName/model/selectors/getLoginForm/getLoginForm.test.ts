@@ -10,13 +10,11 @@ describe('getLoginForm.test', () => {
         password: 'test123',
       },
     };
-    expect(getLoginForm(state as StateSchema)).toEqual(
-      {
-        isLoading: false,
-        username: 'test',
-        password: 'test123',
-      },
-    );
+    expect(getLoginForm(state as StateSchema)).toEqual({
+      isLoading: false,
+      username: 'test',
+      password: 'test123',
+    });
   });
 
   test('getLoginForm with empty state', () => {

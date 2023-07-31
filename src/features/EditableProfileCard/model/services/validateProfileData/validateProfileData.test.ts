@@ -11,7 +11,8 @@ const profileData = {
   country: Country.Israel,
   city: 'New York',
   username: 'admin',
-  avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+  avatar:
+    'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
 };
 
 describe('validateProfileData.test', () => {
@@ -38,7 +39,8 @@ describe('validateProfileData.test', () => {
   test('Wrong avatar url', async () => {
     const result = validateProfileData({
       ...profileData,
-      avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar',
+      avatar:
+        'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar',
     });
 
     expect(result).toEqual([ProfileValidationErrors.INCORRECT_USER_AVATAR]);

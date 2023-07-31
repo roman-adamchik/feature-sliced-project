@@ -14,7 +14,9 @@ describe('getProfileValidateErrors.test', () => {
         validateErrors,
       },
     };
-    expect(getProfileValidateErrors(state as StateSchema)).toEqual(validateErrors);
+    expect(getProfileValidateErrors(state as StateSchema)).toEqual(
+      validateErrors,
+    );
   });
 
   test('getProfileValidateErrors with empty state', () => {

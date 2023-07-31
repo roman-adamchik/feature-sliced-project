@@ -11,7 +11,7 @@ const uiPath = path.resolve(__dirname, '..', '..', 'src', 'shared', 'ui');
 const sharedUiDirectory = project.getDirectory(uiPath);
 const componentsDirs = sharedUiDirectory?.getDirectories();
 
-componentsDirs?.forEach(directory => {
+componentsDirs?.forEach((directory) => {
   const componentName = directory.getBaseName();
   const indexFilePath = directory.getPath() + '/index.ts';
   const indexFile = directory.getSourceFile(indexFilePath);
@@ -24,10 +24,10 @@ componentsDirs?.forEach(directory => {
   }
 });
 
-files.forEach(file => {
+files.forEach((file) => {
   const importDeclarations = file.getImportDeclarations();
 
-  importDeclarations.forEach(importDeclaration => {
+  importDeclarations.forEach((importDeclaration) => {
     const value = importDeclaration.getModuleSpecifierValue();
     const valueWithoutAlias = value.replace('@/', '');
     const segments = valueWithoutAlias.split('/');

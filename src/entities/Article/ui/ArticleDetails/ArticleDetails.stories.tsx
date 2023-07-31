@@ -43,7 +43,7 @@ const article: Article = {
       type: ArticleBlockType.TEXT,
       title: 'The at method for Strings, Arrays, and TypedArrays',
       paragraphs: [
-        "The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be \"negatively indexed\", just like in Python. It's a more general approach, which is to allow relative indexing.",
+        'The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be "negatively indexed", just like in Python. It\'s a more general approach, which is to allow relative indexing.',
       ],
     },
     {
@@ -85,30 +85,38 @@ const article: Article = {
 export default {
   title: 'entities/Article/ArticleDetails',
   component: ArticleDetails,
-  decorators: [StoreDecorator({
-    articleDetails: {
-      data: article,
-    },
-  })],
+  decorators: [
+    StoreDecorator({
+      articleDetails: {
+        data: article,
+      },
+    }),
+  ],
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args}/>;
+const Template: ComponentStory<typeof ArticleDetails> = (args) => (
+  <ArticleDetails {...args} />
+);
 
 export const Light = Template.bind({});
 
 export const LightIsLoading = Template.bind({});
-LightIsLoading.decorators = [StoreDecorator({
-  articleDetails: {
-    isLoading: true,
-  },
-})];
+LightIsLoading.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      isLoading: true,
+    },
+  }),
+];
 
 export const LightError = Template.bind({});
-LightError.decorators = [StoreDecorator({
-  articleDetails: {
-    error: 'error',
-  },
-})];
+LightError.decorators = [
+  StoreDecorator({
+    articleDetails: {
+      error: 'error',
+    },
+  }),
+];
 
 export const Dark = Template.bind({});
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

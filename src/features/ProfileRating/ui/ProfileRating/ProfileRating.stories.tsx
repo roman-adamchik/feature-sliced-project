@@ -24,8 +24,7 @@ export default {
         url: `${GLOBAL_API_URL}/profile-ratings?userId=1&profileId=1`,
         method: 'GET',
         status: 200,
-        response: [
-        ],
+        response: [],
       },
     ],
   },
@@ -34,7 +33,9 @@ export default {
   },
 } as ComponentMeta<typeof ProfileRating>;
 
-const Template: ComponentStory<typeof ProfileRating> = (args) => <ProfileRating {...args}/>;
+const Template: ComponentStory<typeof ProfileRating> = (args) => (
+  <ProfileRating {...args} />
+);
 
 export const Light = Template.bind({});
 

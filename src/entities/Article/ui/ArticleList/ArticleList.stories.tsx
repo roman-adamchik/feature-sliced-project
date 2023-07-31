@@ -22,9 +22,7 @@ const article = {
   img: jsLogo,
   views: 6022,
   createdAt: '26.02.2023',
-  type: [
-    'IT',
-  ],
+  type: ['IT'],
   blocks: [
     {
       id: '1',
@@ -45,7 +43,7 @@ const article = {
       type: 'TEXT',
       title: 'The at method for Strings, Arrays, and TypedArrays',
       paragraphs: [
-        "The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be \"negatively indexed\", just like in Python. It's a more general approach, which is to allow relative indexing.",
+        'The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be "negatively indexed", just like in Python. It\'s a more general approach, which is to allow relative indexing.',
       ],
     },
     {
@@ -88,16 +86,16 @@ export default {
   title: 'entities/Article/ArticleList',
   component: ArticleList,
   args: {
-    articles: new Array(9).fill(0).map(
-      (_item, idx) => ({
-        ...article,
-        id: String(idx + 1),
-      }),
-    ),
+    articles: new Array(9).fill(0).map((_item, idx) => ({
+      ...article,
+      id: String(idx + 1),
+    })),
   },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args}/>;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+);
 
 export const LightTable = Template.bind({});
 

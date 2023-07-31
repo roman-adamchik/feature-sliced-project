@@ -1,5 +1,9 @@
 import { UserRole } from '@/entities/User';
-import { getRouteAbout, getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
+import {
+  getRouteAbout,
+  getRouteAdminPanel,
+  getRouteProfile,
+} from '@/shared/const/router';
 import { renderTestComponent } from '@/shared/lib/tests/renderTestComponent/renderComponent';
 import { screen } from '@testing-library/react';
 import AppRouter from './AppRouter';
@@ -41,7 +45,7 @@ describe('app/router/AppRouter', () => {
       initialState: {
         user: {
           _initialized: true,
-          authData: { },
+          authData: {},
         },
       },
     });

@@ -1,5 +1,3 @@
 import { articleDetailsCommentsReducer } from './model/slice/articleDetailsCommentsSlice';
 
-export {
-  articleDetailsCommentsReducer,
-};
+export { articleDetailsCommentsReducer };

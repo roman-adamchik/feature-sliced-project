@@ -7,15 +7,12 @@ import { useSelector } from 'react-redux';
 import { useArticleRatings, useRateArticle } from '../../api/articleRatingApi';
 
 export interface ArticleRatingProps {
-  className?: string
-  articleId: string
+  className?: string;
+  articleId: string;
 }
 
 const ArticleRating = memo((props: ArticleRatingProps) => {
-  const {
-    className = '',
-    articleId,
-  } = props;
+  const { className = '', articleId } = props;
   const { t } = useTranslation();
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useArticleRatings({
@@ -25,32 +22,39 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
   const [rateArticleMutation] = useRateArticle();
   const rating = data?.[0];
 
-  const handleRateArticle = useCallback(async (starsCount: number, feedback?: string) => {
-    try {
-      await rateArticleMutation({
-        articleId,
-        userId: userData?.id || '',
-        feedback,
-        rate: starsCount,
-      });
-    } catch (e) {
-      // handle error
-      console.log(e);
-    }
-  }, [articleId, rateArticleMutation, userData?.id]);
+  const handleRateArticle = useCallback(
+    async (starsCount: number, feedback?: string) => {
+      try {
+        await rateArticleMutation({
+          articleId,
+          userId: userData?.id || '',
+          feedback,
+          rate: starsCount,
+        });
+      } catch (e) {
+        // handle error
+        console.log(e);
+      }
+    },
+    [articleId, rateArticleMutation, userData?.id],
+  );
 
-  const handleAccept = useCallback(async (starsCount: number, feedback?: string) => {
-    await handleRateArticle(starsCount, feedback);
-  }, [handleRateArticle]);
+  const handleAccept = useCallback(
+    async (starsCount: number, feedback?: string) => {
+      await handleRateArticle(starsCount, feedback);
+    },
+    [handleRateArticle],
+  );
 
-  const handleCancel = useCallback(async (starsCount: number) => {
-    await handleRateArticle(starsCount);
-  }, [handleRateArticle]);
+  const handleCancel = useCallback(
+    async (starsCount: number) => {
+      await handleRateArticle(starsCount);
+    },
+    [handleRateArticle],
+  );
 
   if (isLoading) {
-    return (
-      <Skeleton height={120} width='100%'/>
-    );
+    return <Skeleton height={120} width="100%" />;
   }
 
   return (

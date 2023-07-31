@@ -13,7 +13,8 @@ const data = {
   country: Country.Israel,
   city: 'New York',
   username: 'admin',
-  avatar: 'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
+  avatar:
+    'https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg',
 };
 
 describe('profileSlice.test', () => {
@@ -21,8 +22,9 @@ describe('profileSlice.test', () => {
     const state: DeepPartial<ProfileSchema> = {
       readonly: false,
     };
-    expect(profileReducer(state as ProfileSchema, profileActions.setReadonly(true)))
-      .toEqual({ readonly: true });
+    expect(
+      profileReducer(state as ProfileSchema, profileActions.setReadonly(true)),
+    ).toEqual({ readonly: true });
   });
 
   test('cancelEdit', () => {
@@ -32,23 +34,28 @@ describe('profileSlice.test', () => {
       validateErrors: [ProfileValidationErrors.INCORRECT_USER_DATA],
       readonly: false,
     };
-    expect(profileReducer(state as ProfileSchema, profileActions.cancelEdit()))
-      .toEqual({
-        data,
-        form: data,
-        validateErrors: undefined,
-        readonly: true,
-      });
+    expect(
+      profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+    ).toEqual({
+      data,
+      form: data,
+      validateErrors: undefined,
+      readonly: true,
+    });
   });
 
   test('updateProfile', () => {
     const state: DeepPartial<ProfileSchema> = {
       form: { ...data },
     };
-    expect(profileReducer(state as ProfileSchema, profileActions.updateProfile({ name: 'Adam' })))
-      .toEqual({
-        form: { ...data, name: 'Adam' },
-      });
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        profileActions.updateProfile({ name: 'Adam' }),
+      ),
+    ).toEqual({
+      form: { ...data, name: 'Adam' },
+    });
   });
 
   test('updateProfile pending', () => {
@@ -56,10 +63,11 @@ describe('profileSlice.test', () => {
       isLoading: false,
       validateErrors: [ProfileValidationErrors.INCORRECT_USER_CITY],
     };
-    expect(profileReducer(state as ProfileSchema, updateProfileData.pending))
-      .toEqual({
-        isLoading: true,
-        validateErrors: undefined,
-      });
+    expect(
+      profileReducer(state as ProfileSchema, updateProfileData.pending),
+    ).toEqual({
+      isLoading: true,
+      validateErrors: undefined,
+    });
   });
 });

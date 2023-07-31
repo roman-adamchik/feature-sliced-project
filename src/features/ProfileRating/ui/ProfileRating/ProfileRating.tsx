@@ -7,15 +7,12 @@ import { useSelector } from 'react-redux';
 import { useProfileRating, useRateProfile } from '../../api/profileRatingApi';
 
 export interface ProfileRatingProps {
-  className?: string
-  profileId: string
+  className?: string;
+  profileId: string;
 }
 
 const ProfileRating = memo((props: ProfileRatingProps) => {
-  const {
-    className = '',
-    profileId,
-  } = props;
+  const { className = '', profileId } = props;
   const { t } = useTranslation();
   const userData = useSelector(getUserAuthData);
   const { data, isLoading } = useProfileRating({
@@ -25,32 +22,39 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
   const [rateProfileMutation] = useRateProfile();
   const rating = data?.[0];
 
-  const handleRateProfile = useCallback(async (starsCount: number, feedback?: string) => {
-    try {
-      await rateProfileMutation({
-        profileId,
-        userId: userData?.id || '',
-        feedback,
-        rate: starsCount,
-      });
-    } catch (e) {
-      // handle error
-      console.log(e);
-    }
-  }, [profileId, rateProfileMutation, userData?.id]);
+  const handleRateProfile = useCallback(
+    async (starsCount: number, feedback?: string) => {
+      try {
+        await rateProfileMutation({
+          profileId,
+          userId: userData?.id || '',
+          feedback,
+          rate: starsCount,
+        });
+      } catch (e) {
+        // handle error
+        console.log(e);
+      }
+    },
+    [profileId, rateProfileMutation, userData?.id],
+  );
 
-  const handleAccept = useCallback(async (starsCount: number, feedback?: string) => {
-    await handleRateProfile(starsCount, feedback);
-  }, [handleRateProfile]);
+  const handleAccept = useCallback(
+    async (starsCount: number, feedback?: string) => {
+      await handleRateProfile(starsCount, feedback);
+    },
+    [handleRateProfile],
+  );
 
-  const handleCancel = useCallback(async (starsCount: number) => {
-    await handleRateProfile(starsCount);
-  }, [handleRateProfile]);
+  const handleCancel = useCallback(
+    async (starsCount: number) => {
+      await handleRateProfile(starsCount);
+    },
+    [handleRateProfile],
+  );
 
   if (isLoading) {
-    return (
-      <Skeleton height={120} width='100%'/>
-    );
+    return <Skeleton height={120} width="100%" />;
   }
 
   return (

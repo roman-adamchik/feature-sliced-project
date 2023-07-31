@@ -1,5 +1,8 @@
 import {
-  ArticleType, ArticleBlockType, ArticleListViewType, ArticleSortField,
+  ArticleType,
+  ArticleBlockType,
+  ArticleListViewType,
+  ArticleSortField,
 } from './model/consts/consts';
 import { ArticleList } from './ui/ArticleList/ArticleList';
 import { getArticleDetailsData } from './model/selectors/articleDetails';

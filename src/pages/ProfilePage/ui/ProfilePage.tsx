@@ -11,12 +11,10 @@ const ProfilePage = memo(() => {
   if (!profileId) return null;
 
   return (
-    <Page
-      data-testid='ProfilePage'
-    >
-      <VStack gap='16' align='stretch'>
-        <EditableProfileCard profileId={profileId}/>
-        <ProfileRating profileId={profileId}/>
+    <Page data-testid="ProfilePage">
+      <VStack gap="16" align="stretch">
+        <EditableProfileCard profileId={profileId} />
+        <ProfileRating profileId={profileId} />
       </VStack>
     </Page>
   );

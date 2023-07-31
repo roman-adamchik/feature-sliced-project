@@ -17,33 +17,42 @@ export default ({ config }: { config: Configuration }): Configuration => {
   config.resolve?.extensions?.push('.tsx', '.ts');
   config.resolve?.modules?.unshift(paths.src);
   config.module?.rules?.push(BuildCssLoader(true));
-  config.plugins?.push(new DefinePlugin({
-    GLOBAL_IS_DEV: JSON.stringify(true),
-    GLOBAL_API_URL: JSON.stringify('https://testapi.com'),
-    GLOBAL_PROJECT: JSON.stringify('storybook'),
-  }));
+  config.plugins?.push(
+    new DefinePlugin({
+      GLOBAL_IS_DEV: JSON.stringify(true),
+      GLOBAL_API_URL: JSON.stringify('https://testapi.com'),
+      GLOBAL_PROJECT: JSON.stringify('storybook'),
+    }),
+  );
   if (config.module?.rules) {
-    config.module.rules = config.module.rules.map((rule: RuleSetRule | '...') => {
-      if (rule !== '...' && /.svg/.test(rule.test as string)) {
-        return { ...rule, exclude: /\.svg$/ };
-      }
+    config.module.rules = config.module.rules.map(
+      (rule: RuleSetRule | '...') => {
+        if (rule !== '...' && /.svg/.test(rule.test as string)) {
+          return { ...rule, exclude: /\.svg$/ };
+        }
 
-      return rule;
-    });
+        return rule;
+      },
+    );
   }
 
   if (config.module?.rules) {
-    config.module.rules = config?.module?.rules?.filter((rule: RuleSetRule | '...') => {
-      return (rule !== '...' && !(
-        /.png/.test(rule.test as string) ||
-        /.jpeg/.test(rule.test as string) ||
-        /.jpg/.test(rule.test as string) ||
-        /.jpe?g/.test(rule.test as string) ||
-        /.gif/.test(rule.test as string) ||
-        /.woff2/.test(rule.test as string) ||
-        /.woff/.test(rule.test as string)
-      ));
-    });
+    config.module.rules = config?.module?.rules?.filter(
+      (rule: RuleSetRule | '...') => {
+        return (
+          rule !== '...' &&
+          !(
+            /.png/.test(rule.test as string) ||
+            /.jpeg/.test(rule.test as string) ||
+            /.jpg/.test(rule.test as string) ||
+            /.jpe?g/.test(rule.test as string) ||
+            /.gif/.test(rule.test as string) ||
+            /.woff2/.test(rule.test as string) ||
+            /.woff/.test(rule.test as string)
+          )
+        );
+      },
+    );
   }
 
   config?.module?.rules?.push(buildSvgLoader());

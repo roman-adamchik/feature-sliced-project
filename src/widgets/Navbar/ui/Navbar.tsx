@@ -14,7 +14,7 @@ import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
-  className?: string
+  className?: string;
 }
 
 export const Navbar = memo((props: NavbarProps) => {
@@ -34,38 +34,32 @@ export const Navbar = memo((props: NavbarProps) => {
   if (userAuthData) {
     return (
       <header className={classNames(cls.navbar, {}, [className])}>
-      <Text
-        className={cls.appName}
-        title={t('Techno blog app')}
-        theme={TextTheme.INVERTED}
-      />
-      <AppLink
-        to={getRouteArticleCreate()}
-        theme={AppLinkTheme.SECONDARY}
-      >
-        {t('Create new article')}
-      </AppLink>
-      <HStack gap='16' className={cls.actions}>
-        <NotificationButton />
-        <AvatarDropdown setIsModalOpen={setIsModalOpen}/>
-      </HStack>
-    </header>
+        <Text
+          className={cls.appName}
+          title={t('Techno blog app')}
+          theme={TextTheme.INVERTED}
+        />
+        <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
+          {t('Create new article')}
+        </AppLink>
+        <HStack gap="16" className={cls.actions}>
+          <NotificationButton />
+          <AvatarDropdown setIsModalOpen={setIsModalOpen} />
+        </HStack>
+      </header>
     );
   }
 
   return (
     <header className={classNames(cls.navbar, {}, [className])}>
       <Button
-      className={classNames(cls.button)}
-      onClick={handleModalOpen}
-      theme={ButtonTheme.CLEAR_INVERTED}
+        className={classNames(cls.button)}
+        onClick={handleModalOpen}
+        theme={ButtonTheme.CLEAR_INVERTED}
       >
         {t('Login')}
       </Button>
-      <LoginModal
-        isOpen={isModalOpen}
-        onClose={handleModalClose}
-      />
+      <LoginModal isOpen={isModalOpen} onClose={handleModalClose} />
     </header>
   );
 });

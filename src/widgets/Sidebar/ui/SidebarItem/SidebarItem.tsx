@@ -6,12 +6,15 @@ import { getUserAuthData } from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { type SidebarItemType } from '../../model/types/sidebar';
 interface SidebarItemProps {
-  item: SidebarItemType
-  isCollapsed: boolean
+  item: SidebarItemType;
+  isCollapsed: boolean;
 }
 
 export const SidebarItem = memo((props: SidebarItemProps) => {
-  const { item: { path, text, Icon, authOnly }, isCollapsed } = props;
+  const {
+    item: { path, text, Icon, authOnly },
+    isCollapsed,
+  } = props;
   const isAuth = useSelector(getUserAuthData);
 
   if (!isAuth && authOnly) {
@@ -20,15 +23,13 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
 
   return (
     <AppLink
-    theme={AppLinkTheme.SECONDARY}
-    to={path}
-    className={classNames(cls.item, { [cls.collapsed]: isCollapsed })}
-  >
-    <Icon className={classNames(cls.icon)}/>
-    <span className={cls.link}>
-      {text}
-    </span>
-  </AppLink>
+      theme={AppLinkTheme.SECONDARY}
+      to={path}
+      className={classNames(cls.item, { [cls.collapsed]: isCollapsed })}
+    >
+      <Icon className={classNames(cls.icon)} />
+      <span className={cls.link}>{text}</span>
+    </AppLink>
   );
 });
 

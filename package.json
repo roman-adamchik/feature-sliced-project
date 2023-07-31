@@ -11,6 +11,7 @@
     "start:dev:server": "node ./json-server/index.js",
     "build:prod": "webpack --env mode=production apiUrl=https://project-007-server.vercel.app/",
     "build:dev": "webpack --env mode=development",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx,json}\"",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -29,7 +30,10 @@
     "postinstall": "node ./scripts/clearCache/index.js"
   },
   "lint-staged": {
-    "\"**/*.{ts,tsx}\"": "eslint",
+    "\"**/*.{ts,tsx}\"": [
+      "prettier --list-different",
+      "eslint"
+    ],
     "\"**/*.scss\"": "npx stylelint"
   },
   "keywords": [],
@@ -76,6 +80,7 @@
     "css-loader": "^6.6.0",
     "cypress": "^12.16.0",
     "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.9.0",
     "eslint-config-standard-with-typescript": "^34.0.0",
     "eslint-plugin-fsd-slivki": "0.0.14",
     "eslint-plugin-i18next": "^5.1.2",
@@ -96,6 +101,7 @@
     "lint-staged": "^13.2.2",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "3.0.0",
     "react-refresh": "^0.12.0",
     "reg-cli": "^0.17.7",
     "sass": "^1.49.9",

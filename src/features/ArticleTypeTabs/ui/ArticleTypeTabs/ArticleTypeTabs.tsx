@@ -5,37 +5,36 @@ import { Tabs, type TabItem } from '@/shared/ui/Tabs';
 import { ArticleType } from '@/entities/Article';
 
 interface ArticleTypeTabsProps {
-  className?: string
-  type: ArticleType
-  handleTypeChange: (tab: TabItem<ArticleType>) => void
+  className?: string;
+  type: ArticleType;
+  handleTypeChange: (tab: TabItem<ArticleType>) => void;
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
-  const {
-    className = '',
-    type,
-    handleTypeChange,
-  } = props;
+  const { className = '', type, handleTypeChange } = props;
   const { t } = useTranslation();
 
-  const typeTabs = useMemo<Array<TabItem<ArticleType>>>(() => [
-    {
-      value: ArticleType.ALL,
-      content: t('All'),
-    },
-    {
-      value: ArticleType.ECONOMICS,
-      content: t('Economics'),
-    },
-    {
-      value: ArticleType.IT,
-      content: t('IT'),
-    },
-    {
-      value: ArticleType.SCIENCE,
-      content: t('Science'),
-    },
-  ], [t]);
+  const typeTabs = useMemo<Array<TabItem<ArticleType>>>(
+    () => [
+      {
+        value: ArticleType.ALL,
+        content: t('All'),
+      },
+      {
+        value: ArticleType.ECONOMICS,
+        content: t('Economics'),
+      },
+      {
+        value: ArticleType.IT,
+        content: t('IT'),
+      },
+      {
+        value: ArticleType.SCIENCE,
+        content: t('Science'),
+      },
+    ],
+    [t],
+  );
 
   return (
     <Tabs

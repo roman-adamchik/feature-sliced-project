@@ -1,4 +1,8 @@
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './articleDetails';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from './articleDetails';
 import { type StateSchema } from '@/app/providers/StoreProvider';
 import { type Article } from '../types/article';
 import { ArticleBlockType, ArticleType } from '../consts/consts';
@@ -37,7 +41,7 @@ describe('articleDetails.test', () => {
           type: ArticleBlockType.TEXT,
           title: 'The at method for Strings, Arrays, and TypedArrays',
           paragraphs: [
-            "The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be \"negatively indexed\", just like in Python. It's a more general approach, which is to allow relative indexing.",
+            'The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be "negatively indexed", just like in Python. It\'s a more general approach, which is to allow relative indexing.',
           ],
         },
         {

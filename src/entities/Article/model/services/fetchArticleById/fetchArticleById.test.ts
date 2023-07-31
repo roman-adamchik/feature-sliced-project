@@ -35,7 +35,7 @@ const articleData: Article = {
       type: ArticleBlockType.TEXT,
       title: 'The at method for Strings, Arrays, and TypedArrays',
       paragraphs: [
-        "The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be \"negatively indexed\", just like in Python. It's a more general approach, which is to allow relative indexing.",
+        'The at() method solves the very practical problem that all basic indexable classes (Array, String, TypedArray) can be "negatively indexed", just like in Python. It\'s a more general approach, which is to allow relative indexing.',
       ],
     },
     {
@@ -78,11 +78,11 @@ describe('fetchArticleById.test', () => {
   test('Successfull fetch article', async () => {
     const testAsyncThunk = new TestAsyncThunk(fetchArticleById);
 
-    testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.get.mockReturnValue(
+      Promise.resolve({
         data: articleData,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk('1');
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();
@@ -92,11 +92,11 @@ describe('fetchArticleById.test', () => {
 
   test('Failed fetch article', async () => {
     const testAsyncThunk = new TestAsyncThunk(fetchArticleById);
-    testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.get.mockReturnValue(
+      Promise.resolve({
         status: 403,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk('1');
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();

@@ -1,9 +1,13 @@
 import { combineReducers, type ReducersMapObject } from '@reduxjs/toolkit';
-import { type StateSchemaKey, type StateSchema, type ReducerManager } from './StateSchema';
+import {
+  type StateSchemaKey,
+  type StateSchema,
+  type ReducerManager,
+} from './StateSchema';
 import { type AnyAction, type Reducer } from 'redux';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-export function createReducerManager (
+export function createReducerManager(
   initialReducers: ReducersMapObject<StateSchema>,
 ): ReducerManager {
   const reducers = { ...initialReducers };

@@ -8,18 +8,18 @@ import { AppLink } from '../../../AppLink/AppLink';
 import { mapDirectionClass } from '../../styles/consts';
 
 export interface DropdownItem {
-  key: string
-  disabled?: boolean
-  content?: ReactNode
-  onClick?: () => void
-  href?: string
+  key: string;
+  disabled?: boolean;
+  content?: ReactNode;
+  onClick?: () => void;
+  href?: string;
 }
 
 interface DropdownProps {
-  className?: string
-  items: DropdownItem[]
-  triggerElement: ReactNode
-  direction?: DropdownDirection
+  className?: string;
+  items: DropdownItem[];
+  triggerElement: ReactNode;
+  direction?: DropdownDirection;
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
@@ -31,56 +31,44 @@ export const Dropdown = memo((props: DropdownProps) => {
   } = props;
 
   return (
-    <Menu
-      as='div'
-      className={classNames('', {}, [className, clsPopup.popup])}
-    >
-    <Menu.Button
-      className={clsPopup.trigger}
-    >
-      {triggerElement}
-    </Menu.Button>
-    <Menu.Items
-      className={classNames(cls.menu, {}, [mapDirectionClass[direction]])}
-    >
-      {items.map((item: DropdownItem) => {
-        const content = ({ active }: { active: boolean }) => (
-          <button
-              type='button'
+    <Menu as="div" className={classNames('', {}, [className, clsPopup.popup])}>
+      <Menu.Button className={clsPopup.trigger}>{triggerElement}</Menu.Button>
+      <Menu.Items
+        className={classNames(cls.menu, {}, [mapDirectionClass[direction]])}
+      >
+        {items.map((item: DropdownItem) => {
+          const content = ({ active }: { active: boolean }) => (
+            <button
+              type="button"
               className={classNames(cls.item, { [clsPopup.active]: active })}
               onClick={item.onClick}
               disabled={item.disabled}
             >
               {item.content}
-          </button>
-        );
+            </button>
+          );
 
-        if (item.href) {
+          if (item.href) {
+            return (
+              <Menu.Item
+                as={AppLink}
+                key={item.key}
+                disabled={item.disabled}
+                to={item.href}
+              >
+                {content}
+              </Menu.Item>
+            );
+          }
+
           return (
-            <Menu.Item
-              as={AppLink}
-              key={item.key}
-              disabled={item.disabled}
-              to={item.href}
-            >
+            <Menu.Item as={Fragment} key={item.key} disabled={item.disabled}>
               {content}
             </Menu.Item>
           );
-        }
-
-        return (
-          <Menu.Item
-            as={Fragment}
-            key={item.key}
-            disabled={item.disabled}
-          >
-            {content}
-          </Menu.Item>
-        );
-      })}
-
-    </Menu.Items>
-  </Menu>
+        })}
+      </Menu.Items>
+    </Menu>
   );
 });
 

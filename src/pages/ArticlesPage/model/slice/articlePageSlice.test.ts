@@ -9,7 +9,10 @@ describe('articlePageSlice.test', () => {
       view: ArticleListViewType.LIST,
     };
     expect(
-      articlePageReducer(state as ArticlePageSchema, articlePageActions.setView(ArticleListViewType.TABLE)),
+      articlePageReducer(
+        state as ArticlePageSchema,
+        articlePageActions.setView(ArticleListViewType.TABLE),
+      ),
     ).toEqual({
       view: ArticleListViewType.TABLE,
     });
@@ -28,11 +31,14 @@ describe('articlePageSlice.test', () => {
   // });
 
   test('fetchArticles rejected', () => {
-    const state: DeepPartial<ArticlePageSchema> = {
-    };
-    expect(articlePageReducer(state as ArticlePageSchema, fetchArticlesList.rejected))
-      .toEqual({
-        isLoading: false,
-      });
+    const state: DeepPartial<ArticlePageSchema> = {};
+    expect(
+      articlePageReducer(
+        state as ArticlePageSchema,
+        fetchArticlesList.rejected,
+      ),
+    ).toEqual({
+      isLoading: false,
+    });
   });
 });

@@ -6,13 +6,16 @@ export const useThrottle = (
 ) => {
   const throttleReg = useRef(false);
 
-  return useCallback((...args: any[]) => {
-    if (!throttleReg.current) {
-      callback(...args);
-      throttleReg.current = true;
-      setTimeout(() => {
-        throttleReg.current = false;
-      }, delay);
-    }
-  }, [callback, delay]);
+  return useCallback(
+    (...args: any[]) => {
+      if (!throttleReg.current) {
+        callback(...args);
+        throttleReg.current = true;
+        setTimeout(() => {
+          throttleReg.current = false;
+        }, delay);
+      }
+    },
+    [callback, delay],
+  );
 };

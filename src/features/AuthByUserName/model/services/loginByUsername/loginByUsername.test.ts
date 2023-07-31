@@ -10,14 +10,19 @@ describe('loginByUsername.test', () => {
     };
     const testAsyncThunk = new TestAsyncThunk(loginByUsername);
 
-    testAsyncThunk.api.post.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.post.mockReturnValue(
+      Promise.resolve({
         data: userData,
-      },
-    ));
-    const result = await testAsyncThunk.callThunk({ username: '123', password: '123' });
+      }),
+    );
+    const result = await testAsyncThunk.callThunk({
+      username: '123',
+      password: '123',
+    });
 
-    expect(testAsyncThunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData));
+    expect(testAsyncThunk.dispatch).toHaveBeenCalledWith(
+      userActions.setAuthData(userData),
+    );
     expect(testAsyncThunk.dispatch).toHaveReturnedTimes(3);
     expect(testAsyncThunk.api.post).toHaveBeenCalled();
     expect(result.meta.requestStatus).toBe('fulfilled');
@@ -26,12 +31,15 @@ describe('loginByUsername.test', () => {
 
   test('Failed login', async () => {
     const testAsyncThunk = new TestAsyncThunk(loginByUsername);
-    testAsyncThunk.api.post.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.post.mockReturnValue(
+      Promise.resolve({
         status: 403,
-      },
-    ));
-    const result = await testAsyncThunk.callThunk({ username: '123', password: '123' });
+      }),
+    );
+    const result = await testAsyncThunk.callThunk({
+      username: '123',
+      password: '123',
+    });
 
     expect(testAsyncThunk.dispatch).toHaveReturnedTimes(2);
     expect(testAsyncThunk.api.post).toHaveBeenCalled();

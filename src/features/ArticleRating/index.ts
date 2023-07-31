@@ -1,5 +1,3 @@
 import { ArticleRatingAsync } from './ui/ArticleRating/ArticleRating.async';
 
-export {
-  ArticleRatingAsync as ArticleRating,
-};
+export { ArticleRatingAsync as ArticleRating };

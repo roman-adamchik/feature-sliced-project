@@ -8,7 +8,9 @@ export default {
   component: ArticleViewSelector,
 } as ComponentMeta<typeof ArticleViewSelector>;
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args}/>;
+const Template: ComponentStory<typeof ArticleViewSelector> = (args) => (
+  <ArticleViewSelector {...args} />
+);
 
 export const Light = Template.bind({});
 

@@ -1,30 +1,33 @@
-import { type StateSchema, type ReduxStoreWithManager, type StateSchemaKey } from '@/app/providers/StoreProvider';
+import {
+  type StateSchema,
+  type ReduxStoreWithManager,
+  type StateSchemaKey,
+} from '@/app/providers/StoreProvider';
 import { useEffect, type ReactElement } from 'react';
 import { type Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
 
 export type ReducersList = {
-  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>
+  [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>;
 };
 
 interface DynamicModuleLoaderProps {
-  children: ReactElement
-  reducers: ReducersList
-  removeAfterUnmount?: boolean
+  children: ReactElement;
+  reducers: ReducersList;
+  removeAfterUnmount?: boolean;
 }
 
 export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
-  const {
-    children,
-    reducers,
-    removeAfterUnmount,
-  } = props;
+  const { children, reducers, removeAfterUnmount } = props;
   const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();
 
   useEffect(() => {
     Object.entries(reducers).forEach(([reducerKey, reducer]) => {
-      const isReducerAdded = store.reducerManager.add(reducerKey as StateSchemaKey, reducer);
+      const isReducerAdded = store.reducerManager.add(
+        reducerKey as StateSchemaKey,
+        reducer,
+      );
       if (isReducerAdded) {
         dispatch({ type: `@INIT ${reducerKey} reducer` });
       }
@@ -38,7 +41,7 @@ export const DynamicModuleLoader = (props: DynamicModuleLoaderProps) => {
         });
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return children;

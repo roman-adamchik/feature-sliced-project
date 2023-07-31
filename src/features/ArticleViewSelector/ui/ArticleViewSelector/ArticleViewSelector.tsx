@@ -7,28 +7,24 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticleListViewType } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {
-  className?: string
-  view: ArticleListViewType
-  handleViewClick?: (type: ArticleListViewType) => void
+  className?: string;
+  view: ArticleListViewType;
+  handleViewClick?: (type: ArticleListViewType) => void;
 }
 
 const viewTypes = [
   {
     view: ArticleListViewType.LIST,
-    icon: <ListIcon/>,
+    icon: <ListIcon />,
   },
   {
     view: ArticleListViewType.TABLE,
-    icon: <GridIcon/>,
+    icon: <GridIcon />,
   },
 ];
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-  const {
-    className = '',
-    view,
-    handleViewClick,
-  } = props;
+  const { className = '', view, handleViewClick } = props;
 
   const handleClick = (newType: ArticleListViewType) => () => {
     handleViewClick?.(newType);
@@ -36,7 +32,7 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
 
   return (
     <div className={classNames(cls.articleViewSelector, {}, [className])}>
-      {viewTypes.map(viewType => (
+      {viewTypes.map((viewType) => (
         <Button
           key={viewType.view}
           onClick={handleClick(viewType.view)}

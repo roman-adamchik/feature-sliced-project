@@ -22,7 +22,9 @@ export default {
   ],
 } as ComponentMeta<typeof LoginModal>;
 
-const Template: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...args} />;
+const Template: ComponentStory<typeof LoginModal> = (args) => (
+  <LoginModal {...args} />
+);
 
 export const Primary = Template.bind({});
 

@@ -8,7 +8,8 @@ export const $api = axios.create({
 
 $api.interceptors.request.use((config) => {
   if (config.headers) {
-    config.headers.Authorization = localStorage.getItem(LOCAL_STORAGE_AUTH_DATA_KEY) || '';
+    config.headers.Authorization =
+      localStorage.getItem(LOCAL_STORAGE_AUTH_DATA_KEY) || '';
   }
 
   return config;

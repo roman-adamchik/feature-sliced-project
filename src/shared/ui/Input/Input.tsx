@@ -9,15 +9,18 @@ import {
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
+type HTMLInputProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'value' | 'onChange' | 'readOnly'
+>;
 
 interface InputProps extends HTMLInputProps {
-  className?: string
-  value?: string | number
-  onChange?: (value: string) => void
-  autofocus?: boolean
-  readOnly?: boolean
-  'data-testid'?: string
+  className?: string;
+  value?: string | number;
+  onChange?: (value: string) => void;
+  autofocus?: boolean;
+  readOnly?: boolean;
+  'data-testid'?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -40,9 +43,12 @@ export const Input = memo((props: InputProps) => {
     }
   }, [autofocus]);
 
-  const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>): void => {
-    onChange?.(e.target.value);
-  }, [onChange]);
+  const handleInputChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      onChange?.(e.target.value);
+    },
+    [onChange],
+  );
 
   const mods = {
     [cls.readOnly]: readOnly,
@@ -50,11 +56,9 @@ export const Input = memo((props: InputProps) => {
 
   return (
     <div className={classNames(cls.inputWrapper, mods, [className])}>
-      {placeholder &&
-        (<div className={cls.placeholder}>
-          {`${placeholder}>`}
-        </div>)
-      }
+      {placeholder && (
+        <div className={cls.placeholder}>{`${placeholder}>`}</div>
+      )}
       <input
         ref={inputRef}
         type={type}

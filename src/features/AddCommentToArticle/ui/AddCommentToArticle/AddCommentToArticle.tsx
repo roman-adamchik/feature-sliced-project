@@ -4,29 +4,26 @@ import { sendCommentForArticle } from '../../model/services/sendCommentForArticl
 import { AddCommentForm } from '@/entities/Comment';
 
 interface AddCommentFormProps {
-  className?: string
-  fetchComments: () => void
+  className?: string;
+  fetchComments: () => void;
 }
 
 const AddCommentToArticle = memo((props: AddCommentFormProps) => {
-  const {
-    className = '',
-    fetchComments,
-  } = props;
+  const { className = '', fetchComments } = props;
   const dispatch = useAppDispatch();
 
-  const handleSendComment = useCallback(async (text: string) => {
-    const result = await dispatch(sendCommentForArticle(text));
-    if (result) {
-      fetchComments();
-    }
-  }, [dispatch, fetchComments]);
+  const handleSendComment = useCallback(
+    async (text: string) => {
+      const result = await dispatch(sendCommentForArticle(text));
+      if (result) {
+        fetchComments();
+      }
+    },
+    [dispatch, fetchComments],
+  );
 
   return (
-    <AddCommentForm
-      sendComment={handleSendComment}
-      className={className}
-    />
+    <AddCommentForm sendComment={handleSendComment} className={className} />
   );
 });
 

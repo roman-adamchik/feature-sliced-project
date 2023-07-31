@@ -7,9 +7,7 @@
     "views": 6022,
     "userId": "1",
     "createdAt": "26.02.2023",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -76,9 +74,7 @@
     "views": 3043,
     "userId": "2",
     "createdAt": "18.01.2023",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",
@@ -99,9 +95,7 @@
     "views": 1055,
     "userId": "1",
     "createdAt": "29.03.2023",
-    "type": [
-      "IT"
-    ],
+    "type": ["IT"],
     "blocks": [
       {
         "id": "1",

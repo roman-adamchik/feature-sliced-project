@@ -26,11 +26,11 @@ describe('fetchArticlesList.test', () => {
       },
     });
 
-    testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.get.mockReturnValue(
+      Promise.resolve({
         data: articlesData,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk({});
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();
@@ -49,11 +49,11 @@ describe('fetchArticlesList.test', () => {
         hasMore: true,
       },
     });
-    testAsyncThunk.api.get.mockReturnValue(Promise.resolve(
-      {
+    testAsyncThunk.api.get.mockReturnValue(
+      Promise.resolve({
         status: 403,
-      },
-    ));
+      }),
+    );
     const result = await testAsyncThunk.callThunk({});
 
     expect(testAsyncThunk.api.get).toHaveBeenCalled();

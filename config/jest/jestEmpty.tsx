@@ -1,9 +1,7 @@
 import { type FC } from 'react';
 
 const jestEmpty: FC = () => {
-  return (
-    <div/>
-  );
+  return <div />;
 };
 
 export default jestEmpty;

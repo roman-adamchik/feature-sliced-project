@@ -34,11 +34,12 @@ export const createReduxStore = (
     reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: GLOBAL_IS_DEV,
     preloadedState: initialState,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-      thunk: {
-        extraArgument,
-      },
-    }).concat(rtkApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument,
+        },
+      }).concat(rtkApi.middleware),
   });
 
   // @ts-expect-error temp

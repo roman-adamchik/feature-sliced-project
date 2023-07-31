@@ -1,6 +1,9 @@
 import { memo, useCallback, type FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, type ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  DynamicModuleLoader,
+  type ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
@@ -13,7 +16,7 @@ import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface ArticlesPageProps {
-  className?: string
+  className?: string;
 }
 
 const reducers: ReducersList = {
@@ -21,9 +24,7 @@ const reducers: ReducersList = {
 };
 
 const ArticlesPage: FC<ArticlesPageProps> = memo((props) => {
-  const {
-    className = '',
-  } = props;
+  const { className = '' } = props;
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
 
@@ -42,10 +43,10 @@ const ArticlesPage: FC<ArticlesPageProps> = memo((props) => {
       <Page
         className={classNames(cls.articlesPage, {}, [className])}
         handleScrollEnd={handleLoadNextPart}
-        data-testid='ArticlesPage'
+        data-testid="ArticlesPage"
       >
         <ArticlesPageFilter />
-        <ArticleInfiniteList className={cls.articleList}/>
+        <ArticleInfiniteList className={cls.articleList} />
       </Page>
     </DynamicModuleLoader>
   );

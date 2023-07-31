@@ -7,9 +7,7 @@ const MainPage = memo(() => {
   const { t } = useTranslation();
 
   return (
-    <Page
-      data-testid='MainPage'
-    >
+    <Page data-testid="MainPage">
       {t('Main page')}
       <Counter />
     </Page>

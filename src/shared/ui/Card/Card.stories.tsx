@@ -8,11 +8,11 @@ export default {
   title: 'shared/Card',
   component: Card,
   args: {
-    children: <Text title='Title' text='Some text'/>,
+    children: <Text title="Title" text="Some text" />,
   },
 } as ComponentMeta<typeof Card>;
 
-const Template: ComponentStory<typeof Card> = (args) => <Card {...args}/>;
+const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Light = Template.bind({});
 

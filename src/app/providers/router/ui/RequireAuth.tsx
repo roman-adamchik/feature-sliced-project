@@ -5,15 +5,12 @@ import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
 
 interface RequireAuthProps {
-  roles?: UserRole[]
-  children: JSX.Element
+  roles?: UserRole[];
+  children: JSX.Element;
 }
 
 export const RequireAuth = (props: RequireAuthProps) => {
-  const {
-    children,
-    roles,
-  } = props;
+  const { children, roles } = props;
   const auth = useSelector(getUserAuthData);
   const location = useLocation();
   const userRoles = useSelector(getUserRoles);
@@ -21,7 +18,7 @@ export const RequireAuth = (props: RequireAuthProps) => {
   const hasRequiredRoles = useMemo(() => {
     if (!roles) return true;
 
-    return roles.some(role => userRoles.includes(role));
+    return roles.some((role) => userRoles.includes(role));
   }, [roles, userRoles]);
 
   if (!auth) {
@@ -29,7 +26,9 @@ export const RequireAuth = (props: RequireAuthProps) => {
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+    return (
+      <Navigate to={getRouteForbidden()} state={{ from: location }} replace />
+    );
   }
 
   return children;
