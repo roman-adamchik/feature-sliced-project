@@ -5,7 +5,7 @@ npm install - install dependencies
 npm run start:dev or npm run start:dev:vite - run server + frontend project in dev mode
 ```
 
-----
+---
 
 ## Scripts
 
@@ -32,7 +32,7 @@ npm run start:dev or npm run start:dev:vite - run server + frontend project in d
 - `npm run storybook:build` - Build Storybook
 - `npm run generate:slice` - Script to generate FSD slices
 
-----
+---
 
 ## Project Architecture
 
@@ -40,7 +40,7 @@ The project is developed according to the Feature Sliced Design methodology.
 
 Link to documentation - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
 
-----
+---
 
 ## Working with Translations
 
@@ -51,7 +51,7 @@ For a comfortable work, we recommend installing the plugin for WebStorm/VSCode.
 
 i18next documentation - [https://react.i18next.com/](https://react.i18next.com/)
 
-----
+---
 
 ## Tests
 
@@ -64,25 +64,27 @@ The project uses 4 types of tests:
 
 More details about the tests can be found in the - [testing documentation](/docs/tests.md)
 
-----
+---
 
 ## Linters
 
 The project uses ESLint to check TypeScript code and Stylelint to check style files.
 
-In addition, for strict control of major architectural principles, a custom ESLint plugin [*eslint-plugin-fsd-slivki*](https://www.npmjs.com/package/eslint-plugin-fsd-slivki) is used, which includes 3 rules:
+In addition, for strict control of major architectural principles, a custom ESLint plugin [_eslint-plugin-fsd-slivki_](https://www.npmjs.com/package/eslint-plugin-fsd-slivki) is used, which includes 3 rules:
 
-1) `path-check-relative` - prohibits the use of absolute imports within the same module
-2) `path-check-layers` - checks the correct usage of layers from the FSD perspective (e.g., widgets cannot be used in features and entities)
-3) `path-check-public-api` - allows imports from other modules only from the public API. It has auto fix.
+1. `path-check-relative` - prohibits the use of absolute imports within the same module
+2. `path-check-layers` - checks the correct usage of layers from the FSD perspective (e.g., widgets cannot be used in features and entities)
+3. `path-check-public-api` - allows imports from other modules only from the public API. It has auto fix.
 
 ##### Run linters
+
 - `npm run lint:ts` - check ts files
 - `npm run lint:ts:fix` - fix ts files
 - `npm run lint:scss` - check scss files
 - `npm run lint:scss:fix` - fix scss files
 
-----
+---
+
 ## Storybook
 
 In the project, story cases are described for each component.
@@ -91,21 +93,24 @@ Requests to the server are mocked with storybook-addon-mock.
 A file with stories creates next to the component with the extension .stories.tsx
 
 To run storybook:
+
 - `npm run storybook`
 
 See more about [Storybook](/docs/storybook.md)
 
-----
+---
 
 ## Project config
 
 Project has two config for dev mods:
+
 1. Webpack - `./config/build`
 2. vite - `./vite.config.ts`
 
 Both builders are customized for base app features.
 
 All the configs are stored in `/config`
+
 - `/config/babel` - babel
 - `/config/build` - webpack config
 - `/config/jest` - jest config
@@ -113,7 +118,7 @@ All the configs are stored in `/config`
 
 In `/scripts` folder there are different scripts for refactoring, automatization, code generation etc.
 
-----
+---
 
 ## CI pipeline and pre commit hooks
 
@@ -122,7 +127,7 @@ CI consists of project build, storybook build, all forms of testing including sc
 
 In precommit hooks we check the project with linters. Config is in `/.husky`
 
-----
+---
 
 ### Work with data
 
@@ -133,8 +138,24 @@ Requests to server are sending with help of [RTK query](/src/shared/api/rtkApi.t
 
 For enabling async reducers we use [DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx). This prevents us from overloading the main chunk.
 
-----
+---
 
+### Work with feature flags
+
+Working with feature flag is possible on the project. You should use the template below:
+
+```
+toggleFeature({
+  name: "feature-name",
+  on: () => ..., // arrow function or component if feature is on
+  off: () => ... // arrow function or component if feature is off
+})
+```
+
+To remove feature from the code base you can use script from `./scripts/refactoring/removeFeature.ts`
+Use the command `npx ts-node ./scripts/refactoring/removeFeature.ts feature-name on/off` to run the script
+
+---
 
 ## Entities
 
