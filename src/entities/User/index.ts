@@ -1,3 +1,5 @@
+import { saveJsonSettings } from './model/services/saveJsonSettings';
+import { useJsonSettingsByKey, useJsonSettings } from './model/selectors/jsonSettings';
 import { UserRole } from './model/consts/consts';
 import {
   isUserAdmin,
@@ -20,4 +22,7 @@ export {
   isUserManager,
   getUserRoles,
   UserRole,
+  useJsonSettingsByKey,
+  saveJsonSettings,
+  useJsonSettings,
 };

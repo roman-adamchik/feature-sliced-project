@@ -42,7 +42,9 @@
       "views": 6022,
       "userId": "1",
       "createdAt": "26.02.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -109,7 +111,9 @@
       "views": 3043,
       "userId": "2",
       "createdAt": "18.01.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -130,7 +134,9 @@
       "views": 1055,
       "userId": "1",
       "createdAt": "29.03.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -151,7 +157,9 @@
       "views": 3342,
       "userId": "1",
       "createdAt": "13.03.2019",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -172,7 +180,9 @@
       "views": 3282,
       "userId": "1",
       "createdAt": "23.01.2020",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -193,7 +203,9 @@
       "views": 32200,
       "userId": "1",
       "createdAt": "09.08.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -214,7 +226,9 @@
       "views": 1322,
       "userId": "1",
       "createdAt": "1.01.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -235,7 +249,9 @@
       "views": 6342,
       "userId": "1",
       "createdAt": "31.12.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -256,7 +272,9 @@
       "views": 322,
       "userId": "1",
       "createdAt": "15.07.2020",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -277,7 +295,9 @@
       "views": 5322,
       "userId": "1",
       "createdAt": "14.06.2021",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -298,7 +318,11 @@
       "views": 567,
       "userId": "1",
       "createdAt": "7.07.2022",
-      "type": ["IT", "SCIENCE", "ECONOMICS"],
+      "type": [
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -319,7 +343,9 @@
       "views": 5452,
       "userId": "1",
       "createdAt": "06.06.2017",
-      "type": ["ECONOMICS"],
+      "type": [
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -340,7 +366,10 @@
       "views": 122,
       "userId": "1",
       "createdAt": "30.12.2014",
-      "type": ["IT", "ECONOMICS"],
+      "type": [
+        "IT",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -361,7 +390,9 @@
       "views": 866,
       "userId": "1",
       "createdAt": "11.04.2023",
-      "type": ["SCIENCE"],
+      "type": [
+        "SCIENCE"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -382,7 +413,11 @@
       "views": 534,
       "userId": "1",
       "createdAt": "13.12.2021",
-      "type": ["IT", "SCIENCE", "ECONOMICS"],
+      "type": [
+        "IT",
+        "SCIENCE",
+        "ECONOMICS"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -403,7 +438,9 @@
       "views": 758,
       "userId": "1",
       "createdAt": "14.02.2023",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -532,44 +569,69 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "roles": ["ADMIN"],
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg",
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app-theme-yellow",
+        "isFirstVisit": true,
+        "settingsPageHasBeenOpened": true
       }
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg",
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app-theme-dark",
+        "isFirstVisit": true
       }
     },
     {
       "id": "3",
       "username": "manager",
       "password": "123",
-      "roles": ["MANAGER"],
+      "roles": [
+        "MANAGER"
+      ],
       "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg",
       "features": {
         "isArticleRatingEnabled": true,
         "isCounterEnabled": false
+      },
+      "jsonSettings": {
+        "theme": "app-theme-dark",
+        "isFirstVisit": true
       }
     },
     {
       "id": "4",
       "username": "testuser",
       "password": "testpas",
-      "roles": ["USER"],
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg",
       "features": {
         "isArticleRatingEnabled": false,
         "isCounterEnabled": true
+      },
+      "jsonSettings": {
+        "theme": "app-theme-dark",
+        "isFirstVisit": true
       }
     }
   ],
