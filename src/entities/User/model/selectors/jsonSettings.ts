@@ -2,10 +2,7 @@ import { JsonSettings } from './../types/jsonSettings';
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { buildSelector } from "@/shared/lib/store";
 
-export const defaultJsonSettings: JsonSettings = {
-  isFirstVisit: false,
-  settingsPageHasBeenOpened: false,
-};
+export const defaultJsonSettings: JsonSettings = {};
 
 export const [ useJsonSettings, getJsonSettings ] = buildSelector(
   (state: StateSchema) => state.user.authData?.jsonSettings ?? defaultJsonSettings,

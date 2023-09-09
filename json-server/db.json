@@ -580,7 +580,8 @@
       "jsonSettings": {
         "theme": "app-theme-dark",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpened": true
+        "settingsPageHasBeenOpened": true,
+        "isArticlesPageGreetingsOpened": true
       }
     },
     {
