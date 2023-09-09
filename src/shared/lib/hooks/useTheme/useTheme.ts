@@ -3,7 +3,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 import { Theme } from '@/shared/const/theme';
 
 interface UseThemeResult {
-  theme: Theme;
+  theme?: Theme;
   toggleTheme: (saveAction?: (theme: Theme) => void) => void;
 }
 
@@ -31,5 +31,5 @@ export const useTheme = (): UseThemeResult => {
     saveAction?.(newTheme);
   };
 
-  return { theme: theme || Theme.LIGHT, toggleTheme };
+  return { theme, toggleTheme };
 };

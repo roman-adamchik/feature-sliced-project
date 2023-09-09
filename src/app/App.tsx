@@ -2,22 +2,29 @@ import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { type FC, Suspense } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserInitialized, userActions } from '@/entities/User';
+import { getUserInitialized, initAuthData } from '@/entities/User';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Theme } from '@/shared/const/theme';
+import { PageLoader } from '@/widgets/PageLoader';
 
 export const App: FC = () => {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isUserInitialized = useSelector(getUserInitialized);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
+    void dispatch(initAuthData());
   }, [dispatch]);
 
+  if (!isUserInitialized) {
+    return <PageLoader />;
+  }
+
   return (
-    <div className={`app ${theme}`}>
+    <div className={`app ${theme || Theme.LIGHT}`}>
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">

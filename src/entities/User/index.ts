@@ -1,3 +1,4 @@
+import { initAuthData } from './model/services/initAuthData';
 import { saveJsonSettings } from './model/services/saveJsonSettings';
 import { useJsonSettingsByKey, useJsonSettings } from './model/selectors/jsonSettings';
 import { UserRole } from './model/consts/consts';
@@ -25,4 +26,5 @@ export {
   useJsonSettingsByKey,
   saveJsonSettings,
   useJsonSettings,
+  initAuthData,
 };

@@ -1,10 +1,8 @@
 import { JsonSettings } from './../types/jsonSettings';
 import { StateSchema } from "@/app/providers/StoreProvider";
 import { buildSelector } from "@/shared/lib/store";
-import { Theme } from '@/shared/const/theme';
 
 export const defaultJsonSettings: JsonSettings = {
-  theme: Theme.LIGHT,
   isFirstVisit: false,
   settingsPageHasBeenOpened: false,
 };

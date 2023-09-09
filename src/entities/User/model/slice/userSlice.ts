@@ -4,6 +4,7 @@ import { type User, type UserSchema } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
 import { JsonSettings } from '../types/jsonSettings';
+import { initAuthData } from '../services/initAuthData';
 
 const initialState: UserSchema = {
   _initialized: false,
@@ -16,18 +17,7 @@ export const userSlice = createSlice({
     setAuthData: (state, action: PayloadAction<User>) => {
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
-    },
-    initAuthData: (state) => {
-      // TODO consider refactor it later in order to have only pure functions in reducers
-      const userData = localStorage.getItem(LOCAL_STORAGE_AUTH_DATA_KEY);
-
-      if (userData) {
-        const user = JSON.parse(userData) as User;
-        state.authData = user;
-        setFeatureFlags(user.features);
-      }
-
-      state._initialized = true;
+      localStorage.setItem(LOCAL_STORAGE_AUTH_DATA_KEY, action.payload.id);
     },
     logout: (state) => {
       state.authData = undefined;
@@ -43,6 +33,22 @@ export const userSlice = createSlice({
           if (state.authData) {
             state.authData.jsonSettings = payload;
           }
+        },
+      );
+    builder
+      .addCase(
+        initAuthData.fulfilled,
+        (state, {payload}: PayloadAction<User>) => {
+          state.authData = payload;
+          setFeatureFlags(payload.features);
+          state._initialized = true;
+        },
+      );
+    builder
+      .addCase(
+        initAuthData.rejected,
+        (state) => {
+          state._initialized = true;
         },
       );
   },
