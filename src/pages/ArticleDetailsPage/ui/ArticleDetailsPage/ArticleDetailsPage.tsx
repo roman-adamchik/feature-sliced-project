@@ -8,7 +8,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDet
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 import { useTranslation } from 'react-i18next';
 
@@ -23,18 +23,16 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
 
   if (!id) return null;
 
-  const articleRating = toggleFeatures({
-    name: 'isArticleRatingEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>{t('Article rating coming soon...')}</Card>,
-  });
-
   return (
     <Page className={classNames('', {}, [className])}>
       <VStack gap="16" align="stretch">
         <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
-        {articleRating}
+        <ToggleFeatures
+          feature="isArticleRatingEnabled"
+          on={<ArticleRating articleId={id} />}
+          off={<Card>{t('Article rating coming soon...')}</Card>}
+        />
         <ArticleRecommendationsList />
         <ArticleDetailsComments id={id} />
       </VStack>

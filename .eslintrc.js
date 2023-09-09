@@ -78,7 +78,8 @@ module.exports = {
           'gap',
           'role',
           'as',
-          'borderRadius'
+          'borderRadius',
+          'feature'
         ],
       }],
     'max-len': [

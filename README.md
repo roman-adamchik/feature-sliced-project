@@ -145,15 +145,23 @@ For enabling async reducers we use [DynamicModuleLoader](/src/shared/lib/compone
 Working with feature flag is possible on the project. You should use the template below:
 
 ```
+// For plain ts/js
 toggleFeature({
   name: "feature-name",
-  on: () => ..., // arrow function or component if feature is on
-  off: () => ... // arrow function or component if feature is off
+  on: () => ..., // arrow function if feature is on
+  off: () => ... // arrow function if feature is off
 })
+
+// For tsx
+<ToggleFeatures
+  feature="feature-name"
+  on={<Component_if_feature_on/>}
+  off={<Component_if_feature_off/>}
+/>
 ```
 
 To remove feature from the code base you can use script from `./scripts/refactoring/removeFeature.ts`
-Use the command `npx ts-node ./scripts/refactoring/removeFeature.ts feature-name on/off` to run the script
+Use the command `npm run remove-feature feature-name on/off` to run the script
 
 ---
 
