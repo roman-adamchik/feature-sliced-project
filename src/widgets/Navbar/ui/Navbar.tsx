@@ -12,6 +12,7 @@ import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import { getRouteArticleCreate } from '@/shared/const/router';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface NavbarProps {
   className?: string;
@@ -33,20 +34,36 @@ export const Navbar = memo((props: NavbarProps) => {
 
   if (userAuthData) {
     return (
-      <header className={classNames(cls.navbar, {}, [className])}>
-        <Text
-          className={cls.appName}
-          title={t('Techno blog app')}
-          theme={TextTheme.INVERTED}
-        />
-        <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
-          {t('Create new article')}
-        </AppLink>
-        <HStack gap="16" className={cls.actions}>
-          <NotificationButton />
-          <AvatarDropdown setIsModalOpen={setIsModalOpen} />
-        </HStack>
-      </header>
+      <ToggleFeatures
+        feature="isNewDesign"
+        on={
+          <header className={classNames(cls.navbarRedesigned, {}, [className])}>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown setIsModalOpen={setIsModalOpen} />
+            </HStack>
+          </header>
+        }
+        off={
+          <header className={classNames(cls.navbar, {}, [className])}>
+            <Text
+              className={cls.appName}
+              title={t('Techno blog app')}
+              theme={TextTheme.INVERTED}
+            />
+            <AppLink
+              to={getRouteArticleCreate()}
+              theme={AppLinkTheme.SECONDARY}
+            >
+              {t('Create new article')}
+            </AppLink>
+            <HStack gap="16" className={cls.actions}>
+              <NotificationButton />
+              <AvatarDropdown setIsModalOpen={setIsModalOpen} />
+            </HStack>
+          </header>
+        }
+      />
     );
   }
 

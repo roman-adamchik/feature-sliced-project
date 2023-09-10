@@ -4,15 +4,23 @@
 @import "themes/dark";
 @import "themes/yellow";
 
-body,
-.app {
+.app,
+.app_modal,
+.app_drawer {
   font: var(--font-m);
   color: var(--primary-color);
 }
 
 .app {
-  background-color: var(--bg-color);
+  background: var(--bg-color);
   min-height: 100vh;
+}
+
+.app_redesigned {
+  background: var(--bg-redesigned);
+  min-height: 100vh;
+  font: var(--font-m-redesigned);
+  color: var(--text-redesigned);
 }
 
 .content-page {

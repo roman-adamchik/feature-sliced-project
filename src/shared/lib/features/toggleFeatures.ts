@@ -2,13 +2,13 @@ import { FeatureFlags } from "@/shared/types/featureFlags";
 import { getFeatureFlags } from './features';
 
 interface toggleFeatureOptions<T> {
-  name: keyof FeatureFlags
+  feature: keyof FeatureFlags
   on: () => T
   off: () => T
 }
 
-export const toggleFeatures = <T>({name, on, off}: toggleFeatureOptions<T>) => {
-  if (getFeatureFlags(name)) {
+export const toggleFeatures = <T>({feature, on, off}: toggleFeatureOptions<T>) => {
+  if (getFeatureFlags(feature)) {
     return on();
   }
 

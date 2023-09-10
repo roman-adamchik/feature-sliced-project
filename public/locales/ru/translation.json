@@ -72,6 +72,7 @@
   "There is no articles for this filter": "There is no articles for this filter",
   "Throw error": "Бросить ошибку",
   "Title": "Title",
+  "Ulbi TV App": "Ulbi TV App",
   "Username": "Username",
   "Views": "Views",
   "Wrong username or password": "Wrong username or password",
@@ -91,5 +92,6 @@
   "descending": "descending",
   "title": "title",
   "toggle": "свернуть",
-  "views": "views"
+  "views": "views",
+  "Создать статью": "Создать статью"
 }

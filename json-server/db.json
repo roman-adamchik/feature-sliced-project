@@ -575,10 +575,11 @@
       "avatar": "https://www.thetonyrobbinsfoundation.org/wp-content/uploads/2017/09/Cool-avatars-anonymous-avatar.jpg",
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": true
+        "isCounterEnabled": true,
+        "isNewDesign": true
       },
       "jsonSettings": {
-        "theme": "app-theme-dark",
+        "theme": "app-theme-yellow",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": true,
         "isArticlesPageGreetingsOpened": true
@@ -594,7 +595,8 @@
       "avatar": "https://thumbs.dreamstime.com/b/hacker-avatar-character-isolated-icon-illustration-design-84235658.jpg",
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isNewDesign": false
       },
       "jsonSettings": {
         "theme": "app-theme-dark",
