@@ -25,6 +25,10 @@ interface SelectProps<T extends string> extends HTMLSelectProps {
   onChange?: (value: T) => void;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className = '',

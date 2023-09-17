@@ -23,6 +23,10 @@ interface InputProps extends HTMLInputProps {
   'data-testid'?: string;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Input = memo((props: InputProps) => {
   const {
     className = '',

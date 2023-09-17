@@ -39,6 +39,10 @@ export const mapSizeToHeaderText: Record<TextSize, HeaderTagType> = {
   [TextSize.S]: 'h3',
 };
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Text = memo((props: TextProps) => {
   const {
     className,

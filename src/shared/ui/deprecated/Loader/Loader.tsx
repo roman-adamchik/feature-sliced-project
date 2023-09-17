@@ -6,6 +6,10 @@ interface LoaderProps {
   className?: string;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Loader = memo((props: LoaderProps) => {
   const { className = '' } = props;
 

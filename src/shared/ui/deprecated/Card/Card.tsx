@@ -13,6 +13,10 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   'data-testid'?: string;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Card = (props: CardProps) => {
   const {
     className = '',

@@ -11,6 +11,10 @@ interface SkeletonProps {
   isNoImage?: boolean;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Skeleton = memo((props: SkeletonProps) => {
   const {
     className = '',

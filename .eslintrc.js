@@ -79,7 +79,9 @@ module.exports = {
           'role',
           'as',
           'borderRadius',
-          'feature'
+          'feature',
+          'variant',
+          'activeClassName'
         ],
       }],
     'max-len': [

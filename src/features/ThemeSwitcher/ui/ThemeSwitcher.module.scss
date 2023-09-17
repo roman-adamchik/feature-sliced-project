@@ -1,7 +1,12 @@
 .themeSwitcher {
-  display: block;
+  path {
+    fill: var(--icon-redesigned);
+    transition: fill 0.2s;
+  }
 
-  svg {
-    fill: var(--bg-color);
+  &:hover {
+    path {
+      fill: var(--accent-redesigned);
+    }
   }
 }

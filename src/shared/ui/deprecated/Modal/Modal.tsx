@@ -14,6 +14,10 @@ interface ModalProps {
   lazy?: boolean;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Modal: FC<ModalProps> = (props) => {
   const {
     className = '',

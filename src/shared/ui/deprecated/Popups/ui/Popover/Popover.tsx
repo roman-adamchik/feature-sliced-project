@@ -13,6 +13,10 @@ interface PopoverProps {
   children: ReactNode;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Popover = (props: PopoverProps) => {
   const {
     className = '',

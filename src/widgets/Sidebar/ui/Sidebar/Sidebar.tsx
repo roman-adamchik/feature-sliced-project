@@ -3,13 +3,19 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { LanguageSwitcher } from '@/features/LanguageSwitcher';
 import cls from './Sidebar.module.scss';
-import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonSize,
+  ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import ArrowIcon from '@/shared/assets/icons/redesign_arrow.svg';
+import { Button } from '@/shared/ui/redesigned/Button';
 
 interface SidebarProps {
   className?: string;
@@ -25,6 +31,10 @@ export const Sidebar = memo((props: SidebarProps) => {
     setIsCollapsed((prev) => !prev);
   };
 
+  const itemList = sidebarItemsList.map((item) => (
+    <SidebarItem item={item} key={item.path} isCollapsed={isCollapsed} />
+  ));
+
   return (
     <ToggleFeatures
       feature="isNewDesign"
@@ -37,7 +47,25 @@ export const Sidebar = memo((props: SidebarProps) => {
             [className],
           )}
         >
-          <AppLogo className={cls.appLogo} />
+          <AppLogo className={cls.appLogo} size={isCollapsed ? 32 : 72} />
+          <VStack className={cls.items} gap="8" role="navigation">
+            {itemList}
+          </VStack>
+          <Button
+            data-testid="toggle-button"
+            onClick={toggleCollapsed}
+            className={cls.collapseBtn}
+            variant="clear"
+          >
+            <ArrowIcon width={18} height={18} />
+          </Button>
+          <div className={cls.switchers}>
+            <ThemeSwitcher />
+            <LanguageSwitcher
+              className={cls.langSwitcher}
+              isShort={isCollapsed}
+            />
+          </div>
         </aside>
       }
       off={
@@ -47,7 +75,7 @@ export const Sidebar = memo((props: SidebarProps) => {
             className,
           ])}
         >
-          <Button
+          <ButtonDeprecated
             data-testid="toggle-button"
             onClick={toggleCollapsed}
             className={cls.collapseBtn}
@@ -56,15 +84,9 @@ export const Sidebar = memo((props: SidebarProps) => {
             square
           >
             {isCollapsed ? '>' : '<'}
-          </Button>
+          </ButtonDeprecated>
           <VStack className={cls.items} gap="8" role="navigation">
-            {sidebarItemsList.map((item) => (
-              <SidebarItem
-                item={item}
-                key={item.path}
-                isCollapsed={isCollapsed}
-              />
-            ))}
+            {itemList}
           </VStack>
           <div className={cls.switchers}>
             <ThemeSwitcher />

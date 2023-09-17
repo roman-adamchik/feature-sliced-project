@@ -9,6 +9,10 @@ interface AvatarProps {
   size?: number;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Avatar = (props: AvatarProps) => {
   const { className = '', src, alt, size = 100 } = props;
 

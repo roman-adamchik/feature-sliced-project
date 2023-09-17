@@ -15,6 +15,10 @@ interface TabsProps<T extends string> {
   onTabClick: (tab: TabItem<T>) => void;
 }
 
+/**
+ * Deprecated, use new components from redesigned folder
+ * @deprecated
+ */
 export const Tabs = <T extends string>(props: TabsProps<T>) => {
   const { className = '', tabs, value, onTabClick } = props;
 
