@@ -3,7 +3,7 @@ import cls from './ArticleViewSelector.module.scss';
 import { memo } from 'react';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { ArticleListViewType } from '@/entities/Article';
 
 interface ArticleViewSelectorProps {

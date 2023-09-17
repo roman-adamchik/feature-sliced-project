@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { classNames, type Mods } from '@/shared/lib/classNames/classNames';
 import cls from './ProfileCard.module.scss';
-import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import { useTranslation } from 'react-i18next';
-import { Avatar } from '@/shared/ui/Avatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { type Currency, CurrencySelect } from '@/entities/Currency';
 import { type Country, CountrySelect } from '@/entities/Country';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { type Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {

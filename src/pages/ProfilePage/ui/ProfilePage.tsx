@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Page } from '@/widgets/Page';
 import { ProfileRating } from '@/features/ProfileRating';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 const ProfilePage = memo(() => {
   const { id: profileId } = useParams<{ id: string }>();
