@@ -14,7 +14,7 @@ import { type Country } from '@/entities/Country';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import {
   DynamicModuleLoader,
   type ReducersList,

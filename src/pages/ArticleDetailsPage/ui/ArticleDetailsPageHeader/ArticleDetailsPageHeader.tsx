@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle';
 import { getArticleDetailsData } from '@/entities/Article';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import {
   getRouteArticleDetails,
   getRouteArticles,

@@ -16,7 +16,7 @@ import {
   ArticleListViewType,
 } from '../../model/consts/consts';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { Image } from '@/shared/ui/deprecated/Image';
+import { Image } from '@/shared/ui/redesigned/Image';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
 
 interface ArticleListItemProps {

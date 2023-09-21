@@ -5,7 +5,7 @@ import { Text, TextSize } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
 import { ArticleList } from '@/entities/Article';
 import { useArticleRecommendationsList } from '../../api/recomendationsListApi';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleRecommendationsListProps {
   className?: string;
