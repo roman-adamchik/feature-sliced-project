@@ -1,0 +1,28 @@
+.mainLayout {
+  display: grid;
+  grid-template-areas: "left content right";
+  grid-template-columns: min-content 1fr min-content;
+  gap: 16px;
+}
+
+.left {
+  grid-area: left;
+}
+
+.content {
+  grid-area: content;
+  max-width: 1200px;
+  justify-self: center;
+  width: 100%;
+}
+
+.right {
+  grid-area: right;
+}
+
+.left,
+.right {
+  position: sticky;
+  top: 32px;
+  height: fit-content;
+}

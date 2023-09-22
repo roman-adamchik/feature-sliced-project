@@ -28,6 +28,14 @@
   background: var(--bg-color);
 }
 
+.filled {
+  background: var(--light-bg-redesigned);
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 34px;
+}
+
 .square {
   padding: 0;
 }

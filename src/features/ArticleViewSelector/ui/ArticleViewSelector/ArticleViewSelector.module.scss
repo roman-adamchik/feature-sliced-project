@@ -4,10 +4,27 @@
     height: 24px;
     color: var(--secondary-color);
   }
+
+  .selected {
+    svg {
+      color: var(--primary-color);
+    }
+  }
 }
 
-.selected {
+.articleViewSelectorRedesign {
+  /* stylelint-disable-next-line no-descending-specificity */
   svg {
-    color: var(--primary-color);
+    color: var(--light-bg-redesigned);
+  }
+
+  .selected {
+    svg {
+      color: var(--icon-redesigned);
+    }
+  }
+
+  .button {
+    display: flex;
   }
 }

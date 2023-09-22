@@ -1,31 +1,18 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlesPageFilter.module.scss';
-import { memo, useCallback } from 'react';
-import {
-  type ArticleListViewType,
-  type ArticleSortField,
-  type ArticleType,
-} from '@/entities/Article';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { articlePageActions } from '../../model/slice/articlePageSlice';
-import { useSelector } from 'react-redux';
-import {
-  getArticlesPageOrder,
-  getArticlesPageSearch,
-  getArticlesPageSort,
-  getArticlesPageType,
-  getArticlesPageView,
-} from '../../model/selectors/articlesPageSelectors';
+import { memo } from 'react';
+
 import { useTranslation } from 'react-i18next';
-import { Card } from '@/shared/ui/deprecated/Card';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { type SortOrder } from '@/shared/types/sort';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { type TabItem } from '@/shared/ui/deprecated/Tabs';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
+import { ArticlesViewSelectorContainer } from '../ArticlesViewSelectorContainer/ArticlesViewSelectorContainer';
+import { useArticleFilters } from '../../lib/hooks/useArticleFilters';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Input } from '@/shared/ui/redesigned/Input';
 
 interface ArticlesPageFilterProps {
   className?: string;
@@ -34,87 +21,73 @@ interface ArticlesPageFilterProps {
 export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
   const { className = '' } = props;
   const { t } = useTranslation();
-  const dispatch = useAppDispatch();
-  const view = useSelector(getArticlesPageView);
-  const sort = useSelector(getArticlesPageSort);
-  const order = useSelector(getArticlesPageOrder);
-  const search = useSelector(getArticlesPageSearch);
-  const type = useSelector(getArticlesPageType);
-
-  const fetchData = useCallback(() => {
-    void dispatch(fetchArticlesList({ replace: true }));
-  }, [dispatch]);
-
-  const debouncedFetchData = useDebounce(fetchData, 500);
-
-  const handleViewClick = useCallback(
-    (view: ArticleListViewType) => {
-      dispatch(articlePageActions.setView(view));
-    },
-    [dispatch],
-  );
-
-  const handleSortChange = useCallback(
-    (newSort: ArticleSortField) => {
-      dispatch(articlePageActions.setSort(newSort));
-      dispatch(articlePageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch, fetchData],
-  );
-
-  const handleOrderChange = useCallback(
-    (newOrder: SortOrder) => {
-      dispatch(articlePageActions.setOrder(newOrder));
-      dispatch(articlePageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch, fetchData],
-  );
-
-  const handleSearchChange = useCallback(
-    (newSearch: string) => {
-      dispatch(articlePageActions.setSearch(newSearch));
-      dispatch(articlePageActions.setPage(1));
-      debouncedFetchData();
-    },
-    [dispatch, debouncedFetchData],
-  );
-
-  const handleTypeChange = useCallback(
-    (tab: TabItem<ArticleType>) => {
-      const { value: newType } = tab;
-      dispatch(articlePageActions.setType(newType));
-      dispatch(articlePageActions.setPage(1));
-      fetchData();
-    },
-    [dispatch, fetchData],
-  );
+  const {
+    sort,
+    order,
+    handleSortChange,
+    handleOrderChange,
+    search,
+    handleSearchChange,
+    type,
+    handleTypeChange,
+  } = useArticleFilters();
 
   return (
-    <div className={classNames(cls.articlesPageFilter, {}, [className])}>
-      <div className={cls.sortWrapper}>
-        <ArticleSortSelector
-          sort={sort}
-          order={order}
-          onSortChange={handleSortChange}
-          onOrderChange={handleOrderChange}
-        />
-        <ArticleViewSelector view={view} handleViewClick={handleViewClick} />
-      </div>
-      <Card className={cls.search}>
-        <Input
-          placeholder={t('Search')}
-          value={search}
-          onChange={handleSearchChange}
-        />
-      </Card>
-      <ArticleTypeTabs
-        type={type}
-        handleTypeChange={handleTypeChange}
-        className={cls.tabs}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isNewDesign"
+      on={
+        <Card
+          className={classNames(cls.articlesPageFilterRedesign, {}, [
+            className,
+          ])}
+          padding={'24'}
+        >
+          <VStack>
+            <Input
+              placeholder={t('Search')}
+              value={search}
+              onChange={handleSearchChange}
+            />
+            <ArticleTypeTabs
+              type={type}
+              handleTypeChange={handleTypeChange}
+              className={cls.tabs}
+            />
+            <ArticleSortSelector
+              sort={sort}
+              order={order}
+              onSortChange={handleSortChange}
+              onOrderChange={handleOrderChange}
+            />
+          </VStack>
+        </Card>
+      }
+      off={
+        <div className={classNames(cls.articlesPageFilter, {}, [className])}>
+          <div className={cls.sortWrapper}>
+            <ArticleSortSelector
+              sort={sort}
+              order={order}
+              onSortChange={handleSortChange}
+              onOrderChange={handleOrderChange}
+            />
+            <ArticlesViewSelectorContainer />
+          </div>
+          <CardDeprecated className={cls.search}>
+            <InputDeprecated
+              placeholder={t('Search')}
+              value={search}
+              onChange={handleSearchChange}
+            />
+          </CardDeprecated>
+          <ArticleTypeTabs
+            type={type}
+            handleTypeChange={handleTypeChange}
+            className={cls.tabs}
+          />
+        </div>
+      }
+    />
   );
 });
 

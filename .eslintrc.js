@@ -81,7 +81,8 @@ module.exports = {
           'borderRadius',
           'feature',
           'variant',
-          'activeClassName'
+          'activeClassName',
+          'border'
         ],
       }],
     'max-len': [

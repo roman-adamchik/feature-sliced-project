@@ -15,6 +15,9 @@ import { ArticlesPageFilter } from '../ArticlesPageFilter/ArticlesPageFilter';
 import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlesPageGreeting } from '@/features/ArticlesPageGreeting';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { ArticlesViewSelectorContainer } from '../ArticlesViewSelectorContainer/ArticlesViewSelectorContainer';
 
 interface ArticlesPageProps {
   className?: string;
@@ -39,18 +42,40 @@ const ArticlesPage: FC<ArticlesPageProps> = memo((props) => {
     }
   }, [dispatch]);
 
+  const content = (
+    <ToggleFeatures
+      feature="isNewDesign"
+      on={
+        <StickyContentLayout
+          left={<ArticlesViewSelectorContainer />}
+          right={<ArticlesPageFilter />}
+          content={
+            <Page
+              className={classNames('', {}, [className])}
+              handleScrollEnd={handleLoadNextPart}
+              data-testid="ArticlesPage"
+            >
+              <ArticleInfiniteList className={cls.articleList} />
+            </Page>
+          }
+        />
+      }
+      off={
+        <Page
+          className={classNames(cls.articlesPage, {}, [className])}
+          handleScrollEnd={handleLoadNextPart}
+          data-testid="ArticlesPage"
+        >
+          <ArticlesPageFilter />
+          <ArticleInfiniteList className={cls.articleList} />
+          <ArticlesPageGreeting />
+        </Page>
+      }
+    />
+  );
+
   return (
-    <DynamicModuleLoader reducers={reducers}>
-      <Page
-        className={classNames(cls.articlesPage, {}, [className])}
-        handleScrollEnd={handleLoadNextPart}
-        data-testid="ArticlesPage"
-      >
-        <ArticlesPageFilter />
-        <ArticleInfiniteList className={cls.articleList} />
-        <ArticlesPageGreeting />
-      </Page>
-    </DynamicModuleLoader>
+    <DynamicModuleLoader reducers={reducers}>{content}</DynamicModuleLoader>
   );
 });
 
