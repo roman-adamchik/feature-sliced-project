@@ -1,8 +1,11 @@
+/* stylelint-disable no-descending-specificity */
 .button {
   cursor: pointer;
   color: var(--text-redesigned);
   padding: 6px 15px;
   transition: color 0.2s;
+  display: flex;
+  align-items: center;
 
   &:disabled {
     opacity: 0.5;
@@ -10,7 +13,22 @@
 
   &:hover {
     color: var(--accent-redesigned);
+
+    .addonLeft svg,
+    .addonRight svg {
+      color: var(--accent-redesigned);
+    }
   }
+}
+
+.addonLeft,
+.addonRight {
+  display: flex;
+}
+
+.addonRight svg,
+.addonLeft svg {
+  color: var(--hint-redesigned);
 }
 
 .clear {
@@ -69,4 +87,14 @@
 
 .fullWidth {
   width: 100%;
+}
+
+.withAddonLeft {
+  padding-block: 0;
+  padding-left: 8px;
+}
+
+.withAddonRight {
+  padding-block: 0;
+  padding-right: 8px;
 }

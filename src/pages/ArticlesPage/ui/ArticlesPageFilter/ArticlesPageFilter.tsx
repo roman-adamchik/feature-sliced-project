@@ -13,6 +13,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/redesigned/Card';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Input } from '@/shared/ui/redesigned/Input';
+import SearchIcon from '@/shared/assets/icons/redesign_search.svg';
 
 interface ArticlesPageFilterProps {
   className?: string;
@@ -42,11 +43,14 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
           ])}
           padding={'24'}
         >
-          <VStack>
+          <VStack gap="16">
             <Input
               placeholder={t('Search')}
               value={search}
               onChange={handleSearchChange}
+              addonLeft={
+                <SearchIcon width={32} height={32} className={cls.searchIcon} />
+              }
             />
             <ArticleTypeTabs
               type={type}

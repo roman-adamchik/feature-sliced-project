@@ -1,12 +1,12 @@
-import {
-  type ChangeEvent,
+import React, {
+  InputHTMLAttributes,
   memo,
-  type InputHTMLAttributes,
+  ReactNode,
   useEffect,
   useRef,
-  useCallback,
+  useState,
 } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
@@ -19,55 +19,69 @@ interface InputProps extends HTMLInputProps {
   value?: string | number;
   onChange?: (value: string) => void;
   autofocus?: boolean;
-  readOnly?: boolean;
-  'data-testid'?: string;
+  readonly?: boolean;
+  addonLeft?: ReactNode;
+  addonRight?: ReactNode;
 }
 
 export const Input = memo((props: InputProps) => {
   const {
-    className = '',
+    className,
     value,
     onChange,
     type = 'text',
     placeholder,
     autofocus,
-    readOnly,
+    readonly,
+    addonLeft,
+    addonRight,
     ...otherProps
   } = props;
-
-  const inputRef = useRef<HTMLInputElement>(null);
+  const ref = useRef<HTMLInputElement>(null);
+  const [isFocused, setIsFocused] = useState(false);
 
   useEffect(() => {
     if (autofocus) {
-      inputRef.current?.focus();
+      setIsFocused(true);
+      ref.current?.focus();
     }
   }, [autofocus]);
 
-  const handleInputChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      onChange?.(e.target.value);
-    },
-    [onChange],
-  );
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e.target.value);
+  };
 
-  const mods = {
-    [cls.readOnly]: readOnly,
+  const onBlur = () => {
+    setIsFocused(false);
+  };
+
+  const onFocus = () => {
+    setIsFocused(true);
+  };
+
+  const mods: Mods = {
+    [cls.readonly]: readonly,
+    [cls.focused]: isFocused,
+    [cls.withAddonLeft]: Boolean(addonLeft),
+    [cls.withAddonRight]: Boolean(addonRight),
   };
 
   return (
     <div className={classNames(cls.inputWrapper, mods, [className])}>
-      {placeholder && (
-        <div className={cls.placeholder}>{`${placeholder}>`}</div>
-      )}
+      <div className={cls.addonLeft}>{addonLeft}</div>
       <input
-        ref={inputRef}
+        ref={ref}
         type={type}
         value={value}
-        onChange={handleInputChange}
+        onChange={onChangeHandler}
         className={cls.input}
-        readOnly={readOnly}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        readOnly={readonly}
+        placeholder={placeholder}
         {...otherProps}
       />
+      <div className={cls.addonRight}>{addonRight}</div>
     </div>
   );
 });
