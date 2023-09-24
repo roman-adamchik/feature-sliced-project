@@ -32,7 +32,7 @@ export const Light = Template.bind({});
 
 export const LightReadonly = Template.bind({});
 LightReadonly.args = {
-  readonly: true,
+  readOnly: true,
 };
 
 export const Dark = Template.bind({});
@@ -41,5 +41,5 @@ Dark.decorators = [ThemeDecorator(Theme.DARK)];
 export const DarkReadonly = Template.bind({});
 DarkReadonly.decorators = [ThemeDecorator(Theme.DARK)];
 DarkReadonly.args = {
-  readonly: true,
+  readOnly: true,
 };

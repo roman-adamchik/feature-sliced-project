@@ -20,7 +20,7 @@ interface ListBoxProps {
   value?: string;
   defaultValue?: string;
   onChange?: <T extends string>(value: T) => void;
-  readonly?: boolean;
+  readOnly?: boolean;
   direction?: DropdownDirection;
   label?: string;
 }
@@ -36,7 +36,7 @@ export const ListBox = (props: ListBoxProps) => {
     value,
     defaultValue,
     onChange,
-    readonly,
+    readOnly,
     direction = 'bottom right',
     label,
   } = props;
@@ -45,7 +45,7 @@ export const ListBox = (props: ListBoxProps) => {
     <HStack gap="4">
       {label && (
         <span
-          className={classNames(cls.label, { [clsPopup.disabled]: readonly })}
+          className={classNames(cls.label, { [clsPopup.disabled]: readOnly })}
         >
           {`${label}>`}
         </span>
@@ -55,10 +55,10 @@ export const ListBox = (props: ListBoxProps) => {
         className={classNames('', {}, [className, clsPopup.popup])}
         value={value}
         onChange={onChange}
-        disabled={readonly}
+        disabled={readOnly}
       >
         <HListBox.Button className={cls.trigger}>
-          <Button theme={ButtonTheme.OUTLINE} disabled={readonly}>
+          <Button theme={ButtonTheme.OUTLINE} disabled={readOnly}>
             {value ?? defaultValue}
           </Button>
         </HListBox.Button>

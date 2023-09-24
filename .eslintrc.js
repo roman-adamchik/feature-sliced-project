@@ -82,7 +82,8 @@ module.exports = {
           'feature',
           'variant',
           'activeClassName',
-          'border'
+          'border',
+          'size'
         ],
       }],
     'max-len': [

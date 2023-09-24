@@ -2,12 +2,14 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
 import { Country } from '../../model/types/country';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CountrySelectProps {
   className?: string;
   value?: Country;
-  readonly?: boolean;
+  readOnly?: boolean;
   onChange?: (value: Country) => void;
 }
 
@@ -19,7 +21,7 @@ const currencyOptions = [
 ];
 
 export const CountrySelect = (props: CountrySelectProps) => {
-  const { className = '', value, readonly, onChange } = props;
+  const { className = '', value, readOnly, onChange } = props;
   const { t } = useTranslation();
 
   const handleChange = useCallback(
@@ -29,16 +31,22 @@ export const CountrySelect = (props: CountrySelectProps) => {
     [onChange],
   );
 
+  const listBoxProps = {
+    className: classNames('', {}, [className]),
+    items: currencyOptions,
+    value,
+    defaultValue: t('Select country'),
+    readOnly,
+    onChange: handleChange,
+    direction: 'top right' as const,
+    label: t('Select country'),
+  };
+
   return (
-    <ListBox
-      className={classNames('', {}, [className])}
-      items={currencyOptions}
-      value={value}
-      defaultValue={t('Select country')}
-      readonly={readonly}
-      onChange={handleChange}
-      direction="top right"
-      label={t('Select country')}
+    <ToggleFeatures
+      feature="isNewDesign"
+      on={<ListBox {...listBoxProps} />}
+      off={<ListBoxDeprecated {...listBoxProps} />}
     />
   );
 };

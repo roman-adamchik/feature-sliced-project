@@ -48,6 +48,7 @@ export const ArticlesPageFilter = memo((props: ArticlesPageFilterProps) => {
               placeholder={t('Search')}
               value={search}
               onChange={handleSearchChange}
+              size="s"
               addonLeft={
                 <SearchIcon width={32} height={32} className={cls.searchIcon} />
               }
