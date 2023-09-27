@@ -3,6 +3,11 @@
   position: relative;
 }
 
+.appLogo {
+  position: relative;
+  z-index: 10;
+}
+
 .gradientBig {
   position: absolute;
   background: radial-gradient(57.05% 57.05% at 49.84% 42.95%, rgb(94 211 243 / 20%) 0%, rgb(94 211 243 / 13.2%) 7.81%, rgb(94 211 243 / 8.3%) 29.69%, rgb(94 211 243 / 3.86%) 56.77%, rgb(94 211 243 / 2.19%) 77.6%, rgb(94 211 243 / 0%) 100%);
