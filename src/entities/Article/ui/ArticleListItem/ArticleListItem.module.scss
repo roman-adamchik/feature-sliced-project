@@ -114,3 +114,9 @@
   width: 24px;
   height: 24px;
 }
+
+.articleListItemRedesigned {
+  &.list {
+    width: 100%;
+  }
+}

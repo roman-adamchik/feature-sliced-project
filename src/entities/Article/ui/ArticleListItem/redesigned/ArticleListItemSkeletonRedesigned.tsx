@@ -12,7 +12,12 @@ export const ArticleListItemSkeletonRedesigned = memo(
 
     if (view === ArticleListViewType.LIST) {
       return (
-        <div className={classNames('', {}, [className, cls[view]])}>
+        <div
+          className={classNames(cls.articleListItemRedesigned, {}, [
+            className,
+            cls[view],
+          ])}
+        >
           <Card className={cls.card}>
             <div className={cls.header}>
               <Skeleton borderRadius="50%" height={30} width={30} />
