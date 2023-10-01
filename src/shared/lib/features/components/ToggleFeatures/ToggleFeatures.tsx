@@ -1,6 +1,6 @@
 import { FeatureFlags } from '@/shared/types/featureFlags';
 import { ReactElement } from 'react';
-import { getFeatureFlags } from '../features';
+import { getFeatureFlags } from '../../lib/features';
 
 interface ToggleFeaturesProps {
   feature: keyof FeatureFlags;
