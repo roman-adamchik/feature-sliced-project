@@ -69,3 +69,10 @@
     font: var(--font-l-redesigned);
   }
 }
+
+.bold {
+  .title,
+  .text {
+    font-weight: 700;
+  }
+}

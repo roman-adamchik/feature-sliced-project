@@ -40,10 +40,13 @@
 }
 
 .outline {
-  padding: 10px 15px;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-  background: var(--bg-color);
+  background: none;
+  border: 1px solid var(--icon-redesigned);
+  border-radius: 34px;
+
+  &:hover {
+    border: 1px solid var(--accent-redesigned);
+  }
 }
 
 .filled {
