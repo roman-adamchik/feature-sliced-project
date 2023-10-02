@@ -579,7 +579,7 @@
         "isNewDesign": true
       },
       "jsonSettings": {
-        "theme": "app-theme-light",
+        "theme": "app-theme-dark",
         "isFirstVisit": true,
         "settingsPageHasBeenOpened": true,
         "isArticlesPageGreetingsOpened": true

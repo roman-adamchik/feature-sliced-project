@@ -14,7 +14,6 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Popover } from '@/shared/ui/redesigned/Popups';
-
 interface NotificationButtonProps {
   className?: string;
 }

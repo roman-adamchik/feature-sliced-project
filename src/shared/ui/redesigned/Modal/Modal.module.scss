@@ -20,12 +20,23 @@
 }
 
 .content {
-  background-color: var(--bg-color);
   color: var(--primary-color);
   padding: 20px;
   border-radius: 12px;
   max-width: 60%;
   transform: scaleY(0.6);
+}
+
+.modalOld {
+  .content {
+    background-color: var(--bg-color);
+  }
+}
+
+.modalNew {
+  .content {
+    background-color: var(--light-bg-redesigned);
+  }
 }
 
 .opened {
