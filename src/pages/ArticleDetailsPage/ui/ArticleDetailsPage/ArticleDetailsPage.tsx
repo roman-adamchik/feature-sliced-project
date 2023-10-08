@@ -9,8 +9,11 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/deprecated/Card';
+import { Card as CardDeprecated } from '@/shared/ui/deprecated/Card';
 import { useTranslation } from 'react-i18next';
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
+import { DetailsContainer } from '../DetailsContainer/DetailsContainer';
+import { AdditionalInfoContainer } from '../AdditionalInfoContainer/AdditionalInfoContainer';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -24,19 +27,37 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = memo((props) => {
   if (!id) return null;
 
   return (
-    <Page className={classNames('', {}, [className])}>
-      <VStack gap="16" align="stretch">
-        <ArticleDetailsPageHeader />
-        <ArticleDetails id={id} />
-        <ToggleFeatures
-          feature="isArticleRatingEnabled"
-          on={<ArticleRating articleId={id} />}
-          off={<Card>{t('Article rating coming soon...')}</Card>}
+    <ToggleFeatures
+      feature={'isNewDesign'}
+      on={
+        <StickyContentLayout
+          content={
+            <Page className={classNames('', {}, [className])}>
+              <VStack gap="16" align="stretch">
+                <DetailsContainer />
+                <ArticleRating articleId={id} />
+                <ArticleRecommendationsList />
+                <ArticleDetailsComments id={id} />
+              </VStack>
+            </Page>
+          }
+          right={<AdditionalInfoContainer />}
         />
-        <ArticleRecommendationsList />
-        <ArticleDetailsComments id={id} />
-      </VStack>
-    </Page>
+      }
+      off={
+        <Page className={classNames('', {}, [className])}>
+          <VStack gap="16" align="stretch">
+            <ArticleDetailsPageHeader />
+            <ArticleDetails id={id} />
+            <CardDeprecated>
+              {t('Article rating coming soon...')}
+            </CardDeprecated>
+            <ArticleRecommendationsList />
+            <ArticleDetailsComments id={id} />
+          </VStack>
+        </Page>
+      }
+    />
   );
 });
 
